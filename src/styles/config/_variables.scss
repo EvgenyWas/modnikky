@@ -1,0 +1,50 @@
+// Colors
+$primary-color: #FFFFFF;
+$link-color: #000000;
+$text-color: #000F08;
+$sale-color: #D7302D;
+$grey: #8C8C8C;
+$purple: #EDE7F0;
+
+// Typography
+$primary-font: 'Helvetica Neue LT Std';
+$second-font: 'Roboto';
+// Font weights
+$font-weights: (
+    'light': 300,
+    'regular': 400,
+    'medium': 500,
+    'bold': 700
+);
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+// Font sizes
+$xxl-text: 34px;
+$xl-text: 28px;
+$lg-text: 24px;
+$md-text: 20px;
+$sm-text: 16px;
+$xs-text: 12px;
+// Line heights
+$xxl-lh: 40px;
+$xl-lh: 34px;
+$lg-lh: 30px;
+$md-lh: 24px;
+$sm-lh: 20px;
+$xs-lh: 16px;
+
+// Others
+$border: 1px solid $link-color;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-max: 576px;
+
+// Small tablets (portrait view)
+$screen-md-max: 768px;
+
+// Tablets and small desktops
+$screen-lg-max: 992px;
+
+// Large tablets and desktops
+$screen-xl-max: 1200px;
