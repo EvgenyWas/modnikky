@@ -1,0 +1,99 @@
+.footer {
+    font-family: 'Roboto';
+
+    &__container {
+        @include flex-column(60px);
+    }
+
+    &__table {
+        th {
+            padding-bottom: 30px;
+            font-size: $sm-text;
+            line-height: $md-lh;
+            text-align: start;
+        }
+
+        td {
+            padding-bottom: 20px;
+            font-size: $xs-text;
+            line-height: 12px;
+            text-align: start;
+        }
+
+        a {
+            position: relative;
+            @include link-hover;
+        }
+    }
+
+    &__social {
+        display: flex;
+        gap: 10px;
+
+        & > img {
+            width: 12px
+        }
+    }
+}
+
+.updates-form {
+    align-self: center;
+    @include flex-column(40px);
+    max-width: 400px;
+    font-family: $secondary-font;
+
+    &__label {
+        @include flex-column(6px);
+    }
+
+    &__title {
+        font-size: $sm-text;
+        font-weight: weight('regular');
+        line-height: $md-lh;
+        letter-spacing: 0.04em;
+        text-align: center;
+    }
+
+    &__subtitle {
+        font-size: $xs-text;
+        line-height: $xs-lh;
+        letter-spacing: 0.04em;
+        text-align: center;
+    }
+
+    &__group {
+        display: flex;
+        gap: 10px;
+        border-bottom: 1px solid $accept-grey;
+
+        &--incorrect {
+            position: relative;
+            border-bottom: 1px solid $sale-color;
+
+            &::after {
+                content: 'Your email is not valid...';
+                position: absolute;
+                bottom: -20px;
+                font-size: $xs-text;
+                color: $sale-color;
+                font-weight: weight('light');
+            }
+        }
+    }
+
+    &__input {
+        flex-grow: 1;
+        font-size: $sm-text;
+        line-height: $md-lh;
+        &::-webkit-input-placeholder {
+            font-size: $sm-text;
+            line-height: $md-lh;
+            color: $grey;
+        }
+    }
+
+    &__btn {
+        font-size: $sm-text;
+        line-height: $md-lh;
+    }
+}

@@ -1,0 +1,62 @@
+.header {
+    background-color: $primary-color;
+
+    &--homepage {
+        background-color: inherit;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        max-width: 1320px;
+        padding: 0 10px;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+
+    &__title {
+        flex-grow: 1;
+        font-size: 35px;
+        line-height: 35px;
+        font-weight: weight('bold');
+        text-align: center;
+    }
+}
+
+.navbar {
+    display: flex;
+    gap: 40px;
+
+    &__item {
+        position: relative;
+        font-size: $xs-text;
+        line-height: 10px;
+        cursor: pointer;
+        @include link-hover;
+    }
+}
+
+.actionsbar {
+    display: flex;
+    gap: 40px;
+
+    &__search {
+        display: flex;
+        gap: 5px;
+    }
+
+    &__title {
+        font-size: $xs-text;
+        line-height: 12px;
+        cursor: pointer;
+    }
+
+    &__icon {
+        width: 12px;
+        cursor: pointer;
+
+        &-bag {
+            display: none;
+        }
+    }
+}

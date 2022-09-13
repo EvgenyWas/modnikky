@@ -1,15 +1,24 @@
 <template>
+  <my-header/>
   <div>
-    Hello world!
+    <router-view></router-view>
   </div>
+  <my-footer/>
 </template>
 
 <script lang="ts">
-  export default {
+import { defineComponent } from 'vue'
+import MyHeader from '@/components/Header/Header.vue'
+import MyFooter from './components/Footer/Footer.vue';
 
-  }
+export default defineComponent({
+  components: { 
+    MyHeader, MyFooter 
+  },
+  
+})
 </script>
 
 <style lang="scss">
-@import './styles/index';
+  @import './styles/index';
 </style>

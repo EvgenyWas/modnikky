@@ -25,3 +25,10 @@
         @content;
     }
 }
+
+// Template for display flex column with gap
+@mixin flex-column($gap) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
