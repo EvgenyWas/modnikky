@@ -13,6 +13,9 @@ export const useProductsStore = defineStore({
         },
         getProductById(state) {
             return (productId: string) => state.products.filter(product => productId === product.id);
+        },
+        getProductByCategory(state) {
+            return (category: string) => state.products.filter(product => category === product.type);
         }
     },
     actions: {
