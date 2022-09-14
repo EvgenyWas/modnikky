@@ -1,5 +1,10 @@
 <template>
-    <header class="header">
+    <header 
+        class="header"
+        :class="{
+            'header--home': $route.name === 'home'
+        }"
+    >
         <div class="header__container">
             <navbar/>
             <h1 class="header__title">

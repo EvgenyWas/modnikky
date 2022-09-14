@@ -1,8 +1,15 @@
 .header {
+    position: absolute;
+    width: 100%;
     background-color: $primary-color;
 
-    &--homepage {
+    &--home {
+        color: $primary-color;
         background-color: inherit;
+
+        .actionsbar__icon {
+            filter: invert(91%) sepia(75%) saturate(0%) hue-rotate(5deg) brightness(106%) contrast(101%);
+        }
     }
 
     &__container {
