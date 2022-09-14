@@ -13,6 +13,8 @@
                     alt="Like icon"
                     @click="setProductToWishlist(product)"
                 >
+                <add-to-bag-button />
+                <div class="product-card__cover"></div>
             </div>
             <p class="product-card__price">
                 {{ '$' + Number(product.price.value).toFixed(2) }}
@@ -26,9 +28,11 @@ import type { TProduct } from '@/types/types'
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import { useWishlistStore } from '@/stores/useWishlistStore'
+import AddToBagButton from '@/components/UI/Buttons/AddToBagButton.vue'
 
 export default defineComponent({
     name: 'product-card',
+    components: { AddToBagButton },
     props: {
         product: {
             type: Object as PropType<TProduct>,

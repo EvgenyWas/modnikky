@@ -55,6 +55,22 @@
 }
 
 .product-card {
+    &:hover {
+        .product-card__image-block {
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .product-card__cover {
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 15, 8, 0.6);
+        }
+
+        .add-to-bag-button {
+            display: block;
+        }
+    }
+
     &__box {
         @include flex-column(12px);
         width: 300px;
@@ -73,9 +89,11 @@
 
     &__like {
         position: absolute;
+        z-index: 10;
         top: 12px;
         right: 12px;
         height: 28px;
+        cursor: pointer;
 
         &:hover {
             transform: scale(1.1);
@@ -90,5 +108,13 @@
         font-size: $md-text;
         line-height: $xxl-lh;
         font-weight: weight('bold');
+    }
+
+    &__cover {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        transition: all 300ms ease-in-out;
     }
 }
