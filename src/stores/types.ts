@@ -1,4 +1,4 @@
-import type { TCart, TProduct } from "@/types/types"
+import type { TBag, TProduct } from "@/types/types"
 
 export type TProductsState = {
     products: TProduct[]
@@ -9,11 +9,13 @@ export type TSortingOptionsState = {
     selectedCategory: string
 }
 
-export type TCartState = {
-    cart: TCart,
+export type TBagState = {
+    bag: TBag,
     amount: number
 }
 
+export type TWishlist = TProduct[]
+
 export type TWishlistState = {
-    wishlist: TProduct[]
+    wishlist: TWishlist
 }

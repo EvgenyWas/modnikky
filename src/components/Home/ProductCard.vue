@@ -8,10 +8,18 @@
                     alt="Product image"
                 >
                 <img 
+                    v-if="hasProductInWishlist"
+                    class="product-card__like"
+                    src="@/assets/icons/liked-icon.svg" 
+                    alt="Like icon"
+                    @click="handleLikeClick"
+                >
+                <img 
+                    v-else
                     class="product-card__like"
                     src="@/assets/icons/like-icon.svg" 
                     alt="Like icon"
-                    @click="setProductToWishlist(product)"
+                    @click="handleLikeClick"
                 >
                 <add-to-bag-button />
                 <div class="product-card__cover"></div>
@@ -28,7 +36,9 @@ import type { TProduct } from '@/types/types'
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import { useWishlistStore } from '@/stores/useWishlistStore'
+import { useBagStore } from '@/stores/useBagStore'
 import AddToBagButton from '@/components/UI/Buttons/AddToBagButton.vue'
+import { findSameInWishlist } from '@/utils/utils'
 
 export default defineComponent({
     name: 'product-card',
@@ -39,11 +49,31 @@ export default defineComponent({
             required: true
         }
     },
+    data() {
+        return {
+            hasProductInWishlist: false
+        }
+    },
     setup() {
-        const { setProductToWishlist } = useWishlistStore();
+        const wishlist = useWishlistStore();
+        const { setProductToBag } = useBagStore();
 
         return {
-            setProductToWishlist
+            wishlist,
+            setProductToBag
+        }
+    },
+    methods: {
+        handleLikeClick() {
+            const sameProduct = findSameInWishlist(this.product, this.wishlist.getWishlist);
+
+            if (!sameProduct) {
+                this.wishlist.setProductToWishlist(this.product);
+                this.hasProductInWishlist = true;
+            } else {
+                this.wishlist.removeProductFromWishlist(this.product.id);
+                this.hasProductInWishlist = false;
+            }
         }
     }
 })

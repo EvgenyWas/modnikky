@@ -19,7 +19,7 @@ export type TProduct = {
     images: string[]
 }
 
-export type TCartItem = {
+export type TBagItem = {
     id: string,
     type: string,
     name: string,
@@ -30,4 +30,4 @@ export type TCartItem = {
     quantity: number
 }
 
-export type TCart = TCartItem[];
+export type TBag = TBagItem[];

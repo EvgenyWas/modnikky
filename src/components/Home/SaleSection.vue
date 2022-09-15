@@ -5,7 +5,7 @@
                 <span>#MODNIKKY</span
                 ><span class="sale-section__title sale-section__title--bold">_Sale</span>
             </h3>
-            <!-- <product-card v-for="product in productsStore.getProducts" :key="product.id" :product="product" /> -->
+            <product-card v-for="product in productsStore.getProducts" :key="product.id" :product="product" />
         </div>
     </section>
 </template>
