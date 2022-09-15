@@ -10,6 +10,7 @@ import useApi from '@/hooks/useApi';
 import storeApi from '@/api/storeApi';
 import { useProductsStore } from '@/stores/useProductsStore';
 import SaleSection from '@/components/Home/SaleSection.vue';
+import { formatAvailableSizes } from '@/utils/utils';
 
 export default defineComponent({
     components: { TopSection, SaleSection },
@@ -27,7 +28,8 @@ export default defineComponent({
     },
     watch: {
         loading() {
-            this.setProducts(this.products);
+            const formattedProducts = formatAvailableSizes(this.products);
+            this.setProducts(formattedProducts);
         }
     }
 })

@@ -26,7 +26,7 @@ export type TBagItem = {
     price: TPrice,
     color: TColor,
     selectedSize: string,
-    image: string,
+    images: string[],
     quantity: number
 }
 

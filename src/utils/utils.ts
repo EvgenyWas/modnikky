@@ -25,7 +25,7 @@ export function findSameInBag(
     product: TBagItem,
     bag: TBag
 ) {
-    const sameProduct = bag.find(item => {
+    const sameProduct = bag.findIndex(item => {
         const conditionSameId = item.id === product.id;
         const conditionSameSelectedSize = item.selectedSize === product.selectedSize;
 
@@ -39,5 +39,36 @@ export function findSameInBag(
         }
     });
 
-    return sameProduct;
+    if (sameProduct === -1) {
+        return false;
+    } else {
+        return sameProduct;
+    };
+}
+
+// Function to convert a product to a bag item
+export function convertToBagItem(
+    product: TProduct, 
+    selectedSize: string
+): TBagItem {
+    const bagItem: TBagItem & 
+    Partial<Pick<TProduct, 'availableSizes' | 'description'>> = {
+        ...product,
+        selectedSize: selectedSize,
+        quantity: 1
+    };
+    delete bagItem.availableSizes;
+    delete bagItem.description;
+
+    return bagItem;
+}
+
+// Function for formatting of available sizes from server
+export function formatAvailableSizes(products: TProduct[]): TProduct[] {
+    const formattedProducts = products.map(product =>{ 
+        product.availableSizes = product.availableSizes[0].split(", ");
+        return product;
+    });
+    
+    return formattedProducts;
 }

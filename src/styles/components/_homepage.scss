@@ -55,6 +55,8 @@
 }
 
 .product-card {
+    transition: all 300ms ease-in-out;
+
     &:hover {
         .product-card__image-block {
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

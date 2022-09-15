@@ -21,7 +21,7 @@
                     alt="Like icon"
                     @click="handleLikeClick"
                 >
-                <add-to-bag-button />
+                <add-to-bag-button @click="addProductToBag" />
                 <div class="product-card__cover"></div>
             </div>
             <p class="product-card__price">
@@ -38,7 +38,7 @@ import type { PropType } from 'vue'
 import { useWishlistStore } from '@/stores/useWishlistStore'
 import { useBagStore } from '@/stores/useBagStore'
 import AddToBagButton from '@/components/UI/Buttons/AddToBagButton.vue'
-import { findSameInWishlist } from '@/utils/utils'
+import { convertToBagItem, findSameInBag, findSameInWishlist } from '@/utils/utils'
 
 export default defineComponent({
     name: 'product-card',
@@ -56,11 +56,11 @@ export default defineComponent({
     },
     setup() {
         const wishlist = useWishlistStore();
-        const { setProductToBag } = useBagStore();
+        const bag = useBagStore();
 
         return {
             wishlist,
-            setProductToBag
+            bag
         }
     },
     methods: {
@@ -73,6 +73,16 @@ export default defineComponent({
             } else {
                 this.wishlist.removeProductFromWishlist(this.product.id);
                 this.hasProductInWishlist = false;
+            }
+        },
+        addProductToBag() {
+            const convertedProduct = convertToBagItem(this.product, this.product.availableSizes[0]);
+            const sameProduct = findSameInBag(convertedProduct, this.bag.getBag);
+
+            if (sameProduct || sameProduct === 0) {
+                this.bag.setSameProductToBag(convertedProduct);
+            } else {
+                this.bag.setProductToBag(convertedProduct);
             }
         }
     }
