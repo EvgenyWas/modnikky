@@ -5,7 +5,7 @@
                 <span>#MODNIKKY</span
                 ><span class="sale-section__title sale-section__title--bold">_Sale</span>
             </h3>
-            <product-card v-for="product in productsStore.getProducts" :key="product.id" :product="product" />
+            <my-swiper :products="productsStore.getProducts" />
         </div>
     </section>
 </template>
@@ -14,9 +14,10 @@
 import { useProductsStore } from '@/stores/useProductsStore';
 import { defineComponent } from 'vue'
 import ProductCard from './ProductCard.vue'
+import MySwiper from '@/components/UI/Swiper/MySwiper.vue'
 
 export default defineComponent({
-    components: { ProductCard },
+    components: { ProductCard, MySwiper },
     setup() {
         const productsStore = useProductsStore();
         
