@@ -1,0 +1,34 @@
+.top-section {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 90px;
+    background: url('@/assets//backgrounds/homepage-background.jpg') no-repeat center;
+    background-position: top 100px;
+    background-size: cover;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        max-width: 1150px;
+        height: 100%;
+        padding-bottom: 100px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 38px;
+        line-height: 38px;
+        font-weight: weight('bold');
+        color: $primary-color;
+    }
+
+    &__subtitle {
+        max-width: 550px;
+        margin-bottom: 30px;
+        font-size: $sm-text;
+        line-height: $md-lh;
+        font-weight: weight('regular');
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,20 @@
+.sale-section {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 45px;
+    }
+
+    &__title {
+        margin-bottom: 83px;
+        font-family: 'Roboto';
+        font-size: $xl-text;
+        line-height: $xl-lh;
+        font-weight: weight('regular');
+
+        &--bold {
+            font-weight: weight('medium');
+        }
+    }
+}

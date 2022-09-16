@@ -1,21 +1,22 @@
 <template>
-    <div class="my-swiper container">
-        <swiper
-            :slidesPerView="4"
-            :spaceBetween="12"
-            :freeMode="true"
-            navigation
-            :modules="modules"
-            :loop="true"
-            
-        >
-            <swiper-slide v-for="product in products" :key="product.id">
-                <product-card :product="product" />
-            </swiper-slide>
-            <prev-swiper-button/>
-            <next-swiper-button/>
-        </swiper>
-        
+    <div class="my-swiper">
+        <div class="my-swiper__container">
+            <swiper
+                :slidesPerView="4"
+                :spaceBetween="12"
+                :freeMode="true"
+                navigation
+                :modules="modules"
+                :loop="true"
+                
+            >
+                <swiper-slide v-for="product in products" :key="product.id">
+                    <product-card :product="product" />
+                </swiper-slide>
+                <prev-swiper-button/>
+                <next-swiper-button/>
+            </swiper>
+        </div>
     </div>
 </template>
 
