@@ -9,6 +9,10 @@ const router = createRouter({
       name: 'home',
       component: HomePage
     },
+    {
+      path: '/',
+      redirect: '/home'
+    }
     // {
     //   path: '/about',
     //   name: 'about',

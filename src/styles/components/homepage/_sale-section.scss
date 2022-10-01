@@ -3,12 +3,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 45px;
+        margin-bottom: 50px;
+        padding-top: 90px;
     }
 
     &__title {
         margin-bottom: 83px;
-        font-family: 'Roboto';
+        font-family: $secondary-font;
         font-size: $xl-text;
         line-height: $xl-lh;
         font-weight: weight('regular');

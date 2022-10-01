@@ -1,8 +1,9 @@
 .footer {
-    font-family: 'Roboto';
+    font-family: $secondary-font;
 
     &__container {
         @include flex-column(60px);
+        margin-bottom: 90px;
     }
 
     &__table {

@@ -2,6 +2,7 @@
     &__container {
         @include flex-column(30px);
         margin-bottom: 90px;
+        padding-top: 81px;
         font-family: $secondary-font;
     }
 

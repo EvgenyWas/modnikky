@@ -1,5 +1,6 @@
 <template>
     <top-section/>
+    <categories-section/>
     <sale-section/>
     <shop-section/>
 </template>
@@ -13,9 +14,10 @@ import { useProductsStore } from '@/stores/useProductsStore';
 import SaleSection from '@/components/Home/SaleSection.vue';
 import { formatAvailableSizes } from '@/utils/utils';
 import ShopSection from '@/components/Home/ShopSection.vue';
+import CategoriesSection from '@/components/Home/CategoriesSection.vue';
 
 export default defineComponent({
-    components: { TopSection, SaleSection, ShopSection },
+    components: { TopSection, SaleSection, ShopSection, CategoriesSection },
     setup() {
         const { setProducts } = useProductsStore();
         const [ requestProducts, products, loading, error ] = useApi(storeApi.getCatalog);
