@@ -22,10 +22,13 @@
                 alt="Shopping cart"
             >
             <p class="actionsbar__title">
-                BAG
+                BAG 
             </p>
-            <span class="actionsbar__bag-amount">
-                <!-- amount -->
+            <span 
+                class="actionsbar__bag-amount"
+                v-show="bagStore.getBagAmount"
+            >
+                {{ `(${bagStore.getBagAmount})` }}
             </span>
         </div>
         <div class="actionsbar__wishlist">
@@ -39,10 +42,18 @@
 </template>
 
 <script lang="ts">
+import { useBagStore } from '@/stores/useBagStore';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name: 'actionsbar'
+    name: 'actionsbar',
+    setup() {
+        const bagStore = useBagStore();
+
+        return {
+            bagStore
+        }
+    }
 })
 </script>
 
