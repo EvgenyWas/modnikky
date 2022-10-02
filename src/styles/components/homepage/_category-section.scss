@@ -24,6 +24,12 @@
         }
     }
 
+    &__subtitle {
+        font-size: $xxl-text;
+        line-height: $xxl-lh;
+        font-weight: weight('regular');
+    }
+
     & button {
         margin-top: 56px;
     }

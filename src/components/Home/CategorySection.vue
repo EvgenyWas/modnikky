@@ -4,13 +4,22 @@
             <h3 class="category-section__title">
                 {{ capitalizeCategory() }}
             </h3>
-            <div class="category-section__products">
+            <div 
+                class="category-section__products"
+                v-if="getProductsByCategory(sortingOptions.getSelectedCategory).length"
+            >
                 <product-card 
                     v-for="product in sortProducts(productsAmount)"
                     :key="product.id"
                     :product="product"
                 />
             </div>
+            <h3 
+                class="category-section__subtitle"
+                v-else
+            >
+                {{ `No ${sortingOptions.getSelectedCategory} products found...` }}
+            </h3>
             <primary-button
                 :title="'Show more'"
                 blackMode
