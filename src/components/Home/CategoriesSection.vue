@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { categoriesNames } from '@/config'
+import { categories } from '@/config'
 import CategoryItem from './CategoryItem.vue'
 import { capitalizeWord } from '@/utils/utils'
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore'
@@ -37,7 +37,7 @@ export default defineComponent({
     },
     data() {
         return {
-            categories: categoriesNames
+            categories: categories
         }
     },
     methods: {

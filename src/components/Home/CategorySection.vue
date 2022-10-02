@@ -37,13 +37,14 @@ import { defineComponent } from 'vue'
 import ProductCard from './ProductCard.vue'
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue'
 import { capitalizeWord } from '@/utils/utils';
+import { paginationCategoryProducts } from '@/config';
 
 export default defineComponent({
     name: "category-section",
     components: { ProductCard, PrimaryButton },
     data() {
         return {
-            productsAmount: 4
+            productsAmount: paginationCategoryProducts
         }
     },
     setup() {
@@ -63,7 +64,7 @@ export default defineComponent({
             return this.getProductsByCategory(this.sortingOptions.getSelectedCategory).slice(0, productsAmount);
         },
         increaseProductsAmount() {
-            this.productsAmount += 4;
+            this.productsAmount += paginationCategoryProducts;
         }
     }
 })

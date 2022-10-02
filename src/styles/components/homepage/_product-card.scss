@@ -19,7 +19,7 @@
 
     &__box {
         @include flex-column(12px);
-        width: 300px;
+        max-width: 300px;
     }
 
     &__image-block {

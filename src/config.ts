@@ -1,4 +1,4 @@
-export const categoriesNames = [
+export const categories = [
     'dresses',
     'tees',
     'swimwear',
@@ -6,3 +6,5 @@ export const categoriesNames = [
     'tops',
     'beauty'
 ];
+
+export const paginationCategoryProducts = 4;

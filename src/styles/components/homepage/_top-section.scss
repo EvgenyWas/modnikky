@@ -21,6 +21,11 @@
         line-height: 38px;
         font-weight: weight('bold');
         color: $primary-color;
+
+        @include lg {
+            font-size: $xl-text;
+            line-height: $xl-lh;
+        }
     }
 
     &__subtitle {

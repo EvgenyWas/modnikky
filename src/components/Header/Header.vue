@@ -6,7 +6,13 @@
         }"
     >
         <div class="header__container">
-            <navbar/>
+            <navbar 
+                :is-mobile-menu-open="isMobileMenuOpen"
+            />
+            <mobile-menu
+                :is-mobile-menu-open="isMobileMenuOpen"
+                v-on:change="changeMobileMenuState"
+            />
             <h1 class="header__title">
                 MODNIKKY
             </h1>
@@ -19,11 +25,24 @@
 import { defineComponent } from 'vue';
 import Navbar from './Navbar.vue';
 import Actionsbar from './Actionsbar.vue';
+import MobileMenu from './MobileMenu.vue';
 
 export default defineComponent({
     name: 'my-header',
     components: {
-        Navbar, Actionsbar
+    Navbar,
+    Actionsbar,
+    MobileMenu
+},
+    data() {
+        return {
+            isMobileMenuOpen: false
+        }
+    },
+    methods: {
+        changeMobileMenuState() {
+            this.isMobileMenuOpen = !this.isMobileMenuOpen;
+        }
     }
 })
 </script>

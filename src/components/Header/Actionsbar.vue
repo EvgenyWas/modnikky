@@ -17,16 +17,16 @@
         </div>
         <div class="actionsbar__bag">
             <img
-                class="actionsbar__icon-bag" 
+                class="actionsbar__icon actionsbar__icon--bag" 
                 src="@/assets/icons/shopping-cart-icon.svg" 
                 alt="Shopping cart"
             >
             <p class="actionsbar__title">
                 BAG
-                <span class="actionsbar__bag-amount">
-                    <!-- amount -->
-                </span>
             </p>
+            <span class="actionsbar__bag-amount">
+                <!-- amount -->
+            </span>
         </div>
         <div class="actionsbar__wishlist">
             <img 
