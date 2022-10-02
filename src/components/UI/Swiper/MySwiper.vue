@@ -49,15 +49,11 @@ export default defineComponent({
     },
     setup() {
         const swiper = useSwiper();
-        console.log(swiper)
 
         return {
             swiper,
             modules: [FreeMode, Navigation]
         }
-    },
-    mounted() {
-        console.log(this.swiper)
     }
 })
 </script>

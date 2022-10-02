@@ -1,6 +1,7 @@
 <template>
     <top-section/>
-    <categories-section/>
+    <categories-section v-if="!sortingOptions.getSelectedCategory"/>
+    <category-section v-else/>
     <sale-section/>
     <shop-section/>
 </template>
@@ -15,11 +16,14 @@ import SaleSection from '@/components/Home/SaleSection.vue';
 import { formatAvailableSizes } from '@/utils/utils';
 import ShopSection from '@/components/Home/ShopSection.vue';
 import CategoriesSection from '@/components/Home/CategoriesSection.vue';
+import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
+import CategorySection from '@/components/Home/CategorySection.vue';
 
 export default defineComponent({
-    components: { TopSection, SaleSection, ShopSection, CategoriesSection },
+    components: { TopSection, SaleSection, ShopSection, CategoriesSection, CategorySection },
     setup() {
         const { setProducts } = useProductsStore();
+        const sortingOptions = useSortingOptionsStore();
         const [ requestProducts, products, loading, error ] = useApi(storeApi.getCatalog);
         requestProducts.value();
 
@@ -28,6 +32,7 @@ export default defineComponent({
             error, 
             products, 
             setProducts,
+            sortingOptions
         };
     },
     watch: {

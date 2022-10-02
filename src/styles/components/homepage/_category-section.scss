@@ -1,0 +1,30 @@
+.category-section {
+    &__container {
+        @include flex-column(0px);
+        align-items: center;
+        margin-bottom: 83px;
+    }
+
+    &__title {
+        margin-bottom: 83px;
+        font-size: $xxl-text;
+        line-height: $xxl-lh;
+        font-weight: weight('medium');
+    }
+
+    &__products {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        column-gap: 6px;
+        row-gap: 45px;
+
+        @include xl {
+            grid-template-columns: repeat(3, auto);
+            column-gap: 12px;
+        }
+    }
+
+    & button {
+        margin-top: 56px;
+    }
+}

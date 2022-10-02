@@ -16,6 +16,7 @@
                     :title="capitalizeTitle(category)"
                     :src="`/src/assets/categories/${category}-category-image.svg`"
                     :alt="`${category} image`"
+                    @click="sortingOptions.setSelectedCategory(category)"
                 />
             </div>
         </div>
@@ -27,6 +28,7 @@ import { defineComponent } from 'vue'
 import { categoriesNames } from '@/config'
 import CategoryItem from './CategoryItem.vue'
 import { capitalizeWord } from '@/utils/utils'
+import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore'
 
 export default defineComponent({
     name: 'categories-section',
@@ -41,6 +43,13 @@ export default defineComponent({
     methods: {
         capitalizeTitle(title: string) {
             return capitalizeWord(title);
+        }
+    },
+    setup() {
+        const sortingOptions = useSortingOptionsStore();
+
+        return {
+            sortingOptions
         }
     }
 })

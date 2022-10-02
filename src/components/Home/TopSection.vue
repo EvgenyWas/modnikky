@@ -7,7 +7,9 @@
             <p class="top-section__subtitle">
                 Our easiest chuck-on-and-go staples come with a serious style heritage that’s liberating, sexy, comfy and supremely cool.
             </p>
-            <primary-button/>
+            <primary-button
+                :title="'SHOP NEW ARRIVALS'"
+            />
         </div>
     </section>
 </template>

@@ -1,6 +1,12 @@
 <template>
-    <button class="primary-button">
-        SHOP NEW ARRIVALS
+    <button 
+        class="primary-button"
+        :class="{
+            'primary-button--black': blackMode,
+            'primary-button--dark': darkMode
+        }"
+    >
+        {{ title }}
     </button>
 </template>
 
@@ -8,7 +14,19 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name: 'primary-button'
+    name: 'primary-button',
+    props: {
+        title: {
+            type: String,
+            default: ''
+        },
+        blackMode: {
+            type: Boolean
+        },
+        darkMode: {
+            type: Boolean
+        },
+    }
 })
 </script>
 
