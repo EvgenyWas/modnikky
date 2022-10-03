@@ -49,11 +49,6 @@ export default defineComponent({
             required: true
         }
     },
-    data() {
-        return {
-            hasProductInWishlist: false
-        }
-    },
     setup() {
         const wishlist = useWishlistStore();
         const bag = useBagStore();
@@ -69,10 +64,8 @@ export default defineComponent({
 
             if (!sameProduct) {
                 this.wishlist.setProductToWishlist(this.product);
-                this.hasProductInWishlist = true;
             } else {
                 this.wishlist.removeProductFromWishlist(this.product.id);
-                this.hasProductInWishlist = false;
             }
         },
         addProductToBag() {
@@ -84,6 +77,11 @@ export default defineComponent({
             } else {
                 this.bag.setProductToBag(convertedProduct);
             }
+        }
+    },
+    computed: {
+        hasProductInWishlist() {
+            return findSameInWishlist(this.product, this.wishlist.getWishlist);
         }
     }
 })
