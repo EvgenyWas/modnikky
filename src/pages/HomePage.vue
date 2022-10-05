@@ -1,9 +1,9 @@
 <template>
     <top-section/>
-    <categories-section v-if="!sortingOptions.getSelectedCategory"/>
+    <!-- <categories-section v-if="!sortingOptions.getSelectedCategory"/>
     <category-section v-else/>
     <sale-section :loading="loading"/>
-    <shop-section/>
+    <shop-section/> -->
 </template>
 
 <script lang="ts">

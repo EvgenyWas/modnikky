@@ -9,6 +9,12 @@
             </p>
             <primary-button
                 :title="'SHOP NEW ARRIVALS'"
+                v-if="windowDimensions.width > 576"
+            />
+            <primary-button
+                :title="'SHOP NEW ARRIVALS'"
+                black-mode
+                v-else
             />
         </div>
     </section>
@@ -17,12 +23,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import PrimaryButton from '@/components/UI/Buttons/PrimaryButton.vue'
+import { useWindowDimensions } from '@/hooks/useWindowDimensions';
 
 export default defineComponent({
+    name: 'top-section',
+    components: { PrimaryButton },
     setup() {
-        return {};
-    },
-    components: { PrimaryButton }
+        const windowDimensions = useWindowDimensions();
+
+        return {
+            windowDimensions
+        };
+    }
 })
 </script>
 

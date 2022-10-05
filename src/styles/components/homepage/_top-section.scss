@@ -2,9 +2,13 @@
     width: 100%;
     height: 100vh;
     margin-bottom: 90px;
-    background: url('@/assets//backgrounds/homepage-background.jpg') no-repeat center;
-    background-position: top 100px;
+    background: url('@/assets/backgrounds/homepage-background.jpg') no-repeat top;
     background-size: cover;
+
+    @include sm {
+        background-position: top;
+        background-size: auto 110vw;
+    }
 
     &__container {
         display: flex;
@@ -13,10 +17,17 @@
         max-width: 1150px;
         height: 100%;
         padding-bottom: 100px;
+
+        @include sm {
+            height: calc(280px + 110vw);
+            padding-bottom: 40px;
+            align-items: center;
+        }
     }
 
     &__title {
         margin-bottom: 20px;
+        font-family: $secondary-font;
         font-size: 38px;
         line-height: 38px;
         font-weight: weight('bold');
@@ -26,14 +37,33 @@
             font-size: $xl-text;
             line-height: $xl-lh;
         }
+
+        @include sm {
+            width: min-content;
+            color: $text-color;
+            text-align: center;
+        }
     }
 
     &__subtitle {
         max-width: 550px;
         margin-bottom: 30px;
+        font-family: $secondary-font;
         font-size: $sm-text;
         line-height: $md-lh;
         font-weight: weight('regular');
         color: $primary-color;
+
+        @include md {
+            font-size: $xs-text;
+            line-height: $sm-lh;
+        }
+
+        @include sm {
+            max-width: 320px;
+            margin-bottom: 21px;
+            color: $text-color;
+            text-align: center;
+        }
     }
 }

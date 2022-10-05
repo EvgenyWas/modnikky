@@ -77,3 +77,10 @@ export function formatAvailableSizes(products: TProduct[]): TProduct[] {
 export function capitalizeWord(word: string) {
     return word[0].toUpperCase() + word.slice(1);
 }
+
+// Function to get window dimensions
+export function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+
+    return { width, height };
+}
