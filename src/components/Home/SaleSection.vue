@@ -5,7 +5,11 @@
                 <span>#MODNIKKY</span
                 ><span class="sale-section__title sale-section__title--bold">_Sale</span>
             </h3>
-            <my-swiper :products="productsStore.getProducts" />
+            <spinner-loader v-if="loading"/>
+            <my-swiper 
+                :products="productsStore.getProducts" 
+                v-else
+            />
         </div>
     </section>
 </template>
@@ -15,9 +19,16 @@ import { useProductsStore } from '@/stores/useProductsStore';
 import { defineComponent } from 'vue'
 import ProductCard from './ProductCard.vue'
 import MySwiper from '@/components/UI/Swiper/MySwiper.vue'
+import SpinnerLoader from '../UI/Loaders/SpinnerLoader.vue'
 
 export default defineComponent({
-    components: { ProductCard, MySwiper },
+    name: 'sale-section',
+    components: { ProductCard, MySwiper, SpinnerLoader },
+    props: {
+        loading: {
+            type: Boolean
+        }
+    },
     setup() {
         const productsStore = useProductsStore();
         

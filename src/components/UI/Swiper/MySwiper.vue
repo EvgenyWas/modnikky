@@ -35,17 +35,17 @@ import NextSwiperButton from './NextSwiperButton.vue'
 export default defineComponent({
     name:'my-swiper',
     components: {
-    Swiper,
-    SwiperSlide,
-    ProductCard,
-    PrevSwiperButton,
-    NextSwiperButton
-},
+        Swiper,
+        SwiperSlide,
+        ProductCard,
+        PrevSwiperButton,
+        NextSwiperButton
+    },
     props:{
         products: {
             type: Object as PropType<TProduct[]>,
             required: true
-        }
+        },
     },
     setup() {
         const swiper = useSwiper();

@@ -14,12 +14,10 @@
                     :product="product"
                 />
             </div>
-            <h3 
-                class="category-section__subtitle"
-                v-else
-            >
+            <h3 class="category-section__subtitle" v-else>
                 {{ `No ${sortingOptions.getSelectedCategory} products found...` }}
             </h3>
+            <ring-loader v-show="loading"/>
             <primary-button
                 :title="'Show more'"
                 blackMode
@@ -38,13 +36,15 @@ import ProductCard from './ProductCard.vue'
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue'
 import { capitalizeWord } from '@/utils/utils';
 import { paginationCategoryProducts } from '@/config';
+import RingLoader from '../UI/Loaders/RingLoader.vue';
 
 export default defineComponent({
     name: "category-section",
-    components: { ProductCard, PrimaryButton },
+    components: { ProductCard, PrimaryButton, RingLoader },
     data() {
         return {
-            productsAmount: paginationCategoryProducts
+            productsAmount: paginationCategoryProducts,
+            loading: false
         }
     },
     setup() {
@@ -64,7 +64,11 @@ export default defineComponent({
             return this.getProductsByCategory(this.sortingOptions.getSelectedCategory).slice(0, productsAmount);
         },
         increaseProductsAmount() {
-            this.productsAmount += paginationCategoryProducts;
+            this.loading = true;
+            setTimeout(() => {
+                this.loading = false;
+                this.productsAmount += paginationCategoryProducts;
+            }, 500)
         }
     }
 })

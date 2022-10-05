@@ -2,7 +2,7 @@
     <top-section/>
     <categories-section v-if="!sortingOptions.getSelectedCategory"/>
     <category-section v-else/>
-    <sale-section/>
+    <sale-section :loading="loading"/>
     <shop-section/>
 </template>
 
