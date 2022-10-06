@@ -1,6 +1,7 @@
 <template>
     <section class="top-section">
         <div class="container top-section__container">
+            <div class="top-section__box"></div>
             <h2 class="top-section__title">
                 NEW COLLECTION
             </h2>
