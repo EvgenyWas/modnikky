@@ -19,6 +19,7 @@
             :class="{ 
                 'updates-form__group--incorrect': !isCorrectEmail
             }"
+            v-if="!loading && !response?.message"
         >
             <input 
                 type="email"
@@ -34,14 +35,25 @@
                 JOIN
             </button>
         </div>
+        <ring-loader v-else-if="loading"/>
+        <h2 
+            class="updates-form__message" 
+            v-show="response?.message"
+        >
+            {{ response?.message }}!
+        </h2> 
     </form>
 </template>
 
 <script lang="ts">
+import storeApi from '@/api/storeApi';
+import useApi from '@/hooks/useApi';
 import { validateEmail } from '@/utils/utils';
 import { defineComponent } from 'vue'
+import RingLoader from '../UI/Loaders/RingLoader.vue';
 
 export default defineComponent({
+  components: { RingLoader },
     name: 'updates-form',
     data() {
         return {
@@ -51,14 +63,13 @@ export default defineComponent({
     },
     methods: {
         sendEmailForUpdates() {
-            if (this.isCorrectEmail) {
-                
+            if (this.isCorrectEmail && this.email !== '') {
+                this.postEmail({ email: this.email });
             }
         }
     },
     watch: {
         email(newEmail) {
-            console.log('hi!')
             if (validateEmail(newEmail) || newEmail === '') {
                 this.isCorrectEmail = true;
             } else {
@@ -66,6 +77,16 @@ export default defineComponent({
             }
         }
     },
+    setup() {
+        const [ postEmail, response, loading, error ] = useApi(storeApi.postSubscription);
+
+        return {
+            postEmail,
+            response,
+            loading,
+            error
+        }
+    }
 })
 </script>
 

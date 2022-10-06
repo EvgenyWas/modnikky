@@ -1,14 +1,14 @@
-import { fetchRequest, postRequest } from '.'
-import type { TCartPost, TSubscriptionPost } from './types';
+import { fetchRequest, postRequest } from '.';
+import type { TCartPost, TResponsePostRequests, TSubscriptionPost } from './types';
 
 export default {
     getCatalog() {
         return fetchRequest('catalog', {});
     },
-    postCart(cart: TCartPost) {
+    postCart(cart: TCartPost): TResponsePostRequests {
         return postRequest('cart', cart)
     },
-    postSubscription(email: TSubscriptionPost) {
-        return fetchRequest('subscription', email)
+    postSubscription(email: TSubscriptionPost): TResponsePostRequests {
+        return postRequest('subscription', email)
     },
 }

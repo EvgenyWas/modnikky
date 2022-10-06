@@ -5,7 +5,7 @@ const baseUrl = 'https://modnikky-api.herokuapp.com/api/';
 
 export const fetchRequest = (
     url: string, 
-    params: any
+    params: {[key: string | number]: any}
 ) => {
     return axios
         .create({
@@ -17,7 +17,7 @@ export const fetchRequest = (
             params: {
                 ...params,
             },
-        })
+        });
 };
 
 export const postRequest = (
@@ -30,5 +30,5 @@ export const postRequest = (
                 'Content-type': 'application/json',
             },
         })
-        .post(`${baseUrl}${url}`, data)
+        .post(`${baseUrl}${url}`, data);
 };

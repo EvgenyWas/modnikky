@@ -1,16 +1,13 @@
-import type { TParams } from "@/api/types";
+import type { TParams, TResponse, TUseApi } from "@/api/types";
 import { computed, ref } from "vue";
 
-type TResponse = {
-    data: any
-}
-
-export default function useApi(api: any) {
+export default function useApi(api: TUseApi) {
     const data = ref<null | any>(null);
-    const loading = ref<boolean>(true);
+    const loading = ref<boolean>(false);
     const error = ref<null | Error>(null);
 
     const onApiCall = computed(() => (params?: TParams) => {
+        loading.value = true;
         api(params)
             .then((response: TResponse) => {
                 data.value = response.data;
@@ -19,7 +16,7 @@ export default function useApi(api: any) {
                 error.value = er.message;
             })
             .finally(() => loading.value = false)
-    })
+    });
 
-    return [onApiCall, data, loading, error]
+    return [onApiCall, data, loading, error];
 }
