@@ -17,6 +17,7 @@
     }
 
     &__bar {
+        max-width: 240px;
         padding-top: 40px;
     }
 
@@ -26,5 +27,13 @@
         line-height: $md-lh;
         font-weight: weight('regular');
         letter-spacing: 0.04em;
+    }
+
+    &__text {
+        padding-left: 28px;
+        font-size: $xs-text;
+        line-height: $xs-lh;
+        font-weight: weight('light');
+        color: $grey;
     }
 }

@@ -9,7 +9,7 @@
             :sizes="product.availableSizes"
         />
         <product-button/>
-        <product-details/>
+        <product-details :description="product.description"/>
     </div>
 </template>
 

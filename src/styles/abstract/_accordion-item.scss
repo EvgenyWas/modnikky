@@ -1,0 +1,28 @@
+.accordion-item {
+    @include flex-column(21px);
+    padding-bottom: 18px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__btn {
+        width: 8px;
+        height: 8px;
+        background: url('@/assets/icons/expand-icon.svg') no-repeat center;
+        object-fit: contain;
+        transition: all 300ms ease-in-out;
+
+        &--active {
+            background: url('@/assets/icons/hide-icon.svg') no-repeat center;
+        }
+    }
+
+    &__title {
+        font-size: $xs-text;
+        line-height: $xs-lh;
+        font-weight: weight('regular');
+    }
+}
