@@ -5,8 +5,13 @@
         padding-top: 81px;
         font-family: $secondary-font;
 
+        @include md {
+            margin-bottom: 60px;
+        }
+
         @include sm {
             @include flex-column(20px);
+            margin-bottom: 40px;
             padding: 0 4px;
         }
     }

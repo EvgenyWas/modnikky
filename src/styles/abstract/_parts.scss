@@ -22,3 +22,14 @@
         background-color: $text-color;
     }
 }
+
+// Vue Transition
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 500ms ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
