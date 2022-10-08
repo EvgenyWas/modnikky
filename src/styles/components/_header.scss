@@ -1,9 +1,9 @@
 .header {
-    position: absolute;
     width: 100%;
     background-color: $primary-color;
 
     &--home {
+        position: absolute;
         color: $primary-color;
         background-color: inherit;
 

@@ -1,0 +1,30 @@
+.product {
+    &__container {
+        display: flex;
+        gap: 60px;
+        width: 100%;
+        margin-bottom: 90px;
+    }
+
+    &__gallery {
+        display: flex;
+        flex-basis: 75%;
+        width: 75%;
+    }
+
+    &__image {
+        width: 50%;
+    }
+
+    &__bar {
+        padding-top: 40px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: $sm-text;
+        line-height: $md-lh;
+        font-weight: weight('regular');
+        letter-spacing: 0.04em;
+    }
+}

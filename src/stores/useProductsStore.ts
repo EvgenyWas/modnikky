@@ -12,7 +12,7 @@ export const useProductsStore = defineStore({
             return state.products;
         },
         getProductById(state) {
-            return (productId: string) => state.products.filter(product => productId === product.id);
+            return (productId: string) => state.products.find(product => productId === product.id);
         },
         getProductsByCategory(state) {
             return (category: string) => state.products.filter(product => category === product.type.toLowerCase());
