@@ -15,7 +15,7 @@
                 SIGN IN
             </p>
         </div>
-        <div class="actionsbar__bag">
+        <div class="actionsbar__bag" @click="$router.push('/bag')">
             <img
                 class="actionsbar__icon actionsbar__icon--bag" 
                 src="@/assets/icons/shopping-cart-icon.svg" 
@@ -31,7 +31,7 @@
                 {{ `(${bagStore.getBagAmount})` }}
             </span>
         </div>
-        <div class="actionsbar__wishlist">
+        <div class="actionsbar__wishlist" @click="$router.push('/wishlist')">
             <img 
                 class="actionsbar__icon"
                 src="@/assets/icons/wishlist-icon.svg" 

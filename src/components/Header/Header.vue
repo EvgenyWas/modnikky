@@ -13,7 +13,7 @@
                 :is-mobile-menu-open="isMobileMenuOpen"
                 v-on:change="changeMobileMenuState"
             />
-            <h1 class="header__title">
+            <h1 class="header__title" @click="$router.push('/home')">
                 MODNIKKY
             </h1>
             <actionsbar/>

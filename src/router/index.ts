@@ -12,12 +12,12 @@ const router = createRouter({
     {
       path: '/',
       redirect: '/home'
+    },
+    {
+      path: '/product/:id',
+      name: 'product',
+      component: () => import('@/pages/ProductPage.vue')
     }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
 })
 

@@ -1,6 +1,6 @@
 <template>
     <article class="product-card">
-        <div class="product-card__box">
+        <div class="product-card__box" @click="$router.push(`/product/${product.id}`)">
             <div class="product-card__image-block">
                 <img 
                     class="product-card__image"
@@ -12,16 +12,16 @@
                     class="product-card__like"
                     src="@/assets/icons/liked-icon.svg" 
                     alt="Like icon"
-                    @click="handleLikeClick"
+                    @click.stop="handleLikeClick"
                 >
                 <img 
                     v-else
                     class="product-card__like"
                     src="@/assets/icons/like-icon.svg" 
                     alt="Like icon"
-                    @click="handleLikeClick"
+                    @click.stop="handleLikeClick"
                 >
-                <add-to-bag-button @click="addProductToBag" />
+                <add-to-bag-button @click.stop="addProductToBag" />
                 <div class="product-card__cover"></div>
             </div>
             <p class="product-card__price">

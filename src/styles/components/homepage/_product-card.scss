@@ -20,6 +20,7 @@
     &__box {
         @include flex-column(12px);
         max-width: 300px;
+        cursor: pointer;
     }
 
     &__image-block {
