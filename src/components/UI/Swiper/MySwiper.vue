@@ -4,7 +4,7 @@
             <swiper
                 :slidesPerView="4"
                 :spaceBetween="12"
-                :freeMode="true"
+                freeMode
                 navigation
                 :modules="modules"
                 :loop="true"
@@ -26,7 +26,7 @@ import type { PropType } from 'vue'
 import { FreeMode, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/free-mode'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import type { TProduct } from '@/types/types'
 import ProductCard from '@/components/Home/ProductCard.vue'
 import PrevSwiperButton from './PrevSwiperButton.vue'
@@ -48,10 +48,7 @@ export default defineComponent({
         },
     },
     setup() {
-        const swiper = useSwiper();
-
         return {
-            swiper,
             modules: [FreeMode, Navigation]
         }
     }
