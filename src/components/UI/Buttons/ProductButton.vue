@@ -2,13 +2,24 @@
     <div class="product-button">
         <button 
             class="product-button__bag-btn"
+            @click="$emit('add-to-bag')"
         >
             {{ title }}
         </button>
         <button 
             class="product-button__wishlist-btn"
+            @click="$emit('handle-wishlist')"
         >
-            <img src="@/assets/icons/like-icon.svg" alt="Wishlist icon">
+            <img 
+                src="@/assets/icons/liked-icon.svg" 
+                alt="Wishlist icon"
+                v-if="isInWishlist"
+            >
+            <img 
+                src="@/assets/icons/like-icon.svg" 
+                alt="Wishlist icon"
+                v-else
+            >
         </button>
     </div>
 </template>
@@ -22,6 +33,10 @@ export default defineComponent({
         title: {
             type: String,
             default: ''
+        },
+        isInWishlist: {
+            type: Boolean,
+            default: false
         }
     }
 })

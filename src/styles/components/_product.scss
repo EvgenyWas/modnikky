@@ -17,6 +17,7 @@
     }
 
     &__bar {
+        @include flex-column(40px);
         max-width: 240px;
         padding-top: 40px;
     }
@@ -27,6 +28,61 @@
         line-height: $md-lh;
         font-weight: weight('regular');
         letter-spacing: 0.04em;
+    }
+
+    &__attributes {
+        @include flex-column(30px);
+    }
+
+    &__conditions {
+        @include flex-column(10px);
+    }
+
+    &__price {
+        font-size: $xs-text;
+        line-height: 12px;
+        font-weight: weight('regular');
+    }
+
+    &__pre-order {
+        font-size: $xs-text;
+        line-height: 12px;
+        font-weight: weight('light');
+        color: $accept-grey;
+    }
+
+    &__color {
+        @include flex-column(10px);
+
+        &-title {
+            font-size: $xs-text;
+            line-height: 12px;
+            font-weight: weight('regular');
+            color: $grey;
+        }
+
+        &-box {
+            width: 34px;
+            height: 34px;
+            border: 1px solid $primary-color;
+            outline: 1px solid $text-color;
+        }
+    }
+
+    &__sizes {
+        @include flex-column(20px);
+
+        &-title {
+            font-size: $xs-text;
+            line-height: 12px;
+            font-weight: weight('regular');
+            color: $grey;
+        }
+
+        &-box {
+            display: flex;
+            gap: 10px;
+        }
     }
 
     &__text {

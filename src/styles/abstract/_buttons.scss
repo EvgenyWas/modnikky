@@ -48,3 +48,53 @@
         transform: translate(-50%, -50%) scale(0.9);
     }
 }
+
+.size-button {
+    width: max-content;
+    padding: 0 2px 5px 2px;
+    border-bottom: 1px solid $primary-color;
+
+    &--active {
+        border-bottom: 1px solid $text-color;
+    }
+
+    &__title {
+        font-size: $xs-text;
+        line-height: 12px;
+        font-weight: weight('regular');
+        text-align: center;
+    }
+}
+
+.product-button {
+    display: flex;
+    gap: 1px;
+    height: 50px;
+
+    &__bag-btn {
+        width: 190px;
+        font-size: $sm-text;
+        line-height: $xs-lh;
+        color: $primary-color;
+        text-align: center;
+        background-color: $text-color;
+        transition: all 150ms ease-in-out;
+
+        &:active {
+            color: $text-color;                
+            background-color: $primary-color;
+        }
+    }
+
+    &__wishlist-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 49px;
+        background-color: $text-color;
+
+        & > img {
+            height: 16px;
+        }
+    }
+}

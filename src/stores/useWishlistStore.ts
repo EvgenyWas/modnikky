@@ -10,6 +10,9 @@ export const useWishlistStore = defineStore({
     getters: {
         getWishlist(state) {
             return state.wishlist;
+        },
+        getProductById(state) {
+            return (productId: string) => state.wishlist.find(product => productId === product.id);
         }
     },
     actions: {

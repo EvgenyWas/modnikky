@@ -1,5 +1,10 @@
 <template>
-    <button class="size-button">
+    <button 
+        class="size-button"
+        :class="{
+            'size-button--active': isActive
+        }"
+    >
         <p class="size-button__title">
             {{ size }}
         </p>
@@ -15,6 +20,11 @@ export default defineComponent({
         size: {
             type: String,
             required: true
+        },
+        isActive: {
+            type: Boolean,
+            default: false
+
         }
     }
 })

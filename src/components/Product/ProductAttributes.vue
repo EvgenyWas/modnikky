@@ -12,7 +12,11 @@
             <h5 class="product__color-title">
                 COLOR
             </h5>
-            <div class="product__color-box"></div>
+            <div 
+                class="product__color-box"
+                :style="{backgroundColor: color.hex}"
+                :name="color.name"
+            ></div>
         </div>
         <div class="product__sizes">
             <h5 class="product__sizes-title">
@@ -23,6 +27,8 @@
                     v-for="(size, index) in sizes"
                     :key="size + index"
                     :size="size"
+                    :is-active="selectedSize === size"
+                    @click="$emit('selecte', size)"
                 />
             </div>
         </div>
@@ -31,7 +37,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import type { PropType } from 'vue';
+import type { PropType, Ref } from 'vue';
 import type { TColor, TPrice } from '@/types/types';
 import SizeButton from '../UI/Buttons/SizeButton.vue';
 
@@ -49,6 +55,10 @@ export default defineComponent({
         },
         sizes: {
             type: Array as PropType<string[]>,
+            required: true
+        },
+        selectedSize: {
+            type: String,
             required: true
         }
     }
