@@ -15,7 +15,7 @@ export default function useApi(api: TUseApi) {
             .catch((er: any) => {
                 error.value = er.message;
             })
-            .finally(() => loading.value = false)
+            .finally(() => loading.value = false);
     });
 
     return [onApiCall, data, loading, error];

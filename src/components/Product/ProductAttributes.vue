@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import type { PropType, Ref } from 'vue';
+import type { PropType } from 'vue';
 import type { TColor, TPrice } from '@/types/types';
 import SizeButton from '../UI/Buttons/SizeButton.vue';
 
@@ -65,6 +65,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

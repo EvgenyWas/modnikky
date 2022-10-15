@@ -44,7 +44,7 @@ export default defineComponent({
         const productId = route.params.id as string;
         const product = productsStore.getProductById(productId) as TProduct;
         const selectedSize = ref<string>(product.availableSizes[0]);
-        const isInWishlist = computed(() => !!wishlistStore.getProductById(productId));
+        const isInWishlist = computed<boolean>(() => !!wishlistStore.getProductById(productId));
 
         function selecteSize(size: string) {
             selectedSize.value = size;
@@ -83,6 +83,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

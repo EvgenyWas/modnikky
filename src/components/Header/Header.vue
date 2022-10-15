@@ -29,11 +29,7 @@ import MobileMenu from './MobileMenu.vue';
 
 export default defineComponent({
     name: 'my-header',
-    components: {
-    Navbar,
-    Actionsbar,
-    MobileMenu
-},
+    components: { Navbar, Actionsbar, MobileMenu },
     data() {
         return {
             isMobileMenuOpen: false
@@ -47,6 +43,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

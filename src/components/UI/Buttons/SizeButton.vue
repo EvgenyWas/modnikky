@@ -24,12 +24,9 @@ export default defineComponent({
         isActive: {
             type: Boolean,
             default: false
-
         }
     }
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

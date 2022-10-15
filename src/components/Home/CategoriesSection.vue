@@ -40,21 +40,19 @@ export default defineComponent({
             categories: categories
         }
     },
-    methods: {
-        capitalizeTitle(title: string) {
-            return capitalizeWord(title);
-        }
-    },
     setup() {
         const sortingOptions = useSortingOptionsStore();
+        
+        function capitalizeTitle(title: string) {
+            return capitalizeWord(title);
+        }
 
         return {
-            sortingOptions
+            sortingOptions,
+            capitalizeTitle
         }
     }
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

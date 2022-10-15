@@ -11,7 +11,7 @@
                 
             >
                 <swiper-slide v-for="product in products" :key="product.id">
-                    <product-card :product="product" />
+                    <product-card :product="product"/>
                 </swiper-slide>
                 <prev-swiper-button/>
                 <next-swiper-button/>
@@ -55,6 +55,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

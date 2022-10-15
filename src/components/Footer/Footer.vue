@@ -17,11 +17,7 @@ import FooterMobile from './FooterMobile.vue'
 
 export default defineComponent({
     name: 'my-footer',
-    components: {
-    UpdatesForm,
-    FooterTable,
-    FooterMobile
-},
+    components: { UpdatesForm, FooterTable, FooterMobile },
     setup() {
         const windowDimensions = useWindowDimensions();
 
@@ -32,6 +28,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

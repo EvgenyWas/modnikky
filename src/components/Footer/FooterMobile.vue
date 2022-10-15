@@ -6,9 +6,7 @@
                 :title="'CUSTOMER SERVICE'"
                 :isActive="activeItem === 1"
             >
-                <ol
-                    class="footer-mobile__list"
-                >
+                <ol class="footer-mobile__list">
                     <li><a href="#">CONTACT</a></li>
                     <li><a href="#">TRACK ORDER</a></li>
                     <li><a href="#">DELIVERY & RETURNS</a></li>
@@ -22,9 +20,7 @@
                 :title="'INFO'"
                 :isActive="activeItem === 2"
             >
-                <ol 
-                    class="footer-mobile__list"
-                >
+                <ol class="footer-mobile__list">
                     <li><a href="#">GIFT VOUCHERS</a></li>
                     <li><a href="#">SIZE GUIDE</a></li>
                     <li><a href="#">CAREERS AT MODNIKKY</a></li>
@@ -37,9 +33,7 @@
                 :title="'FOLLOW US'"
                 :isActive="activeItem === 3"
             >
-                <ol 
-                    class="footer-mobile__list"
-                >
+                <ol class="footer-mobile__list">
                     <li class="footer-mobile__social-link">
                         <img src="../../assets/logos/facebok-logo.svg" alt="Facebook">
                         <a href="#">FACEBOOK</a>
@@ -59,9 +53,7 @@
                 :title="'CONTACT US'"
                 :isActive="activeItem === 4"
             >
-                <ol 
-                    class="footer-mobile__list"
-                >
+                <ol class="footer-mobile__list">
                     <li>hello@modnikky.com</li>
                     <li>+351 XXX XXX XXX</li>
                     <li>Visit us in Lisbon, Portugal</li>
@@ -91,6 +83,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

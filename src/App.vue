@@ -12,9 +12,8 @@ import MyHeader from '@/components/Header/Header.vue'
 import MyFooter from './components/Footer/Footer.vue';
 
 export default defineComponent({
-  components: { 
-    MyHeader, MyFooter 
-  },
+  name: 'app',
+  components: { MyHeader, MyFooter },
 })
 </script>
 

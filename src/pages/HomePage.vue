@@ -25,6 +25,7 @@ export default defineComponent({
         const { setProducts } = useProductsStore();
         const sortingOptions = useSortingOptionsStore();
         const [ requestProducts, products, loading, error ] = useApi(storeApi.getCatalog);
+        
         requestProducts.value();
 
         return {
@@ -44,6 +45,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

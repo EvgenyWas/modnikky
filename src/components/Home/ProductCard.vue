@@ -22,7 +22,7 @@
                     @click.stop="handleLikeClick"
                 >
                 <add-to-bag-button @click.stop="addProductToBag" />
-                <div class="product-card__cover"></div>
+                <div class="product-card__cover"/>
             </div>
             <p class="product-card__price">
                 {{ '$' + Number(product.price.value).toFixed(2) }}
@@ -87,6 +87,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

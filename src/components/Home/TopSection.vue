@@ -1,7 +1,7 @@
 <template>
     <section class="top-section">
         <div class="container top-section__container">
-            <div class="top-section__box"></div>
+            <div class="top-section__box"/>
             <h2 class="top-section__title">
                 NEW COLLECTION
             </h2>
@@ -39,6 +39,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
