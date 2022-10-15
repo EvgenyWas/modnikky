@@ -32,9 +32,7 @@ import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore'
 
 export default defineComponent({
     name: 'categories-section',
-    components: {
-        CategoryItem
-    },
+    components: { CategoryItem },
     data() {
         return {
             categories: categories

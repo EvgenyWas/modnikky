@@ -20,6 +20,7 @@ import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import CategorySection from '@/components/Home/CategorySection.vue';
 
 export default defineComponent({
+    name: 'home-page',
     components: { TopSection, SaleSection, ShopSection, CategoriesSection, CategorySection },
     setup() {
         const { setProducts } = useProductsStore();

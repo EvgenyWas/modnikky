@@ -48,7 +48,7 @@ export default defineComponent({
 
         function selecteSize(size: string) {
             selectedSize.value = size;
-        }
+        };
 
         return {
             product,
