@@ -1,0 +1,107 @@
+.bag {
+  &__container {
+    @include flex-column(30px);
+    align-items: center;
+    margin-bottom: 120px;
+    padding-top: 26px;
+  }
+
+  &__title {
+    position: relative;
+    width: 528px;
+    padding-bottom: 20px;
+    font-size: $md-text;
+    line-height: $md-lh;
+    font-weight: weight("regular");
+    letter-spacing: 0.04em;
+    @include grey-bottom-line;
+  }
+
+  &__amount {
+    margin-left: 20px;
+    font-size: $xs-text;
+    line-height: 12px;
+    font-weight: weight("light");
+    color: $grey;
+  }
+
+  &__products {
+    @include flex-column(30px);
+    margin-bottom: 10px;
+  }
+
+  &-product {
+    position: relative;
+    @include grey-bottom-line;
+
+    &__container {
+      @include flex-column(43px);
+      width: 528px;
+    }
+
+    &__box {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__image {
+      width: 160px;
+    }
+
+    &__btn-box {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: $xs-text;
+      line-height: 12px;
+      font-weight: weight("light");
+      transition: all 300ms ease-in-out;
+
+      &-icon {
+        width: 12px;
+        height: 12px;
+        margin-right: 7px;
+      }
+
+      &:active {
+        &-icon {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    &-bar {
+      @include flex-column(29px);
+
+      &__title {
+        margin-bottom: 10px;
+        font-size: $sm-text;
+        line-height: $md-lh;
+        letter-spacing: 0.04em;
+      }
+
+      &__price {
+        font-size: $xs-text;
+        line-height: 12px;
+        font-weight: weight("light");
+      }
+
+      &__body {
+        @include flex-column(15px);
+
+        & p {
+          font-size: $xs-text;
+          line-height: 12px;
+          font-weight: weight("light");
+        }
+      }
+    }
+  }
+}

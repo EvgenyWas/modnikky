@@ -45,7 +45,7 @@ export const useBagStore = defineStore({
             const filteredBag = this.bag.filter(item => item.id !== productId);
             this.$patch({
                 bag: filteredBag,
-                amount: this.amount + 1
+                amount: this.amount - 1
             });
         }
     }

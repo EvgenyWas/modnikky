@@ -1,26 +1,26 @@
 @mixin link-hover {
-    &:after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: -3px;
-        display: block;
-        width: 0;
-        height: 1px;
-        background-color: $text-color;
-        transition: width 0.5s;
-    }
-    
-    &:hover:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -3px;
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: $text-color;
-    }
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: $text-color;
+    transition: width 0.5s;
+  }
+  
+  &:hover:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $text-color;
+  }
 }
 
 // Vue Transition
@@ -32,4 +32,16 @@
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+@mixin grey-bottom-line {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: $accept-grey;
+  }
 }
