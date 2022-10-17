@@ -1,10 +1,7 @@
 <template>
-    <nav 
-        class="navbar"
-        :class="{
-            'navbar--active': isMobileMenuOpen
-        }"
-    >
+    <nav class="navbar" :class="{
+        'navbar--active': isMobileMenuOpen
+    }">
         <div class="navbar__item">
             NEW ARRIVALS
         </div>
@@ -14,7 +11,6 @@
         <div class="navbar__item">
             COLLECTIONS
         </div>
-        
     </nav>
 </template>
 
@@ -32,4 +28,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

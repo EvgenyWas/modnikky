@@ -2,14 +2,10 @@
     <section class="sale-section">
         <div class="sale-section__container container">
             <h3 class="sale-section__title">
-                <span>#MODNIKKY</span
-                ><span class="sale-section__title sale-section__title--bold">_Sale</span>
+                <span>#MODNIKKY</span><span class="sale-section__title sale-section__title--bold">_Sale</span>
             </h3>
-            <spinner-loader v-if="loading"/>
-            <my-swiper 
-                :products="productsStore.getProducts" 
-                v-else
-            />
+            <spinner-loader v-if="loading" />
+            <app-swiper :products="productsStore.getProducts" v-else />
         </div>
     </section>
 </template>
@@ -18,12 +14,12 @@
 import { useProductsStore } from '@/stores/useProductsStore';
 import { defineComponent } from 'vue'
 import ProductCard from './ProductCard.vue'
-import MySwiper from '@/components/UI/Swiper/MySwiper.vue'
+import AppSwiper from '@/components/UI/Swiper/AppSwiper.vue'
 import SpinnerLoader from '../UI/Loaders/SpinnerLoader.vue'
 
 export default defineComponent({
     name: 'sale-section',
-    components: { ProductCard, MySwiper, SpinnerLoader },
+    components: { ProductCard, AppSwiper, SpinnerLoader },
     props: {
         loading: {
             type: Boolean
@@ -31,7 +27,7 @@ export default defineComponent({
     },
     setup() {
         const productsStore = useProductsStore();
-        
+
         return {
             productsStore
         };
@@ -39,4 +35,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

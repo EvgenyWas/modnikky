@@ -1,22 +1,14 @@
 <template>
-    <header 
-        class="header"
-        :class="{
-            'header--home': $route.name === 'home'
-        }"
-    >
+    <header class="header" :class="{
+        'header--home': $route.name === 'home'
+    }">
         <div class="header__container">
-            <navbar 
-                :is-mobile-menu-open="isMobileMenuOpen"
-            />
-            <mobile-menu
-                :is-mobile-menu-open="isMobileMenuOpen"
-                v-on:change="changeMobileMenuState"
-            />
+            <navbar :is-mobile-menu-open="isMobileMenuOpen" />
+            <mobile-menu :is-mobile-menu-open="isMobileMenuOpen" v-on:change="changeMobileMenuState" />
             <h1 class="header__title" @click="$router.push('/home')">
                 MODNIKKY
             </h1>
-            <actionsbar/>
+            <actionsbar />
         </div>
     </header>
 </template>
@@ -28,7 +20,7 @@ import Actionsbar from './Actionsbar.vue';
 import MobileMenu from './MobileMenu.vue';
 
 export default defineComponent({
-    name: 'my-header',
+    name: 'app-header',
     components: { Navbar, Actionsbar, MobileMenu },
     data() {
         return {
@@ -43,4 +35,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

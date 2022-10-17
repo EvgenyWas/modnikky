@@ -2,8 +2,8 @@
     <footer class="footer">
         <div class="footer__container container">
             <updates-form />
-            <footer-table v-if="windowDimensions.width > 576"/>
-            <footer-mobile v-else/>
+            <footer-table v-if="windowDimensions.width > 576" />
+            <footer-mobile v-else />
         </div>
     </footer>
 </template>
@@ -16,7 +16,7 @@ import { useWindowDimensions } from '@/hooks/useWindowDimensions'
 import FooterMobile from './FooterMobile.vue'
 
 export default defineComponent({
-    name: 'my-footer',
+    name: 'app-footer',
     components: { UpdatesForm, FooterTable, FooterMobile },
     setup() {
         const windowDimensions = useWindowDimensions();
@@ -28,4 +28,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
