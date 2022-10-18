@@ -1,11 +1,8 @@
 <template>
     <div class="footer-mobile">
         <div class="footer-mobile__container">
-            <accordion-item 
-                @change-active-item="changeActiveItem(1)"
-                :title="'CUSTOMER SERVICE'"
-                :isActive="activeItem === 1"
-            >
+            <accordion-item @change-active-item="changeActiveItem(1)" :title="'CUSTOMER SERVICE'"
+                :isActive="activeItem === 1">
                 <ol class="footer-mobile__list">
                     <li><a href="#">CONTACT</a></li>
                     <li><a href="#">TRACK ORDER</a></li>
@@ -15,11 +12,7 @@
                     <li><a href="#">FAQ</a></li>
                 </ol>
             </accordion-item>
-            <accordion-item
-                @change-active-item="changeActiveItem(2)"
-                :title="'INFO'"
-                :isActive="activeItem === 2"
-            >
+            <accordion-item @change-active-item="changeActiveItem(2)" :title="'INFO'" :isActive="activeItem === 2">
                 <ol class="footer-mobile__list">
                     <li><a href="#">GIFT VOUCHERS</a></li>
                     <li><a href="#">SIZE GUIDE</a></li>
@@ -28,11 +21,7 @@
                     <li><a href="#">LEGAL POLICIES</a></li>
                 </ol>
             </accordion-item>
-            <accordion-item
-                @change-active-item="changeActiveItem(3)"
-                :title="'FOLLOW US'"
-                :isActive="activeItem === 3"
-            >
+            <accordion-item @change-active-item="changeActiveItem(3)" :title="'FOLLOW US'" :isActive="activeItem === 3">
                 <ol class="footer-mobile__list">
                     <li class="footer-mobile__social-link">
                         <img src="../../assets/logos/facebok-logo.svg" alt="Facebook">
@@ -48,13 +37,13 @@
                     </li>
                 </ol>
             </accordion-item>
-            <accordion-item
-                @change-active-item="changeActiveItem(4)"
-                :title="'CONTACT US'"
-                :isActive="activeItem === 4"
-            >
+            <accordion-item @change-active-item="changeActiveItem(4)" :title="'CONTACT US'"
+                :isActive="activeItem === 4">
                 <ol class="footer-mobile__list">
-                    <li>hello@modnikky.com</li>
+                    <li>
+                        <a href="mailto:hello@modnikky.com" target="_blank"
+                            rel="noopener noreferrer">hello@modnikky.com</a>
+                    </li>
                     <li>+351 XXX XXX XXX</li>
                     <li>Visit us in Lisbon, Portugal</li>
                 </ol>
@@ -83,4 +72,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

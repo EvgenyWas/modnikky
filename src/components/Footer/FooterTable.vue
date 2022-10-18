@@ -16,7 +16,9 @@
                     <img src="../../assets/logos/facebok-logo.svg" alt="Facebook">
                     <a href="#">FACEBOOK</a>
                 </td>
-                <td>hello@modnikky.com</td>
+                <td>
+                    <a href="mailto:hello@modnikky.com" target="_blank" rel="noopener noreferrer">hello@modnikky.com</a>
+                </td>
             </tr>
             <tr>
                 <td><a href="#">TRACK ORDER</a></td>
@@ -59,4 +61,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
