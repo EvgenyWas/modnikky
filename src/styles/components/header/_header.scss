@@ -1,0 +1,49 @@
+.header {
+  width: 100%;
+  background-color: $primary-color;
+
+  &--home {
+    position: absolute;
+    color: $primary-color;
+    background-color: inherit;
+
+    .actionsbar__icon,
+    .navbar__menu,
+    .mobile-menu__burger {
+      filter: invert(91%) sepia(75%) saturate(0%) hue-rotate(5deg)
+        brightness(106%) contrast(101%);
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  &__title {
+    flex-grow: 1;
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: weight("bold");
+    text-align: center;
+    cursor: pointer;
+
+    @include lg {
+      font-size: $xl-text;
+      line-height: $xl-lh;
+    }
+
+    @include md {
+      font-size: $lg-text;
+      line-height: $lg-lh;
+    }
+
+    @include sm {
+      font-size: $md-text;
+      line-height: $md-lh;
+    }
+  }
+}

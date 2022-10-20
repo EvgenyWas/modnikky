@@ -1,3 +1,4 @@
+import type { ESortingOptions } from "@/config";
 import type { TWishlist } from "@/stores/types";
 import type { TBag, TBagItem, TProduct } from "@/types/types";
 
@@ -83,4 +84,43 @@ export function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
 
     return { width, height };
+}
+
+// Function to get serch params from current window location
+export function getWindowSearchParams(): { [key: string]: string } {
+    const searchParams = Object.fromEntries(new URL(window.location as any).searchParams.entries());
+
+    return searchParams;
+}
+
+// Function to push params to current history
+export function pushParamsToWindowHistory(option: ESortingOptions, value: string) {
+    const { pathname, search } = window.location;
+    const searchParams = getWindowSearchParams();
+    const searchParamsLength = Object.keys(searchParams).length;
+    let correctUrl;
+
+    switch (true) {
+        case !searchParamsLength && value !== '':
+            correctUrl = `${pathname}?${option}=${value}`;
+            break;
+        case value === '':
+            correctUrl = `${pathname}?`;
+            for (let key in searchParams) {
+                correctUrl += key === option ? '' : `${key}=${searchParams[key]}&`
+            };
+            correctUrl = correctUrl.slice(0, -1);
+            break;
+        case searchParamsLength >= 1 && !searchParams.hasOwnProperty(option):
+            correctUrl = `${pathname + search}&${option}=${value}`;
+            break;
+        default:
+            correctUrl = `${pathname}?`;
+            for (let key in searchParams) {
+                correctUrl += key === option ? `${option}=${value}&` : `${key}=${searchParams[key]}&`
+            };
+            correctUrl = correctUrl.slice(0, -1);
+    };
+
+    window.history.pushState(null, document.title, correctUrl);
 }

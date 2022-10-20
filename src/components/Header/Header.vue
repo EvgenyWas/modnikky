@@ -9,6 +9,7 @@
                 MODNIKKY
             </h1>
             <actionsbar />
+            <app-search />
         </div>
     </header>
 </template>
@@ -18,10 +19,11 @@ import { defineComponent } from 'vue';
 import Navbar from './Navbar.vue';
 import Actionsbar from './Actionsbar.vue';
 import MobileMenu from './MobileMenu.vue';
+import AppSearch from './Search.vue';
 
 export default defineComponent({
     name: 'app-header',
-    components: { Navbar, Actionsbar, MobileMenu },
+    components: { Navbar, Actionsbar, MobileMenu, AppSearch },
     data() {
         return {
             isMobileMenuOpen: false
