@@ -6,6 +6,7 @@ export type TProductsState = {
 
 export type TSortingOptionsState = {
     search: string,
+    isSearchActive: boolean,
     selectedCategory: string
 }
 

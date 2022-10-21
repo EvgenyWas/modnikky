@@ -1,11 +1,7 @@
 <template>
     <div class="actionsbar">
-        <div class="actionsbar__search">
-            <img
-                class="actionsbar__icon" 
-                src="@/assets/icons/search-icon.svg" 
-                alt="Search"
-            >
+        <div class="actionsbar__search" @click="sortingOptions.setActiveSearch">
+            <img class="actionsbar__icon" src="@/assets/icons/search-icon.svg" alt="Search">
             <p class="actionsbar__title">
                 SEARCH
             </p>
@@ -16,45 +12,40 @@
             </p>
         </div>
         <div class="actionsbar__bag" @click="$router.push('/bag')">
-            <img
-                class="actionsbar__icon actionsbar__icon--bag" 
-                src="@/assets/icons/shopping-cart-icon.svg" 
-                alt="Shopping cart"
-            >
+            <img class="actionsbar__icon actionsbar__icon--bag" src="@/assets/icons/shopping-cart-icon.svg"
+                alt="Shopping cart">
             <p class="actionsbar__title">
-                BAG 
+                BAG
             </p>
-            <span 
-                class="actionsbar__bag-amount"
-                v-show="bagStore.getBagAmount"
-            >
+            <span class="actionsbar__bag-amount" v-show="bagStore.getBagAmount">
                 {{ `(${bagStore.getBagAmount})` }}
             </span>
         </div>
         <div class="actionsbar__wishlist" @click="$router.push('/wishlist')">
-            <img 
-                class="actionsbar__icon"
-                src="@/assets/icons/wishlist-icon.svg" 
-                alt="Wish list"
-            >
+            <img class="actionsbar__icon" src="@/assets/icons/wishlist-icon.svg" alt="Wish list">
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { useBagStore } from '@/stores/useBagStore';
+import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'actionsbar',
     setup() {
         const bagStore = useBagStore();
+        const sortingOptions = useSortingOptionsStore();
 
         return {
-            bagStore
+            bagStore,
+            sortingOptions
         }
     }
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

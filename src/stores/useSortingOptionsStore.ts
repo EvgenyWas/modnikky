@@ -5,11 +5,15 @@ export const useSortingOptionsStore = defineStore({
     id: "sorting-options",
     state: (): TSortingOptionsState => ({
         search: '',
+        isSearchActive: false,
         selectedCategory: ''
     }),
     getters: {
         getSearch(state) {
             return state.search;
+        },
+        getIsSearchActive(state) {
+            return state.isSearchActive;
         },
         getSelectedCategory(state) {
             return state.selectedCategory;
@@ -18,6 +22,12 @@ export const useSortingOptionsStore = defineStore({
     actions: {
         setSearch(search: string) {
             this.search = search.toLowerCase();
+        },
+        setActiveSearch() {
+            this.isSearchActive = true;
+        },
+        setInactiveSearch() {
+            this.isSearchActive = false;
         },
         setSelectedCategory(selectedCategory: string) {
             this.selectedCategory = selectedCategory;
