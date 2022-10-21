@@ -53,9 +53,6 @@
     font-weight: weight("regular");
     color: $primary-color;
 
-    &:focus {
-    }
-
     &::-webkit-input-placeholder {
       color: $primary-color;
     }

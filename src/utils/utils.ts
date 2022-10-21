@@ -124,3 +124,14 @@ export function pushParamsToWindowHistory(option: ESortingOptions, value: string
 
     window.history.pushState(null, document.title, correctUrl);
 }
+
+// Function to filter products by a string
+export function filterProducts(products: TProduct[], str: string) {
+    const filteredProducts = products.filter(({ type, name, description }) =>
+        [...str].every(letter =>
+            [...type.toLowerCase(), ...name.toLowerCase(), ...description.toLowerCase()].includes(letter)
+        )
+    );
+
+    return filteredProducts;
+}

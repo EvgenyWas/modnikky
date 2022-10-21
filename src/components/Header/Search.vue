@@ -2,10 +2,11 @@
     <div class="search">
         <div class="search__container" :class="{ 'search__container--active': isSearchActive }">
             <form @submit.prevent name="search" class="search__form">
-                <input type="button" class="search__btn-close" @click="sortingOptions.setInactiveSearch">
+                <input type="button" class="search__btn-close" @click="sortingOptions.setInactiveSearch"
+                    @keydown.esc="sortingOptions.setInactiveSearch">
                 <input type="text" class="search__input" placeholder="ENTER SEARCH TERMS" v-model.trim="inputRef">
                 <input type="button" class="search__btn-search" :class="{'search__btn-search--active': true}"
-                    @click="handleSubmit">
+                    @click="handleSubmit" @keydown.enter="handleSubmit">
             </form>
         </div>
     </div>
