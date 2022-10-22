@@ -1,9 +1,9 @@
 <template>
-    <top-section/>
-    <categories-section v-if="!sortingOptions.getSelectedCategory"/>
-    <category-section v-else/>
-    <sale-section :loading="loading"/>
-    <shop-section/>
+    <top-section />
+    <categories-section v-if="!sortingOptions.getSelectedCategory" />
+    <category-section v-else />
+    <sale-section :loading="loading" />
+    <shop-section />
 </template>
 
 <script lang="ts">
@@ -18,6 +18,7 @@ import ShopSection from '@/components/Home/ShopSection.vue';
 import CategoriesSection from '@/components/Home/CategoriesSection.vue';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import CategorySection from '@/components/Home/CategorySection.vue';
+import { ESortingOptions } from '@/config';
 
 export default defineComponent({
     name: 'home-page',
@@ -25,14 +26,14 @@ export default defineComponent({
     setup() {
         const { setProducts } = useProductsStore();
         const sortingOptions = useSortingOptionsStore();
-        const [ requestProducts, products, loading, error ] = useApi(storeApi.getCatalog);
-        
+        const [requestProducts, products, loading, error] = useApi(storeApi.getCatalog);
+
         requestProducts.value();
 
         return {
-            loading, 
-            error, 
-            products, 
+            loading,
+            error,
+            products,
             setProducts,
             sortingOptions
         };
@@ -41,9 +42,16 @@ export default defineComponent({
         loading() {
             const formattedProducts = formatAvailableSizes(this.products);
             this.setProducts(formattedProducts);
+        },
+        $route({ fullPath }) {
+            if (fullPath.includes('/home') && !fullPath.includes(ESortingOptions.CATEGORY)) {
+                this.sortingOptions.setSelectedCategory('');
+            }
         }
     }
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

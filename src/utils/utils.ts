@@ -1,4 +1,5 @@
 import type { ESortingOptions } from "@/config";
+import router from "@/router";
 import type { TWishlist } from "@/stores/types";
 import type { TBag, TBagItem, TProduct } from "@/types/types";
 
@@ -94,7 +95,7 @@ export function getWindowSearchParams(): { [key: string]: string } {
 }
 
 // Function to push params to current history
-export function pushParamsToWindowHistory(option: ESortingOptions, value: string) {
+export async function pushParamsToWindowHistory(option: ESortingOptions, value: string) {
     const { pathname, search } = window.location;
     const searchParams = getWindowSearchParams();
     const searchParamsLength = Object.keys(searchParams).length;
@@ -122,7 +123,9 @@ export function pushParamsToWindowHistory(option: ESortingOptions, value: string
             correctUrl = correctUrl.slice(0, -1);
     };
 
-    window.history.pushState(null, document.title, correctUrl);
+    // window.history.pushState(null, document.title, correctUrl);
+    await router.push(correctUrl);
+    window.history.replaceState({ ...history.state }, '');
 }
 
 // Function to filter products by a string
