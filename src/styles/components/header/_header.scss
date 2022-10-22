@@ -23,12 +23,16 @@
     padding: 10px;
   }
 
-  &__title {
+  &__title-box {
     flex-grow: 1;
+  }
+
+  &__title {
+    max-width: max-content;
+    margin: 0 auto;
     font-size: 35px;
     line-height: 35px;
     font-weight: weight("bold");
-    text-align: center;
     cursor: pointer;
 
     @include lg {
