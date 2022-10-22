@@ -1,39 +1,39 @@
 .my-swiper {
-    position: relative;
+  position: relative;
 
-    .swiper {
-        position: static;
-    }
+  .swiper {
+    position: static;
+  }
 
-    &__container {
-        max-width: 1220px;
-    }
+  &__container {
+    max-width: 1220px;
+  }
 
-    &__prev-btn {
-        position: absolute;
-        z-index: 5;
-        left: 0;
-        top: 50%;
-        transform: translate(-50%, -100%) scaleX(-1);
-        width: 71px;
-        height: 71px;
-        background: no-repeat center url('@/assets/icons/next-ellipse-icon.svg');
-        background-size: contain;
-    }
+  &__prev-btn {
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -100%) scaleX(-1);
+    width: 71px;
+    height: 71px;
+    background: no-repeat center url("@/assets/icons/next-ellipse-icon.svg");
+    background-size: contain;
+  }
 
-    &__next-btn {
-        position: absolute;
-        z-index: 5;
-        right: 0;
-        top: 50%;
-        transform: translate(50%, -100%);
-        width: 71px;
-        height: 71px;
-        background: no-repeat center url('@/assets/icons/next-ellipse-icon.svg');
-        background-size: contain;
-    }
+  &__next-btn {
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -100%);
+    width: 71px;
+    height: 71px;
+    background: no-repeat center url("@/assets/icons/next-ellipse-icon.svg");
+    background-size: contain;
+  }
 
-    & .swiper-button-disabled {
-        display: none;
-    }
+  & .swiper-button-disabled {
+    display: none;
+  }
 }

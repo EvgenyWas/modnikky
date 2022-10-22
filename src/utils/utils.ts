@@ -123,7 +123,6 @@ export async function pushParamsToWindowHistory(option: ESortingOptions, value: 
             correctUrl = correctUrl.slice(0, -1);
     };
 
-    // window.history.pushState(null, document.title, correctUrl);
     await router.push(correctUrl);
     window.history.replaceState({ ...history.state }, '');
 }

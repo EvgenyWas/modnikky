@@ -1,17 +1,17 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: $primary-font;
-    font-style: normal;
-    font-weight: weight('regular');
-    color: $text-color;
-    background-color: $primary-color;
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: weight("regular");
+  color: $text-color;
+  background-color: $primary-color;
 }
 
 .container {
-    max-width: 1240px;
-    padding: 0 10px;
-    margin: 0 auto;
+  max-width: 1240px;
+  padding: 0 10px;
+  margin: 0 auto;
 }

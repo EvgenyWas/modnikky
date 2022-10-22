@@ -1,8 +1,8 @@
 <template>
     <section class="product">
         <div class="product__container">
-            <product-gallery :images="product.images"/>
-            <product-bar/>
+            <product-gallery :images="product.images" />
+            <product-bar />
         </div>
     </section>
 </template>
@@ -18,7 +18,7 @@ import { useRoute } from 'vue-router';
 export default defineComponent({
     name: 'product-page',
     components: { ProductGallery, ProductBar },
-    setup () {
+    setup() {
         const productsStore = useProductsStore();
         const route = useRoute();
         const product = productsStore.getProductById(route.params.id as string) as TProduct;
@@ -30,4 +30,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

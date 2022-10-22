@@ -10,7 +10,7 @@
     background-color: $text-color;
     transition: width 0.5s;
   }
-  
+
   &:hover:after {
     content: "";
     position: absolute;
@@ -36,7 +36,7 @@
 
 @mixin grey-bottom-line {
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;

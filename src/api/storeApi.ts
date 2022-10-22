@@ -6,9 +6,9 @@ export default {
         return fetchRequest('catalog', {});
     },
     postCart(cart: TCartPost): TResponsePostRequests {
-        return postRequest('cart', cart)
+        return postRequest('cart', cart);
     },
     postSubscription(email: TSubscriptionPost): TResponsePostRequests {
-        return postRequest('subscription', email)
+        return postRequest('subscription', email);
     },
 }
