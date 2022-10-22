@@ -2,11 +2,10 @@
     <div class="search">
         <div class="search__container" :class="{ 'search__container--active': isSearchActive }">
             <form @submit.prevent name="search" class="search__form">
-                <input type="button" class="search__btn-close" @click="sortingOptions.setInactiveSearch"
-                    @keydown.esc="sortingOptions.setInactiveSearch">
+                <input type="button" class="search__btn-close" @click="sortingOptions.setInactiveSearch">
                 <input type="text" class="search__input" placeholder="ENTER SEARCH TERMS" v-model.trim="inputRef">
                 <input type="button" class="search__btn-search" :class="{'search__btn-search--active': true}"
-                    @click="handleSubmit" @keydown.enter="handleSubmit">
+                    @click="handleSubmit">
             </form>
         </div>
     </div>
@@ -43,6 +42,12 @@ export default defineComponent({
             this.inputRef = searchValue;
         };
     },
+    mounted() {
+        window.addEventListener('keydown', this.searchEventHandler);
+    },
+    unmounted() {
+        window.removeEventListener('keydown', this.searchEventHandler);
+    },
     methods: {
         handleSubmit() {
             if (this.inputRef || getWindowSearchParams()[ESortingOptions.SEARCH]) {
@@ -53,6 +58,17 @@ export default defineComponent({
                 this.sortingOptions.setInactiveSearch();
                 // Scroll to content
                 window.scrollBy(0, this.windowDimensions.height);
+            };
+        },
+        searchEventHandler(event: KeyboardEvent) {
+            if (!this.sortingOptions.getIsSearchActive) return;
+
+            if (event.key === 'Enter') {
+                this.handleSubmit();
+            };
+
+            if (event.key === 'Escape') {
+                this.sortingOptions.setInactiveSearch();
             };
         }
     }
