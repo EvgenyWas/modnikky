@@ -25,22 +25,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import type { PropType } from "vue";
 import type { TBagItem } from "@/types/types";
+import type { PropType } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
     name: "bag-product-bar",
     props: {
-        wishlistMode: {
-            type: Boolean,
-            default: false,
-        },
         product: {
             type: Object as PropType<TBagItem>,
-            required: true,
+            default: [],
         },
-    },
+    }
 });
 </script>
 

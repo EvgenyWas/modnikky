@@ -1,0 +1,52 @@
+<template>
+    <div class="wishlist-product-bar">
+        <div class="wishlist-product-bar__header">
+            <h3 class="wishlist-product-bar__title">
+                {{ product.name }}
+            </h3>
+            <p class="product__price">
+                {{
+                `${product.price.currency} $${Number(product.price.value).toFixed(2)}`
+                }}
+            </p>
+        </div>
+        <div class="wishlist-product-bar__body">
+            <p>
+                {{ `COLOR: ${product.color.name.toUpperCase()}` }}
+            </p>
+            <div class="wishlist-product-bar__size">
+                <p>SIZE: </p>
+                <div class="wishlist-product-bar__sizes-box">
+                    <size-button v-for="(size, index) in product.availableSizes" :key="size + index" :size="size"
+                        :is-active="selectedSize === size" @click="$emit('selecte', size)" />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { TProduct } from '@/types/types';
+import SizeButton from '@/components/UI/Buttons/SizeButton.vue';
+
+export default defineComponent({
+    name: "wishlist-product-bar",
+    components: { SizeButton },
+    props: {
+        product: {
+            type: Object as PropType<TProduct>,
+            required: true,
+        },
+        selectedSize: {
+            type: String,
+            required: true,
+        }
+    }
+})
+</script>
+
+<style scoped>
+
+</style>

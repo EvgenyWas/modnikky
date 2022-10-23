@@ -27,6 +27,11 @@ const router = createRouter({
       path: '/bag',
       name: 'bag',
       component: () => import('@/pages/BagPage.vue')
+    },
+    {
+      path: '/wishlist',
+      name: 'wishlist',
+      component: () => import('@/pages/WishlistPage.vue')
     }
   ]
 })

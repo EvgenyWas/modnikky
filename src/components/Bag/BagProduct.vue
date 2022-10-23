@@ -25,10 +25,6 @@ export default defineComponent({
     name: "bag-product",
     components: { BagProductBar },
     props: {
-        wishlistMode: {
-            type: Boolean,
-            default: false
-        },
         product: {
             type: Object as PropType<TBagItem>,
             required: true
