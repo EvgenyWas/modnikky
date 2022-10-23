@@ -41,11 +41,11 @@ export const useBagStore = defineStore({
                 amount: this.amount + 1
             })
         },
-        removeProductFromBag(productId: string) {
+        removeProductFromBag(productId: string, quantity: number) {
             const filteredBag = this.bag.filter(item => item.id !== productId);
             this.$patch({
                 bag: filteredBag,
-                amount: this.amount - 1
+                amount: this.amount - quantity
             });
         }
     }

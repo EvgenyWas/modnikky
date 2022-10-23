@@ -9,7 +9,7 @@
             </h2>
             <div class="bag__products">
                 <bag-product v-for="product in bagStore.getBag" :key="product.id" :product="product"
-                    @remove="bagStore.removeProductFromBag(product.id)" />
+                    @remove="bagStore.removeProductFromBag(product.id, product.quantity)" />
             </div>
         </div>
     </section>
