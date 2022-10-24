@@ -137,3 +137,10 @@ export function filterProducts(products: TProduct[], str: string) {
 
     return filteredProducts;
 }
+
+// Function to get a correct string with an amount and item word 
+export function getCorrectItemsAmountString(itemsAmount: number): string {
+    const correctEnding = itemsAmount === 1 ? "item" : "items";
+    const correctString = `${itemsAmount} ${correctEnding}`;
+    return correctString;
+}

@@ -20,7 +20,7 @@
 import { useBagStore } from '@/stores/useBagStore';
 import { useWishlistStore } from '@/stores/useWishlistStore';
 import type { TProduct } from '@/types/types';
-import { convertToBagItem } from '@/utils/utils';
+import { convertToBagItem, getCorrectItemsAmountString } from '@/utils/utils';
 import { computed, defineComponent } from 'vue';
 import WishlistProduct from '../components/Wishlist/WishlistProduct.vue';
 
@@ -30,12 +30,8 @@ export default defineComponent({
     setup() {
         const wishlist = useWishlistStore();
         const bagStore = useBagStore();
-        const wishlistAmount = computed(() => {
-            const wishlistLength = wishlist.getWishlist.length;
-            const correctEnding = wishlistLength === 1 ? "item" : "items";
-            const wishlistAmount = `${wishlistLength} ${correctEnding}`;
-            return wishlistAmount;
-        });
+        const wishlistAmount = computed(() => getCorrectItemsAmountString(wishlist.getWishlist.length));
+
         return {
             wishlist,
             bagStore,

@@ -19,17 +19,15 @@
 import { useBagStore } from '@/stores/useBagStore';
 import { defineComponent, computed } from 'vue'
 import BagProduct from '@/components/Bag/BagProduct.vue'
+import { getCorrectItemsAmountString } from '@/utils/utils';
 
 export default defineComponent({
     name: "bag-page",
     components: { BagProduct },
     setup() {
         const bagStore = useBagStore();
-        const bagAmount = computed(() => {
-            const correctEnding = bagStore.getBagAmount === 1 ? "item" : "items";
-            const bagAmount = `${bagStore.getBagAmount} ${correctEnding}`;
-            return bagAmount;
-        });
+        const bagAmount = computed(() => getCorrectItemsAmountString(bagStore.getBagAmount));
+
         return {
             bagStore,
             bagAmount
