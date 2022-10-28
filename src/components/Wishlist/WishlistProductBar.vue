@@ -5,9 +5,7 @@
                 {{ product.name }}
             </h3>
             <p class="product__price">
-                {{
-                `${product.price.currency} $${Number(product.price.value).toFixed(2)}`
-                }}
+                {{ `${product.price.currency} $${getPrice(product.price.value, product.price.currency)}` }}
             </p>
         </div>
         <div class="wishlist-product-bar__body">
@@ -30,6 +28,7 @@ import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { TProduct } from '@/types/types';
 import SizeButton from '@/components/UI/Buttons/SizeButton.vue';
+import { getFormattedPrice } from '@/utils/utils';
 
 export default defineComponent({
     name: "wishlist-product-bar",
@@ -42,6 +41,11 @@ export default defineComponent({
         selectedSize: {
             type: String,
             required: true,
+        }
+    },
+    methods: {
+        getPrice(price: number | string, currency: string) {
+            return getFormattedPrice(price, currency);
         }
     }
 })

@@ -2,30 +2,16 @@
     <article class="product-card">
         <div class="product-card__box" @click="$router.push(`/product/${product.id}`)">
             <div class="product-card__image-block">
-                <img 
-                    class="product-card__image"
-                    :src="product.images[0]" 
-                    alt="Product image"
-                >
-                <img 
-                    v-if="hasProductInWishlist"
-                    class="product-card__like"
-                    src="@/assets/icons/liked-icon.svg" 
-                    alt="Like icon"
-                    @click.stop="handleLikeClick"
-                >
-                <img 
-                    v-else
-                    class="product-card__like"
-                    src="@/assets/icons/like-icon.svg" 
-                    alt="Like icon"
-                    @click.stop="handleLikeClick"
-                >
+                <img class="product-card__image" :src="product.images[0]" alt="Product image">
+                <img v-if="hasProductInWishlist" class="product-card__like" src="@/assets/icons/liked-icon.svg"
+                    alt="Like icon" @click.stop="handleLikeClick">
+                <img v-else class="product-card__like" src="@/assets/icons/like-icon.svg" alt="Like icon"
+                    @click.stop="handleLikeClick">
                 <add-to-bag-button @click.stop="addProductToBag" />
-                <div class="product-card__cover"/>
+                <div class="product-card__cover" />
             </div>
             <p class="product-card__price">
-                {{ '$' + Number(product.price.value).toFixed(2) }}
+                {{ getPrice(product.price.value, product.price.currency) }}
             </p>
         </div>
     </article>
@@ -38,7 +24,7 @@ import type { PropType } from 'vue'
 import { useWishlistStore } from '@/stores/useWishlistStore'
 import { useBagStore } from '@/stores/useBagStore'
 import AddToBagButton from '@/components/UI/Buttons/AddToBagButton.vue'
-import { convertToBagItem, findSameInBag, findSameInWishlist } from '@/utils/utils'
+import { convertToBagItem, findSameInBag, findSameInWishlist, getFormattedPrice } from '@/utils/utils'
 
 export default defineComponent({
     name: 'product-card',
@@ -77,6 +63,9 @@ export default defineComponent({
             } else {
                 this.bag.setProductToBag(convertedProduct);
             }
+        },
+        getPrice(price: number | string, currency: string) {
+            return getFormattedPrice(price, currency);
         }
     },
     computed: {
@@ -87,4 +76,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

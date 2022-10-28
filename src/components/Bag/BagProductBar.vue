@@ -6,7 +6,7 @@
             </h3>
             <p class="product__price">
                 {{
-                `${product.price.currency} $${Number(product.price.value).toFixed(2)}`
+                        `${product.price.currency} ${getPrice(product.price.value, product.price.currency)}`
                 }}
             </p>
         </div>
@@ -26,6 +26,7 @@
 
 <script lang="ts">
 import type { TBagItem } from "@/types/types";
+import { getFormattedPrice } from "@/utils/utils";
 import type { PropType } from "vue";
 import { defineComponent } from "vue";
 
@@ -36,6 +37,11 @@ export default defineComponent({
             type: Object as PropType<TBagItem>,
             default: [],
         },
+    },
+    methods: {
+        getPrice(price: number | string, currency: string) {
+            return getFormattedPrice(price, currency);
+        }
     }
 });
 </script>

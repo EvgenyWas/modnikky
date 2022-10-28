@@ -144,3 +144,14 @@ export function getCorrectItemsAmountString(itemsAmount: number): string {
     const correctString = `${itemsAmount} ${correctEnding}`;
     return correctString;
 }
+
+// Function to get around price with currency
+export function getFormattedPrice(price: number | string, currency: string): string {
+    const numberFormat = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: currency,
+        maximumFractionDigits: 2,
+    });
+    const formattedPrice = numberFormat.format(Number(price));
+    return formattedPrice;
+}

@@ -21,7 +21,7 @@ export const useBagStore = defineStore({
                 return acc += Number(item.price.value) * item.quantity;
             }, 0);
 
-            return total.toFixed(2);
+            return total;
         }
     },
     actions: {

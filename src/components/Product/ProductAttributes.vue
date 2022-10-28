@@ -2,7 +2,7 @@
     <div class="product__attributes">
         <div class="product__conditions">
             <p class="product__price">
-                {{ `${price.currency} $${Number(price.value).toFixed(2)}` }}
+                {{ `${price.currency} ${getPrice(price.value, price.currency)}` }}
             </p>
             <a class="product__pre-order">
                 PRE-ORDER
@@ -12,24 +12,15 @@
             <h5 class="product__color-title">
                 COLOR
             </h5>
-            <div 
-                class="product__color-box"
-                :style="{backgroundColor: color.hex}"
-                :name="color.name"
-            ></div>
+            <div class="product__color-box" :style="{ backgroundColor: color.hex }" :name="color.name" />
         </div>
         <div class="product__sizes">
             <h5 class="product__sizes-title">
                 SIZE
             </h5>
             <div class="product__sizes-box">
-                <size-button 
-                    v-for="(size, index) in sizes"
-                    :key="size + index"
-                    :size="size"
-                    :is-active="selectedSize === size"
-                    @click="$emit('selecte', size)"
-                />
+                <size-button v-for="(size, index) in sizes" :key="size + index" :size="size"
+                    :is-active="selectedSize === size" @click="$emit('selecte', size)" />
             </div>
         </div>
     </div>
@@ -40,6 +31,7 @@ import { defineComponent } from 'vue';
 import type { PropType } from 'vue';
 import type { TColor, TPrice } from '@/types/types';
 import SizeButton from '../UI/Buttons/SizeButton.vue';
+import { getFormattedPrice } from '@/utils/utils';
 
 export default defineComponent({
     name: 'product-attributes',
@@ -61,8 +53,15 @@ export default defineComponent({
             type: String,
             required: true
         }
+    },
+    methods: {
+        getPrice(price: number | string, currency: string) {
+            return getFormattedPrice(price, currency);
+        }
     }
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
