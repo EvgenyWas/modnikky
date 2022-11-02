@@ -8,7 +8,7 @@
                 <product-card v-for="product in sortProducts(productsAmount)" :key="product.id" :product="product" />
             </div>
             <h3 class="category-section__subtitle" v-else>
-                {{ `No ${sortingOptions.getSelectedCategory} products found...` }}
+                {{ `No ${getSelectedCategory} products found...` }}
             </h3>
             <ring-loader v-show="loading" />
             <primary-button :title="'Show more'" blackMode @click="increaseProductsAmount"
@@ -26,6 +26,7 @@ import PrimaryButton from '../UI/Buttons/PrimaryButton.vue'
 import { capitalizeWord, filterProducts } from '@/utils/utils';
 import { paginationCategoryProducts } from '@/config';
 import RingLoader from '../UI/Loaders/RingLoader.vue';
+import { storeToRefs } from 'pinia';
 
 export default defineComponent({
     name: "category-section",
@@ -38,20 +39,21 @@ export default defineComponent({
     },
     setup() {
         const productsStore = useProductsStore();
-        const sortingOptions = useSortingOptionsStore();
+        const { getSelectedCategory, getSearch } = storeToRefs(useSortingOptionsStore());
         const filteredProducts = computed(() => filterProducts(
-            productsStore.getProductsByCategory(sortingOptions.getSelectedCategory),
-            sortingOptions.getSearch)
+            productsStore.getProductsByCategory(getSelectedCategory.value),
+            getSearch.value)
         );
 
         return {
-            sortingOptions,
+            getSelectedCategory,
+            getSearch,
             filteredProducts
         };
     },
     methods: {
         capitalizeCategory() {
-            return capitalizeWord(this.sortingOptions.getSelectedCategory);
+            return capitalizeWord(this.getSelectedCategory);
         },
         sortProducts(productsAmount: number) {
             return this.filteredProducts.slice(0, productsAmount);

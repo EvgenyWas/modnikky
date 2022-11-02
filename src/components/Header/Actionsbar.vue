@@ -17,8 +17,8 @@
             <p class="actionsbar__title">
                 BAG
             </p>
-            <span class="actionsbar__bag-amount" v-show="bagStore.getBagAmount">
-                {{ `(${bagStore.getBagAmount})` }}
+            <span class="actionsbar__bag-amount" v-show="getBagAmount">
+                {{ `(${getBagAmount})` }}
             </span>
         </div>
         <div class="actionsbar__wishlist" @click="$router.push('/wishlist')">
@@ -30,16 +30,17 @@
 <script lang="ts">
 import { useBagStore } from '@/stores/useBagStore';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
+import { storeToRefs } from 'pinia';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'actionsbar',
     setup() {
-        const bagStore = useBagStore();
+        const { getBagAmount } = storeToRefs(useBagStore());
         const sortingOptions = useSortingOptionsStore();
 
         return {
-            bagStore,
+            getBagAmount,
             sortingOptions
         }
     }
