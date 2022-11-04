@@ -1,5 +1,5 @@
 <template>
-    <section class="categories-section">
+    <section v-lazy-container="{ selector: 'img' }" class="categories-section">
         <div class="categories-section__container container">
             <h3 class="categories-section__title">
                 Shop by the
@@ -9,7 +9,7 @@
             </h3>
             <div class="categories-section__items">
                 <category-item v-for="category in categories" :key="category" :title="capitalizeTitle(category)"
-                    :src="`/src/assets/categories/${category}-category-image.svg`" :alt="`${category} image`"
+                    :data-src="`/src/assets/categories/${category}-category-image.svg`" :alt="`${category} image`"
                     @click="selecteCategory(category)" />
             </div>
         </div>

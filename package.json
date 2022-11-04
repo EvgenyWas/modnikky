@@ -13,6 +13,7 @@
     "pinia": "^2.0.22",
     "swiper": "^8.4.2",
     "vue": "^3.2.38",
+    "vue-lazyload": "^3.0.0-rc.2",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
