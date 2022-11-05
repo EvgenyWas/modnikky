@@ -17,7 +17,7 @@
             <p class="actionsbar__title">
                 BAG
             </p>
-            <span class="actionsbar__bag-amount" v-show="getBagAmount">
+            <span :class="{ 'actionsbar__bag-amount--active': getBagAmount }" class="actionsbar__bag-amount">
                 {{ `(${getBagAmount})` }}
             </span>
         </div>

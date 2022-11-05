@@ -32,9 +32,15 @@
     gap: 2px;
 
     &-amount {
+      width: 30px;
       font-size: $xs-text;
       line-height: 12px;
       cursor: pointer;
+      visibility: hidden;
+
+      &--active {
+        visibility: visible;
+      }
     }
   }
 
