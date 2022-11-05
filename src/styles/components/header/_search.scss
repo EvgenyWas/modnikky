@@ -28,6 +28,28 @@
     margin-top: 180px;
     margin-right: 60px;
     border-bottom: 3px solid $primary-color;
+
+    &--focused {
+      border-bottom: 3px solid $accept-dark;
+
+      .search {
+        &__btn-search {
+          filter: none;
+        }
+
+        &__btn-close {
+          filter: invert(80%);
+        }
+
+        &__input {
+          color: $accept-dark;
+
+          &::-webkit-input-placeholder {
+            color: $accept-dark;
+          }
+        }
+      }
+    }
   }
 
   &__btn-close {
@@ -63,7 +85,7 @@
     height: 40px;
     margin-right: 8px;
     background: url("@/assets/icons/search-icon.svg") no-repeat center;
-    background-size: 40px 40px;
+    background-size: contain;
     cursor: pointer;
     visibility: hidden;
     filter: invert(91%) sepia(75%) saturate(0%) hue-rotate(5deg)
