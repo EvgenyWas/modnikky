@@ -13,7 +13,7 @@
             'updates-form__group--focused': isFocused,
         }" v-if="!loading && !response?.message">
             <input v-model="email" type="email" name="email" class="updates-form__input"
-                placeholder="Your email address" ref="inputRef">
+                placeholder="Your email address" ref="elemRef">
             <button class="updates-form__btn" @click="sendEmailForUpdates">
                 JOIN
             </button>
@@ -30,8 +30,7 @@ import storeApi from '@/api/storeApi';
 import useApi from '@/hooks/useApi';
 import { useFocusedElemFlag } from '@/hooks/useFocusedElemFlag';
 import { validateEmail } from '@/utils/utils';
-import { defineComponent, ref } from 'vue';
-import type { Ref } from 'vue';
+import { defineComponent } from 'vue';
 import RingLoader from '../UI/Loaders/RingLoader.vue';
 
 export default defineComponent({
@@ -61,15 +60,14 @@ export default defineComponent({
     },
     setup() {
         const [postEmail, response, loading, error] = useApi(storeApi.postSubscription);
-        const inputRef = ref<HTMLElement>();
-        const isFocused = useFocusedElemFlag(inputRef as Ref<HTMLElement>);
+        const { elemRef, isFocused } = useFocusedElemFlag();
 
         return {
             postEmail,
             response,
             loading,
             error,
-            inputRef,
+            elemRef,
             isFocused
         }
     }

@@ -4,7 +4,7 @@
             <form :class="{ 'search__form--focused': isFocused }" class="search__form" @submit.prevent name="search">
                 <input type="button" class="search__btn-close" @click="sortingOptions.setInactiveSearch">
                 <input v-model.trim="inputModel" type="text" class="search__input" placeholder="ENTER SEARCH TERMS"
-                    ref="inputRef">
+                    ref="elemRef">
                 <input type="button" class="search__btn-search" :class="{ 'search__btn-search--active': true }"
                     @click="handleSubmit">
             </form>
@@ -13,13 +13,12 @@
 </template>
 
 <script lang="ts">
-import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
-import { defineComponent, ref, computed } from 'vue';
-import type { Ref } from 'vue';
-import { getWindowSearchParams, pushParamsToWindowHistory } from '@/utils/utils';
 import { ESortingOptions } from '@/config';
-import { useWindowDimensions } from '@/hooks/useWindowDimensions';
 import { useFocusedElemFlag } from '@/hooks/useFocusedElemFlag';
+import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
+import { getWindowSearchParams, pushParamsToWindowHistory } from '@/utils/utils';
+import { computed, defineComponent, ref } from 'vue';
 
 export default defineComponent({
     name: 'app-search',
@@ -27,15 +26,14 @@ export default defineComponent({
         const sortingOptions = useSortingOptionsStore();
         const windowDimensions = useWindowDimensions();
         const inputModel = ref<string>('');
-        const inputRef = ref<HTMLElement>();
         const isSearchActive = computed(() => sortingOptions.getIsSearchActive);
-        const isFocused = useFocusedElemFlag(inputRef as Ref<HTMLElement>);
+        const { elemRef, isFocused } = useFocusedElemFlag();
 
         return {
             sortingOptions,
             windowDimensions,
             isSearchActive,
-            inputRef,
+            elemRef,
             inputModel,
             isFocused
         }
