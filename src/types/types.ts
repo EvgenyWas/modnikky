@@ -31,3 +31,13 @@ export type TBagItem = {
 };
 
 export type TBag = TBagItem[];
+
+export type CookieOptions = {
+  path?: string;
+  domain?: string;
+  expires?: Date | string;
+  ["max-age"]?: number;
+  secure?: boolean;
+  samesite?: boolean | 'lax';
+  httpOnly?: boolean;
+}

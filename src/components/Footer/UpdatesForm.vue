@@ -1,5 +1,5 @@
 <template>
-    <form class="updates-form" @submit.prevent>
+    <form v-show="!hasSubscribedCookie" class="updates-form" @submit.prevent>
         <label for="email" class="updates-form__label">
             <h4 class="updates-form__title">
                 SIGN UP FOR UPDATES
@@ -29,9 +29,10 @@
 import storeApi from '@/api/storeApi';
 import useApi from '@/hooks/useApi';
 import { useFocusedElemFlag } from '@/hooks/useFocusedElemFlag';
-import { validateEmail } from '@/utils/utils';
+import { getCookie, getFutureDateInDays, setCookie, validateEmail } from '@/utils/utils';
 import { defineComponent } from 'vue';
 import RingLoader from '../UI/Loaders/RingLoader.vue';
+import { SUBSCRIPTION_COOKIE, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
 
 export default defineComponent({
     components: { RingLoader },
@@ -46,6 +47,11 @@ export default defineComponent({
         sendEmailForUpdates() {
             if (this.isCorrectEmail && this.email !== '') {
                 this.postEmail({ email: this.email });
+                setCookie(
+                    SUBSCRIPTION_COOKIE,
+                    'true',
+                    { expires: getFutureDateInDays(SUBSCRIPTION_EXPIRATION_DAYS) }
+                );
             }
         }
     },
@@ -57,6 +63,11 @@ export default defineComponent({
                 this.isCorrectEmail = false;
             }
         }
+    },
+    computed: {
+        hasSubscribedCookie() {
+            return getCookie(SUBSCRIPTION_COOKIE);
+        },
     },
     setup() {
         const [postEmail, response, loading, error] = useApi(storeApi.postSubscription);

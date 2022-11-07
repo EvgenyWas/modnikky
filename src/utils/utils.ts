@@ -1,7 +1,7 @@
 import type { ESortingOptions } from "@/config";
 import router from "@/router";
 import type { TWishlist } from "@/stores/types";
-import type { TBag, TBagItem, TProduct } from "@/types/types";
+import type { CookieOptions, TBag, TBagItem, TProduct } from "@/types/types";
 
 // Function for email validate
 export function validateEmail(email: string) {
@@ -164,4 +164,52 @@ export function getFormattedPrice(
   });
   const formattedPrice = numberFormat.format(Number(price));
   return formattedPrice;
+}
+
+export function getCookie(name: string): string | undefined {
+  const matches = document.cookie.match(
+    new RegExp(
+      "(?:^|; )" +
+        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+        "=([^;]*)"
+    )
+  );
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+export function setCookie(
+  name: string,
+  value: string | number,
+  options: CookieOptions = {}
+): void {
+  const cookieOptions: CookieOptions = {
+    path: "/",
+    ...options,
+  };
+
+  if (options?.expires instanceof Date) {
+    cookieOptions.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie =
+    encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in cookieOptions) {
+    let optionValue = cookieOptions[optionKey as keyof CookieOptions];
+    if (!optionValue) continue;
+
+    updatedCookie +=
+      optionValue !== true
+        ? "; " + optionKey + "=" + optionValue
+        : "; " + optionKey;
+  }
+
+  document.cookie = updatedCookie;
+}
+
+// Function to get future date in certain days
+export function getFutureDateInDays(days: number) {
+  const millisecondsInDay = 86400e3;
+  const futureDate = new Date(Date.now() + millisecondsInDay * days);
+  return futureDate;
 }
