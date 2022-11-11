@@ -167,7 +167,14 @@ export function getFormattedPrice(
 }
 
 export function getCookie(name: string): string | undefined {
-  const matches = document.cookie.match(
+  let cookie: string = '';
+  try {
+    cookie = document.cookie;
+  } catch(error) {
+    console.log(error);
+  };
+
+  const matches = cookie.match(
     new RegExp(
       "(?:^|; )" +
         name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
@@ -202,9 +209,13 @@ export function setCookie(
       optionValue !== true
         ? "; " + optionKey + "=" + optionValue
         : "; " + optionKey;
-  }
+  };
 
-  document.cookie = updatedCookie;
+  try {
+    document.cookie = updatedCookie;
+  } catch (error) {
+    console.log(error);
+  };
 }
 
 // Function to get future date in certain days
