@@ -1,22 +1,22 @@
-import type { TBag, TProduct } from "@/types/types"
+import type { TBag, TProduct } from "@/types/types";
 
 export type TProductsState = {
-    products: TProduct[]
-}
+  products: TProduct[];
+};
 
 export type TSortingOptionsState = {
-    search: string,
-    isSearchActive: boolean,
-    selectedCategory: string
-}
+  search: string;
+  isSearchActive: boolean;
+  selectedCategory: string;
+};
 
 export type TBagState = {
-    bag: TBag,
-    amount: number
-}
+  bag: TBag;
+  amount: number;
+};
 
-export type TWishlist = TProduct[]
+export type TWishlist = TProduct[];
 
 export type TWishlistState = {
-    wishlist: TWishlist
-}
+  wishlist: TWishlist;
+};
