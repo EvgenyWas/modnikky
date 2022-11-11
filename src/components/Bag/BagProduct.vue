@@ -6,8 +6,10 @@
                 <bag-product-bar :product="product" />
             </div>
             <div class="bag-product__btn-box">
-                <button class="bag-product__btn" @click="$emit('remove')">
-                    <img class="bag-product__btn-icon" src="@/assets/icons/remove-icon.svg" alt="Remove icon">
+                <button class="bag-product__btn-increase" @click="$emit('increase')"></button>
+                <button class="bag-product__btn-decrease" @click="$emit('decrease')"></button>
+                <button class="bag-product__btn-remove" @click="$emit('remove')">
+                    <img class="bag-product__btn-remove-icon" src="@/assets/icons/remove-icon.svg" alt="Remove icon">
                     REMOVE
                 </button>
             </div>

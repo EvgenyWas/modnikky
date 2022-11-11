@@ -55,10 +55,31 @@
       margin-bottom: 30px;
     }
 
-    &__btn {
+    &__btn-increase,
+    &__btn-decrease {
+      width: 12px;
+      height: 12px;
+
+      &:active {
+        background-color: $accept-grey;
+      }
+    }
+
+    &__btn-increase {
+      margin-right: 20px;
+      background: url("@/assets/icons/expand-icon.svg") no-repeat center;
+    }
+
+    &__btn-decrease {
+      margin-right: auto;
+      background: url("@/assets/icons/hide-icon.svg") no-repeat center;
+    }
+
+    &__btn-remove {
       display: flex;
-      justify-content: center;
+      justify-content: end;
       align-items: center;
+      margin-right: 20px;
       font-size: $xs-text;
       line-height: 12px;
       font-weight: weight("light");

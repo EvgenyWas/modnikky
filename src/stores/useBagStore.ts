@@ -40,11 +40,35 @@ export const useBagStore = defineStore("bagStore", {
         amount: this.amount + 1,
       });
     },
-    removeProductFromBag(productId: string, quantity: number) {
-      const filteredBag = this.bag.filter((item) => item.id !== productId);
+    removeProductFromBag(product: TBagItem) {
+      const filteredBag = this.bag.filter(
+        (item) =>
+          item.selectedSize !== product.selectedSize || item.id !== product.id
+      );
       this.$patch({
         bag: filteredBag,
-        amount: this.amount - quantity,
+        amount: this.amount - product.quantity,
+      });
+    },
+    decreaseProductQuantity(product: TBagItem) {
+      if (product.quantity === 1) {
+        this.removeProductFromBag(product);
+        return;
+      }
+
+      const newBag = this.bag.map((item) => {
+        if (
+          product.id === item.id &&
+          product.selectedSize === item.selectedSize
+        ) {
+          item.quantity -= 1;
+        }
+
+        return item;
+      });
+      this.$patch({
+        bag: newBag,
+        amount: this.amount - 1,
       });
     },
   },
