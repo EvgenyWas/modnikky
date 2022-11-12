@@ -9,16 +9,31 @@
   color: $primary-color;
   border: 1px solid $primary-color;
 
+  &:active {
+    color: $text-color;
+    background-color: $primary-color;
+  }
+
   &--black {
     font-size: $md-text;
     color: $text-color;
     border: 1px solid $text-color;
+
+    &:active {
+      color: $primary-color;
+      background-color: $text-color;
+    }
   }
 
   &--dark {
     font-family: $primary-font;
     border: 1px solid $text-color;
     background-color: $text-color;
+
+    &:active {
+      color: $text-color;
+      background-color: $primary-color;
+    }
   }
 }
 

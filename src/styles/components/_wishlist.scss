@@ -2,19 +2,33 @@
   &__container {
     @include flex-column(30px);
     align-items: center;
+    width: 548px;
     margin-bottom: 120px;
     padding-top: 26px;
+
+    @include md {
+      margin-bottom: 70px;
+    }
+
+    @include sm {
+      width: 100%;
+      margin-bottom: 40px;
+    }
   }
 
   &__title {
     position: relative;
-    width: 528px;
+    width: 100%;
     padding-bottom: 20px;
     font-size: $md-text;
     line-height: $md-lh;
     font-weight: weight("regular");
     letter-spacing: 0.04em;
     @include grey-bottom-line;
+
+    @include sm {
+      padding-bottom: 10px;
+    }
   }
 
   &__amount {
@@ -27,6 +41,7 @@
 
   &__products {
     @include flex-column(30px);
+    width: 100%;
     margin-bottom: 10px;
   }
 
@@ -36,12 +51,15 @@
 
     &__container {
       @include flex-column(43px);
-      width: 528px;
     }
 
     &__box {
       display: flex;
       gap: 20px;
+
+      @include sm {
+        gap: 10px;
+      }
     }
 
     &__image {
@@ -88,6 +106,7 @@
         margin-bottom: 10px;
         font-size: $sm-text;
         line-height: $md-lh;
+        font-weight: weight("regular");
         letter-spacing: 0.04em;
       }
 
