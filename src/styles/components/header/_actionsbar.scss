@@ -11,6 +11,10 @@
     justify-content: end;
   }
 
+  @include sm {
+    gap: 10px;
+  }
+
   &__search {
     display: flex;
     gap: 5px;

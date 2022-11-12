@@ -1,21 +1,44 @@
 .sale-section {
-    &__container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 50px;
-        padding-top: 90px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    padding-top: 90px;
+
+    @include lg {
+      margin-bottom: 40px;
+      padding-top: 70px;
     }
 
-    &__title {
-        margin-bottom: 83px;
-        font-family: $secondary-font;
-        font-size: $xl-text;
-        line-height: $xl-lh;
-        font-weight: weight('regular');
-
-        &--bold {
-            font-weight: weight('medium');
-        }
+    @include md {
+      padding-top: 50px;
     }
+
+    @include sm {
+      padding-top: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 83px;
+    font-family: $secondary-font;
+    font-size: $xl-text;
+    line-height: $xl-lh;
+    font-weight: weight("regular");
+
+    @include md {
+      margin-bottom: 60px;
+      font-size: $lg-text;
+      line-height: $lg-lh;
+    }
+
+    @include sm {
+      margin-bottom: 40px;
+    }
+
+    &--bold {
+      font-weight: weight("medium");
+    }
+  }
 }

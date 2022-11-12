@@ -1,7 +1,14 @@
 <template>
     <div class="my-swiper">
         <div class="my-swiper__container">
-            <swiper :slidesPerView="4" :spaceBetween="12" freeMode navigation :modules="modules" :loop="true">
+            <swiper :slidesPerView="2" :spaceBetween="12" :breakpoints="{
+                576: {
+                    slidesPerView: 3,
+                },
+                992: {
+                    slidesPerView: 4,
+                },
+            }" freeMode navigation cssMode loop :modules="modules">
                 <swiper-slide v-for="product in products" :key="product.id">
                     <product-card :product="product" />
                 </swiper-slide>

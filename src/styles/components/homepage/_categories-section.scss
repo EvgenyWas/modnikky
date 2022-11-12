@@ -1,94 +1,99 @@
 .categories-section {
-    &__container {
-        @include flex-column(83px);
-        align-items: center;
-        margin-bottom: 90px;
+  &__container {
+    @include flex-column(83px);
+    align-items: center;
+    margin-bottom: 90px;
 
-        @include lg {
-            gap: 70px;
-        }
-
-        @include md {
-            gap: 55px;
-            margin-bottom: 60px;
-        }
-
-        @include sm {
-            gap: 40px;
-            margin-bottom: 40px;
-        }
+    @include lg {
+      gap: 70px;
     }
 
-    &__title {
-        font-family: $secondary-font;
-        font-size: $xl-text;
-        line-height: $xl-lh;
-        font-weight: weight('regular');
-
-        &--bold {
-            font-weight: weight('medium');
-        }
+    @include md {
+      gap: 55px;
+      margin-bottom: 60px;
     }
 
-    &__items {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        column-gap: 12px;
-
-        @include lg {
-            grid-template-columns: repeat(3, 1fr);
-            row-gap: 20px;
-        }
-
-        @include sm {
-            grid-template-columns: repeat(2, 1fr);
-            row-gap: 20px;
-        }
+    @include sm {
+      gap: 40px;
+      margin-bottom: 40px;
     }
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: $xl-text;
+    line-height: $xl-lh;
+    font-weight: weight("regular");
+
+    @include md {
+      font-size: $lg-text;
+      line-height: $lg-lh;
+    }
+
+    &--bold {
+      font-weight: weight("medium");
+    }
+  }
+
+  &__items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 12px;
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 20px;
+    }
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 20px;
+    }
+  }
 }
 
 .category-item {
-    cursor: pointer;
+  cursor: pointer;
 
-    &:hover &__title {
-        font-weight: weight('medium');
+  &:hover &__title {
+    font-weight: weight("medium");
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 10px 20px 24px;
+    background-color: $purple;
+
+    @include xl {
+      gap: 5px;
+      padding: 20px 10px 20px 10px;
     }
 
-    &__container {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        padding: 20px 10px 20px 24px;
-        background-color: $purple;
-
-        @include xl {
-            gap: 5px;
-            padding: 20px 10px 20px 10px;
-        }
-
-        @include lg {
-            gap: 24px;
-            padding: 20px 10px 20px 16px;
-        }
+    @include lg {
+      gap: 24px;
+      padding: 20px 10px 20px 16px;
     }
+  }
 
-    &__image {
-        height: 50px;
+  &__image {
+    height: 50px;
 
-        @include xl {
-            height: 40px;
-        }
+    @include xl {
+      height: 40px;
     }
+  }
 
-    &__title {
-        font-family: $secondary-font;
-        font-size: $lg-text;
-        line-height: $xxl-lh;
-        font-weight: weight('regular');
+  &__title {
+    font-family: $secondary-font;
+    font-size: $lg-text;
+    line-height: $xxl-lh;
+    font-weight: weight("regular");
 
-        @include md {
-            font-size: $md-text;
-        }
+    @include md {
+      font-size: $md-text;
     }
+  }
 }

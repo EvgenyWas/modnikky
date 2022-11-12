@@ -7,6 +7,23 @@
 
   &__container {
     max-width: 1220px;
+
+    @media (max-width: 1260px) {
+      max-width: 952px;
+    }
+
+    @include lg {
+      max-width: 711px;
+      margin: 0 -10px;
+    }
+
+    @media (max-width: 731px) {
+      max-width: 555px;
+    }
+
+    @include sm {
+      max-width: 332px;
+    }
   }
 
   &__prev-btn {
@@ -19,6 +36,16 @@
     height: 71px;
     background: no-repeat center url("@/assets/icons/next-ellipse-icon.svg");
     background-size: contain;
+
+    @media (max-width: 1290px) {
+      width: 41px;
+      height: 41px;
+    }
+
+    @include sm {
+      width: 31px;
+      height: 31px;
+    }
   }
 
   &__next-btn {
@@ -31,6 +58,16 @@
     height: 71px;
     background: no-repeat center url("@/assets/icons/next-ellipse-icon.svg");
     background-size: contain;
+
+    @media (max-width: 1290px) {
+      width: 41px;
+      height: 41px;
+    }
+
+    @include sm {
+      width: 31px;
+      height: 31px;
+    }
   }
 
   & .swiper-button-disabled {
