@@ -7,11 +7,11 @@
                     {{ wishlistAmount }}
                 </span>
             </h2>
-            <div class="wishlist_products">
+            <TransitionGroup name="list" tag="div" class="wishlist_products">
                 <wishlist-product v-for="product in wishlist.getWishlist" :key="product.id" :product="product"
                     @remove="wishlist.removeProductFromWishlist(product.id)"
                     @add="(selectedSize: string) => addToBag(product, selectedSize)" />
-            </div>
+            </TransitionGroup>
         </div>
     </section>
 </template>
@@ -21,12 +21,12 @@ import { useBagStore } from '@/stores/useBagStore';
 import { useWishlistStore } from '@/stores/useWishlistStore';
 import type { TProduct } from '@/types/types';
 import { convertToBagItem, getCorrectItemsAmountString } from '@/utils/utils';
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, TransitionGroup } from 'vue';
 import WishlistProduct from '../components/Wishlist/WishlistProduct.vue';
 
 export default defineComponent({
     name: 'wishlist-page',
-    components: { WishlistProduct },
+    components: { WishlistProduct, TransitionGroup },
     setup() {
         const wishlist = useWishlistStore();
         const bagStore = useBagStore();

@@ -7,25 +7,25 @@
                     {{ bagAmount }}
                 </span>
             </h2>
-            <div class="bag__products">
+            <TransitionGroup name="list" tag="div" class="bag__products">
                 <bag-product v-for="product in bagStore.getBag" :key="product.id" :product="product"
                     @increase="bagStore.setSameProductToBag(product)"
                     @decrease="bagStore.decreaseProductQuantity(product)"
                     @remove="bagStore.removeProductFromBag(product)" />
-            </div>
+            </TransitionGroup>
         </div>
     </section>
 </template>
 
 <script lang="ts">
 import { useBagStore } from '@/stores/useBagStore';
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, TransitionGroup } from 'vue'
 import BagProduct from '@/components/Bag/BagProduct.vue'
 import { getCorrectItemsAmountString } from '@/utils/utils';
 
 export default defineComponent({
     name: "bag-page",
-    components: { BagProduct },
+    components: { BagProduct, TransitionGroup },
     setup() {
         const bagStore = useBagStore();
         const bagAmount = computed(() => getCorrectItemsAmountString(bagStore.getBagAmount));
