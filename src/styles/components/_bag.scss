@@ -126,3 +126,38 @@
     }
   }
 }
+
+.bag-total {
+  @include flex-column(20px);
+  align-items: center;
+
+  &__title {
+    margin-bottom: 4px;
+    font-size: $md-text;
+    line-height: $md-lh;
+    font-weight: weight("regular");
+    letter-spacing: 0.04em;
+  }
+
+  &__btn {
+    font-weight: weight("light");
+  }
+
+  &__cards-box {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__card {
+    width: 40px;
+    height: 28px;
+    cursor: pointer;
+  }
+
+  &-greeting {
+    font-size: $lg-text;
+    line-height: $lg-lh;
+    font-weight: weight("medium");
+    text-align: center;
+  }
+}

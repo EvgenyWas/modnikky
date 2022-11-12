@@ -1,4 +1,4 @@
-import type { ESortingOptions } from "@/config";
+import { DEFAULT_CURRENCY, type ESortingOptions } from "@/config";
 import router from "@/router";
 import type { TWishlist } from "@/stores/types";
 import type { CookieOptions, TBag, TBagItem, TProduct } from "@/types/types";
@@ -155,7 +155,7 @@ export function getCorrectItemsAmountString(itemsAmount: number): string {
 // Function to get around price with currency
 export function getFormattedPrice(
   price: number | string,
-  currency: string
+  currency: string = DEFAULT_CURRENCY
 ): string {
   const numberFormat = new Intl.NumberFormat("en-US", {
     style: "currency",

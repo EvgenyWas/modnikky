@@ -13,6 +13,7 @@
                     @decrease="bagStore.decreaseProductQuantity(product)"
                     @remove="bagStore.removeProductFromBag(product)" />
             </TransitionGroup>
+            <bag-total :total="bagStore.getBagTotal" @proceed-to-checkout="handleProceed" />
         </div>
     </section>
 </template>
@@ -21,11 +22,12 @@
 import { useBagStore } from '@/stores/useBagStore';
 import { defineComponent, computed, TransitionGroup } from 'vue'
 import BagProduct from '@/components/Bag/BagProduct.vue'
+import BagTotal from '@/components/Bag/BagTotal.vue';
 import { getCorrectItemsAmountString } from '@/utils/utils';
 
 export default defineComponent({
     name: "bag-page",
-    components: { BagProduct, TransitionGroup },
+    components: { BagProduct, TransitionGroup, BagTotal },
     setup() {
         const bagStore = useBagStore();
         const bagAmount = computed(() => getCorrectItemsAmountString(bagStore.getBagAmount));
@@ -34,6 +36,11 @@ export default defineComponent({
             bagStore,
             bagAmount
         };
+    },
+    methods: {
+        handleProceed() {
+            this.bagStore.$reset();
+        }
     }
 })
 </script>

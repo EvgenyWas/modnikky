@@ -16,3 +16,5 @@ export enum ESortingOptions {
 
 export const SUBSCRIPTION_EXPIRATION_DAYS = 30;
 export const SUBSCRIPTION_COOKIE = "subscribed";
+
+export const DEFAULT_CURRENCY = "USD";
