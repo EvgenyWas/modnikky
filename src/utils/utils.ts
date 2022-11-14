@@ -3,12 +3,21 @@ import router from "@/router";
 import type { TWishlist } from "@/stores/types";
 import type { CookieOptions, TBag, TBagItem, TProduct } from "@/types/types";
 
-// Function for email validate
-export function validateEmail(email: string) {
+// Function to validate an email
+export function validateEmail(email: string): RegExpMatchArray | null {
   return String(email)
     .toLowerCase()
     .match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+}
+
+// Function to validate a password
+export function validatePassword(password: string): RegExpMatchArray | null {
+  return String(password)
+    .toLowerCase()
+    .match(
+      /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[-\#\$\.\%\&\*])(?=.*[a-zA-Z]).{8,16}$/
     );
 }
 

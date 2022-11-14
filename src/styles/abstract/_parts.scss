@@ -1,28 +1,3 @@
-@mixin link-hover {
-  &:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -3px;
-    display: block;
-    width: 0;
-    height: 1px;
-    background-color: $text-color;
-    transition: width 0.5s;
-  }
-
-  &:hover:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: $text-color;
-  }
-}
-
 // Vue Transition
 .v-enter-active,
 .v-leave-active {
@@ -45,14 +20,55 @@
   transform: translateX(200px);
 }
 
-@mixin grey-bottom-line {
-  &::after {
-    content: "";
+// Checkbox styles
+.checkbox-container {
+  display: block;
+  position: relative;
+  font-size: 22px;
+  border: 1px solid $link-color;
+  cursor: pointer;
+  user-select: none;
+
+  & input {
     position: absolute;
-    bottom: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+
+    &:checked ~ .checkmark {
+      background-color: $link-color;
+
+      &:after {
+        display: block;
+      }
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
     left: 0;
-    right: 0;
-    height: 1px;
+    height: 16px;
+    width: 16px;
+    background-color: $grey-light;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 5px;
+      display: none;
+      width: 4px;
+      height: 10px;
+      border: solid $primary-color;
+      border-radius: 1px;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover input ~ .checkmark {
     background-color: $accept-grey;
   }
 }

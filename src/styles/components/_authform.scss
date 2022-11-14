@@ -1,0 +1,75 @@
+.auth-form {
+  width: 500px;
+  padding: 40px 49px;
+  background-color: $primary-color;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &__name {
+      flex-grow: 1;
+      font-size: $sm-text;
+      line-height: $md-lh;
+      letter-spacing: 0.04em;
+    }
+
+    &__close-btn {
+      width: 16px;
+      height: 16px;
+      background: url("../../assets/icons/close-icon.svg") no-repeat center;
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    @include flex-column(30px);
+    margin-bottom: 30px;
+
+    &__input {
+      width: 100%;
+      padding-bottom: 10px;
+      font-size: $xs-text;
+      line-height: 12px;
+      font-weight: weight("light");
+      color: $grey;
+      border-bottom: 1px solid $accept-grey;
+
+      &::placeholder {
+        color: $grey;
+      }
+
+      &:focus {
+        border-color: $link-color;
+      }
+
+      &--invalid {
+        color: $sale-color;
+        border-color: $sale-color;
+      }
+    }
+
+    &__validation-label {
+      color: $sale-color;
+    }
+  }
+
+  &__footer {
+    @include flex-column(30px);
+
+    &__account-btn {
+      align-self: flex-start;
+      font-size: $xs-text;
+      line-height: 12px;
+      font-weight: weight("light");
+      text-decoration: underline;
+      text-transform: capitalize;
+      cursor: pointer;
+
+      &:hover {
+        color: $grey;
+      }
+    }
+  }
+}
