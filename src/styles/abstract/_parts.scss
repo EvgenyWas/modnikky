@@ -24,7 +24,9 @@
 .checkbox-container {
   display: block;
   position: relative;
-  font-size: 22px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
   border: 1px solid $link-color;
   cursor: pointer;
   user-select: none;
@@ -47,28 +49,30 @@
 
   .checkmark {
     position: absolute;
-    top: 0;
+    top: -0.1px;
     left: 0;
-    height: 16px;
-    width: 16px;
-    background-color: $grey-light;
+    height: 14.1px;
+    width: 14.2px;
+    background-color: $primary-color;
 
     &:after {
       content: "";
       position: absolute;
-      left: 9px;
-      top: 5px;
+      left: 1.2px;
+      top: 3px;
       display: none;
-      width: 4px;
-      height: 10px;
-      border: solid $primary-color;
-      border-radius: 1px;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
+      width: 12px;
+      height: 9px;
+      background: url("@/assets/icons/checkbox-icon.svg") no-repeat center;
+      background-size: contain;
     }
   }
 
   &:hover input ~ .checkmark {
-    background-color: $accept-grey;
+    background-color: $grey-light;
+  }
+
+  &:hover input:checked ~ .checkmark {
+    background-color: $link-color;
   }
 }

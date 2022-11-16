@@ -5,7 +5,8 @@
             <input type="button" name="close-btn" class="auth-form__close-btn" @click="closeForm">
         </div>
         <div class="auth-form__body">
-            <sign-up-body v-if="isNewUser" :invalid-password-msg="invalidPasswordMsg" />
+            <sign-up-body v-if="isNewUser" :invalid-password-msg="invalidPasswordMsg"
+                @check-subscription="isCheckedSubscription = !isCheckedSubscription" />
             <sign-in-body v-else />
         </div>
         <div class="auth-form__footer">
@@ -28,12 +29,13 @@ export default defineComponent({
     data() {
         return {
             isNewUser: true,
-            isValidData: false
+            isValidData: false,
+            isCheckedSubscription: false,
         }
     },
     computed: {
         invalidPasswordMsg() {
-            return 'The password must match at least 8 - 16 characters, must contain at least 1 uppercase and lowercase letter and one number, and can contain any of this special characters $ % # * & - .'
+            return 'The password must match at least 8 - 16 characters, must contain at least 1 uppercase and lowercase letter and one number, and can contain any of this special characters $ % # * & - .';
         },
         formName() {
             return this.isNewUser ? 'CREATE ACCOUNT' : 'SIGN IN TO ACCOUNT';

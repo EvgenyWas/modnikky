@@ -7,69 +7,110 @@
     display: flex;
     align-items: center;
     margin-bottom: 50px;
+  }
 
-    &__name {
-      flex-grow: 1;
-      font-size: $sm-text;
-      line-height: $md-lh;
-      letter-spacing: 0.04em;
-    }
+  &__name {
+    flex-grow: 1;
+    font-size: $sm-text;
+    line-height: $md-lh;
+    letter-spacing: 0.04em;
+  }
 
-    &__close-btn {
-      width: 16px;
-      height: 16px;
-      background: url("../../assets/icons/close-icon.svg") no-repeat center;
-      cursor: pointer;
+  &__close-btn {
+    width: 16px;
+    height: 16px;
+    background: url("@/assets/icons/close-icon.svg") no-repeat center;
+    background-size: contain;
+    filter: invert(100%);
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.1;
     }
   }
 
   &__body {
     @include flex-column(30px);
     margin-bottom: 30px;
+  }
 
-    &__input {
-      width: 100%;
-      padding-bottom: 10px;
-      font-size: $xs-text;
-      line-height: 12px;
-      font-weight: weight("light");
+  &__input {
+    width: 100%;
+    padding-bottom: 10px;
+    font-size: $xs-text;
+    line-height: 12px;
+    font-weight: weight("light");
+    color: $grey;
+    border-bottom: 1px solid $accept-grey;
+
+    &::placeholder {
       color: $grey;
-      border-bottom: 1px solid $accept-grey;
+    }
+
+    &:focus {
+      color: $link-color;
+      border-color: $link-color;
 
       &::placeholder {
-        color: $grey;
-      }
-
-      &:focus {
-        border-color: $link-color;
-      }
-
-      &--invalid {
-        color: $sale-color;
-        border-color: $sale-color;
+        color: $link-color;
       }
     }
 
-    &__validation-label {
+    &--invalid {
       color: $sale-color;
+      border-color: $sale-color;
+    }
+  }
+
+  &__subscribtion {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__validation-label {
+    margin-top: -25px;
+    font-size: $xs-text;
+    line-height: 12px;
+    font-weight: weight("light");
+    color: $sale-color;
+  }
+
+  &__subscribtion-msg {
+    font-size: $xs-text;
+    line-height: $xs-lh;
+    font-weight: weight("light");
+  }
+
+  &__terms {
+    font-size: $xs-text;
+    line-height: $xs-lh;
+    font-weight: weight("light");
+    color: $grey;
+
+    & &-link {
+      text-decoration: underline;
+      color: $text-color;
+      cursor: pointer;
     }
   }
 
   &__footer {
     @include flex-column(30px);
+    align-items: center;
+  }
 
-    &__account-btn {
-      align-self: flex-start;
-      font-size: $xs-text;
-      line-height: 12px;
-      font-weight: weight("light");
-      text-decoration: underline;
-      text-transform: capitalize;
-      cursor: pointer;
+  &__account-btn {
+    align-self: flex-start;
+    font-size: $xs-text;
+    line-height: 12px;
+    font-weight: weight("light");
+    text-decoration: underline;
+    text-transform: uppercase;
+    cursor: pointer;
 
-      &:hover {
-        color: $grey;
-      }
+    &:hover {
+      color: $grey;
     }
   }
 }
