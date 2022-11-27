@@ -1,5 +1,6 @@
 .actionsbar {
   display: flex;
+  align-items: center;
   gap: 40px;
 
   @include lg {
@@ -67,6 +68,10 @@
   }
 
   &__auth {
+    & > a {
+      display: block;
+    }
+
     @include md {
       display: none;
     }

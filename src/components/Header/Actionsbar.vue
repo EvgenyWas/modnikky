@@ -7,9 +7,12 @@
             </p>
         </div>
         <div class="actionsbar__auth">
-            <p class="actionsbar__title">
-                SIGN IN
+            <p v-if="isAuthorized" class="actionsbar__title" @click="signOut">
+                SIGN OUT
             </p>
+            <RouterLink v-else to="/authentication" class="actionsbar__title">
+                SIGN IN
+            </RouterLink>
         </div>
         <div class="actionsbar__bag" @click="$router.push('/bag')">
             <img class="actionsbar__icon actionsbar__icon--bag" src="@/assets/icons/shopping-cart-icon.svg"
@@ -42,6 +45,16 @@ export default defineComponent({
         return {
             getBagAmount,
             sortingOptions
+        }
+    },
+    computed: {
+        isAuthorized() {
+            return false;
+        }
+    },
+    methods: {
+        signOut() {
+
         }
     }
 })

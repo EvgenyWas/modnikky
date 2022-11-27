@@ -1,9 +1,11 @@
 <template>
-    <input v-model="email" type="email" name="email" class="auth-form__input"
-        :class="{ 'auth-form__input--invalid': !isValidEmail }" placeholder="Email">
+    <input :value="email" type="email" name="email" class="auth-form__input"
+        :class="{ 'auth-form__input--invalid': !isValidEmail }" placeholder="Email"
+        @input="$emit('updateEmail', $event.target?.value)">
     <label v-show="!isValidEmail" for="email" class="auth-form__validation-label">{{ invalidEmailMsg }}</label>
-    <input v-model="password" type="password" name="password" class="auth-form__input"
-        :class="{ 'auth-form__input--invalid': !isValidPassword }" placeholder="Password">
+    <input :value="password" type="password" name="password" class="auth-form__input"
+        :class="{ 'auth-form__input--invalid': !isValidPassword }" placeholder="Password"
+        @input="$emit('updatePassword', $event.target?.value)">
     <label v-show="!isValidPassword" for="password" class="auth-form__validation-label">{{ invalidPasswordMsg }}</label>
 </template>
 
@@ -13,7 +15,16 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'sign-in-body',
+    emits: ['updateEmail', 'updatePassword', 'sign-in'],
     props: {
+        email: {
+            type: String,
+            required: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
         invalidEmailMsg: {
             type: String,
             default: 'Your email is invalid...',
@@ -25,8 +36,6 @@ export default defineComponent({
     },
     data() {
         return {
-            email: '',
-            password: '',
             isValidEmail: true,
             isValidPassword: true,
         }

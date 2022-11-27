@@ -1,7 +1,10 @@
 <template>
-    <input type="text" class="auth-form__input" placeholder="First Name">
-    <input type="text" class="auth-form__input" placeholder="Last Name">
-    <sign-in-body :invalid-password-msg="invalidPasswordMsg" />
+    <input :value="firstName" @input="$emit('update:firstName', $event.target?.value)" type="text"
+        class="auth-form__input" placeholder="First Name">
+    <input :value="lastName" @input="$emit('update:lastName', $event.target?.value)" type="text"
+        class="auth-form__input" placeholder="Last Name">
+    <sign-in-body :email="email" :password="password" :invalid-password-msg="invalidPasswordMsg"
+        @update-email="$emit('update:email')" @update-password="$emit('update:password')" />
     <div class="auth-form__subscribtion">
         <label class="checkbox-container">
             <input type="checkbox" @change="$emit('checkSubscription')">
@@ -26,11 +29,28 @@ import SignInBody from './SignInAuthFormBody.vue';
 export default defineComponent({
     name: 'sign-up-body',
     components: { SignInBody },
+    emits: ['update:firstName', 'update:lastName', 'update:email', 'update:password', 'checkSubscription', 'sign-up'],
     props: {
+        firstName: {
+            type: String,
+            required: true,
+        },
+        lastName: {
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            required: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
         invalidPasswordMsg: {
             type: String,
         },
-    }
+    },
 })
 </script>
 

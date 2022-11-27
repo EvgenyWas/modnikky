@@ -49,10 +49,10 @@
 
   .checkmark {
     position: absolute;
-    top: -0.1px;
-    left: 0;
-    height: 14.1px;
-    width: 14.2px;
+    top: 0;
+    left: -0.1px;
+    height: 14.2px;
+    width: 14.3px;
     background-color: $primary-color;
 
     &:after {
