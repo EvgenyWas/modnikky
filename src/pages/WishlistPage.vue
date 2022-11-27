@@ -1,6 +1,6 @@
 <template>
     <section class="wishlist">
-        <div class="wishlist__container">
+        <div class="wishlist__container container">
             <h2 class="wishlist__title">
                 WISH LIST
                 <span class="wishlist__amount">
