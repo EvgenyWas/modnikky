@@ -81,7 +81,7 @@ export default defineComponent({
         checkSubscription() {
             this.isCheckedSubscription = !this.isCheckedSubscription;
         },
-    }
+    },
 })
 </script>
 

@@ -4,7 +4,8 @@
     <input :value="lastName" @input="$emit('update:lastName', ($event.target as HTMLInputElement).value)" type="text"
         class="auth-form__input" placeholder="Last Name">
     <sign-in-body :email="email" :password="password" :invalid-password-msg="invalidPasswordMsg"
-        @update-email="$emit('update:email')" @update-password="$emit('update:password')" />
+        @update-email="(email) => $emit('update:email', email)"
+        @update-password="(password) => $emit('update:password', password)" />
     <div class="auth-form__subscribtion">
         <label class="checkbox-container">
             <input type="checkbox" @change="$emit('checkSubscription')">
