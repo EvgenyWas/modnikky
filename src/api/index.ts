@@ -1,34 +1,31 @@
-import axios from 'axios';
-import type { TDataPost } from './types';
+import axios from "axios";
+import type { TDataPost } from "./types";
 
-const baseUrl = 'https://modnikky-api.herokuapp.com/api/';
+const BASE_URL = import.meta.env.VITE_BASE_API;
 
 export const fetchRequest = (
-    url: string, 
-    params: {[key: string | number]: any}
+  url: string,
+  params: { [key: string | number]: any }
 ) => {
-    return axios
-        .create({
-            headers: {
-                'Content-type': 'application/json',
-            },
-        })
-        .get(`${baseUrl}${url}`, {
-            params: {
-                ...params,
-            },
-        });
+  return axios
+    .create({
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+    .get(`${BASE_URL}${url}`, {
+      params: {
+        ...params,
+      },
+    });
 };
 
-export const postRequest = (
-    url: string, 
-    data: TDataPost
-) => {
-    return axios
-        .create({
-            headers: {
-                'Content-type': 'application/json',
-            },
-        })
-        .post(`${baseUrl}${url}`, data);
+export const postRequest = (url: string, data: TDataPost) => {
+  return axios
+    .create({
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+    .post(`${BASE_URL}${url}`, data);
 };

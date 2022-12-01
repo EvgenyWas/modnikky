@@ -64,10 +64,8 @@ export default defineComponent({
         closeForm() {
             this.$router.go(-1);
         },
-        submitForm() {
+        async submitForm() {
             if (this.isValidData) {
-                this.$router.go(-1);
-
                 if (this.isCheckedSubscription) {
                     this.postEmail({ email: this.email });
                     setCookie(
@@ -76,6 +74,8 @@ export default defineComponent({
                         { expires: getFutureDateInDays(SUBSCRIPTION_EXPIRATION_DAYS) }
                     );
                 }
+
+                this.$router.go(-1);
             }
         },
         checkSubscription() {
