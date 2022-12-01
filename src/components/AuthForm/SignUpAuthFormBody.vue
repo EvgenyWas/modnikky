@@ -1,7 +1,7 @@
 <template>
-    <input :value="firstName" @input="$emit('update:firstName', $event.target?.value)" type="text"
+    <input :value="firstName" @input="$emit('update:firstName', ($event.target as HTMLInputElement).value)" type="text"
         class="auth-form__input" placeholder="First Name">
-    <input :value="lastName" @input="$emit('update:lastName', $event.target?.value)" type="text"
+    <input :value="lastName" @input="$emit('update:lastName', ($event.target as HTMLInputElement).value)" type="text"
         class="auth-form__input" placeholder="Last Name">
     <sign-in-body :email="email" :password="password" :invalid-password-msg="invalidPasswordMsg"
         @update-email="$emit('update:email')" @update-password="$emit('update:password')" />

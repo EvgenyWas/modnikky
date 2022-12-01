@@ -1,11 +1,11 @@
 <template>
     <input :value="email" type="email" name="email" class="auth-form__input"
         :class="{ 'auth-form__input--invalid': !isValidEmail }" placeholder="Email"
-        @input="$emit('updateEmail', $event.target?.value)">
+        @input="$emit('updateEmail', ($event.target as HTMLInputElement).value)">
     <label v-show="!isValidEmail" for="email" class="auth-form__validation-label">{{ invalidEmailMsg }}</label>
     <input :value="password" type="password" name="password" class="auth-form__input"
         :class="{ 'auth-form__input--invalid': !isValidPassword }" placeholder="Password"
-        @input="$emit('updatePassword', $event.target?.value)">
+        @input="$emit('updatePassword', ($event.target as HTMLInputElement).value)">
     <label v-show="!isValidPassword" for="password" class="auth-form__validation-label">{{ invalidPasswordMsg }}</label>
 </template>
 
