@@ -62,6 +62,14 @@
   &:active {
     transform: translate(-50%, -50%) scale(0.9);
   }
+
+  @include md {
+    width: 120px;
+    height: 29px;
+    padding: 3px 15px;
+    font-size: $xs-text;
+    line-height: $md-lh;
+  }
 }
 
 .size-button {
