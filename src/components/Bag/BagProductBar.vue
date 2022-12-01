@@ -1,7 +1,7 @@
 <template>
     <div class="bag-product-bar">
         <div class="bag-product-bar__header">
-            <h3 class="bag-product-bar__title">
+            <h3 class="bag-product-bar__title" @click="$router.push(`/product/${product.id}`)">
                 {{ product.name }}
             </h3>
             <p class="product__price">

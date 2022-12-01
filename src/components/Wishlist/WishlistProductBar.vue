@@ -1,7 +1,7 @@
 <template>
     <div class="wishlist-product-bar">
         <div class="wishlist-product-bar__header">
-            <h3 class="wishlist-product-bar__title">
+            <h3 class="wishlist-product-bar__title" @click="$router.push(`/product/${product.id}`)">
                 {{ product.name }}
             </h3>
             <p class="product__price">
