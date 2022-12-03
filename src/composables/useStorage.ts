@@ -1,10 +1,9 @@
 import type { STORAGE_KEYS } from "@/config";
-import type { TStorage } from "@/types/types";
 import { ref } from "vue";
 
-export default function useStorage(
+export default function useStorage<T>(
   key: STORAGE_KEYS,
-  initialValue: TStorage,
+  initialValue: T,
   storage = localStorage
 ) {
   let storageValue = ref<any>();
@@ -15,7 +14,7 @@ export default function useStorage(
     storageValue.value = initialValue;
   }
 
-  function setItem(item: TStorage) {
+  function setItem(item: T) {
     try {
       const value = JSON.stringify(item);
       storageValue.value = item;

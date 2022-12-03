@@ -1,12 +1,14 @@
 import { defineStore } from "pinia";
 import type { TSortingOptionsState } from "./types";
 
+const getDefaultState = (): TSortingOptionsState => ({
+  search: "",
+  isSearchActive: false,
+  selectedCategory: "",
+});
+
 export const useSortingOptionsStore = defineStore("sortingOptionsStore", {
-  state: (): TSortingOptionsState => ({
-    search: "",
-    isSearchActive: false,
-    selectedCategory: "",
-  }),
+  state: () => getDefaultState(),
   getters: {
     getSearch(state) {
       return state.search;

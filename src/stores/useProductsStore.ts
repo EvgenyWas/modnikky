@@ -2,10 +2,12 @@ import type { TProduct } from "@/types/types";
 import { defineStore } from "pinia";
 import type { TProductsState } from "./types";
 
+const getDefaultState = (): TProductsState => ({
+  products: [],
+});
+
 export const useProductsStore = defineStore("productsStore", {
-  state: (): TProductsState => ({
-    products: [],
-  }),
+  state: () => getDefaultState(),
   getters: {
     getProducts(state) {
       return state.products;
