@@ -21,7 +21,7 @@
 <script lang="ts">
 import storeApi from '@/api/storeApi';
 import { SUBSCRIPTION_COOKIE, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
-import useApi from '@/hooks/useApi';
+import { useApi } from '@/composables';
 import { getFutureDateInDays, setCookie } from '@/utils';
 import { defineComponent } from 'vue';
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue';

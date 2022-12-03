@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import PrimaryButton from '@/components/UI/Buttons/PrimaryButton.vue'
-import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import { useWindowDimensions } from '@/composables';
 
 export default defineComponent({
     name: 'top-section',

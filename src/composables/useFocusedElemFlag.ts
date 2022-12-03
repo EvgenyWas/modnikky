@@ -1,6 +1,6 @@
 import { onMounted, ref } from "vue";
 
-export function useFocusedElemFlag() {
+export default function useFocusedElemFlag() {
   const elemRef = ref<HTMLElement>();
   const isFocused = ref<boolean>(false);
   onMounted(() => {

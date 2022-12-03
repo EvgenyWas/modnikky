@@ -14,8 +14,7 @@
 
 <script lang="ts">
 import { ESortingOptions } from '@/config';
-import { useFocusedElemFlag } from '@/hooks/useFocusedElemFlag';
-import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import { useFocusedElemFlag, useWindowDimensions } from '@/composables';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import { getWindowSearchParams, pushParamsToWindowHistory } from '@/utils';
 import { computed, defineComponent, ref } from 'vue';

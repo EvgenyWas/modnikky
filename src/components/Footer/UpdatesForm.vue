@@ -21,8 +21,8 @@
 
 <script lang="ts">
 import storeApi from '@/api/storeApi';
-import useApi from '@/hooks/useApi';
-import { useFocusedElemFlag } from '@/hooks/useFocusedElemFlag';
+import useApi from '@/composables/useApi';
+import { useFocusedElemFlag } from '@/composables';
 import { getCookie, getFutureDateInDays, setCookie, validateEmail } from '@/utils';
 import { defineComponent } from 'vue';
 import RingLoader from '../UI/Loaders/RingLoader.vue';

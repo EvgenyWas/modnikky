@@ -1,7 +1,7 @@
 import { getWindowDimensions } from "@/utils";
 import { onMounted, onUnmounted, reactive } from "vue";
 
-export function useWindowDimensions() {
+export default function useWindowDimensions() {
   const windowDimensions = reactive(getWindowDimensions());
   const handleResize = () => {
     Object.assign(windowDimensions, getWindowDimensions());

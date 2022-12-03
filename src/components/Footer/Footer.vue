@@ -12,7 +12,7 @@
 import { defineComponent } from 'vue'
 import UpdatesForm from './UpdatesForm.vue'
 import FooterTable from './FooterTable.vue'
-import { useWindowDimensions } from '@/hooks/useWindowDimensions'
+import { useWindowDimensions } from '@/composables'
 import FooterMobile from './FooterMobile.vue'
 
 export default defineComponent({

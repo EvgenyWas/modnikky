@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import TopSection from '@/components/Home/TopSection.vue'
-import useApi from '@/hooks/useApi';
+import { useApi } from '@/composables';
 import storeApi from '@/api/storeApi';
 import { useProductsStore } from '@/stores/useProductsStore';
 import SaleSection from '@/components/Home/SaleSection.vue';
