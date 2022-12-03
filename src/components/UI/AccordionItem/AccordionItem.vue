@@ -1,22 +1,13 @@
 <template>
     <div class="accordion-item">
         <div class="accordion-item__header">
-            <button 
-                class="accordion-item__btn"
-                @click="$emit('changeActiveItem')"
-                :class="{
-                    'accordion-item__btn--active': isActive
-                }"
-            ></button>
-            <h4 class="accordion-item__title">
-                {{ title }}
-            </h4>
+            <button class="accordion-item__btn" @click="$emit('changeActiveItem')" :class="{
+                'accordion-item__btn--active': isActive
+            }"></button>
+            <h4 v-text="title" class="accordion-item__title"></h4>
         </div>
         <Transition>
-            <div 
-                class="accordion-item__content"
-                v-if="isActive"
-            >
+            <div class="accordion-item__content" v-if="isActive">
                 <slot></slot>
             </div>
         </Transition>
@@ -42,4 +33,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

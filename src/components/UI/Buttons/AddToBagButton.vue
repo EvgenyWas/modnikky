@@ -1,7 +1,5 @@
 <template>
-    <button class="add-to-bag-button">
-        ADD TO BAG
-    </button>
+    <button v-text="'ADD TO BAG'" class="add-to-bag-button"></button>
 </template>
 
 <script lang="ts">
@@ -10,4 +8,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

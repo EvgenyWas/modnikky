@@ -111,10 +111,11 @@ export default {
 
 @keyframes lds-spinner {
     0% {
-      opacity: 1;
+        opacity: 1;
     }
+
     100% {
-      opacity: 0;
+        opacity: 0;
     }
 }
 </style>

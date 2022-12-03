@@ -6,9 +6,7 @@
             <navbar :is-mobile-menu-open="isMobileMenuOpen" />
             <mobile-menu :is-mobile-menu-open="isMobileMenuOpen" v-on:change="changeMobileMenuState" />
             <div class="header__title-box">
-                <h1 class="header__title" @click="$router.push('/home')">
-                    MODNIKKY
-                </h1>
+                <h1 v-text="'MODNIKKY'" class="header__title" @click="$router.push('/home')"></h1>
             </div>
             <actionsbar />
             <app-search />

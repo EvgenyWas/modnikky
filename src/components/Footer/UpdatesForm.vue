@@ -1,9 +1,7 @@
 <template>
     <form v-show="!hasSubscribedCookie" class="updates-form" @submit.prevent>
         <label for="email" class="updates-form__label">
-            <h4 class="updates-form__title">
-                SIGN UP FOR UPDATES
-            </h4>
+            <h4 v-text="'SIGN UP FOR UPDATES'" class="updates-form__title"></h4>
             <p class="updates-form__subtitle">
                 Sign up for exclusive early sale access and tailored new arrivals.
             </p>
@@ -14,14 +12,10 @@
         }" v-if="!loading && !response?.message">
             <input v-model="email" type="email" name="email" class="updates-form__input"
                 placeholder="Your email address" ref="elemRef">
-            <button class="updates-form__btn" @click="sendEmailForUpdates">
-                JOIN
-            </button>
+            <button v-text="'JOIN'" class="updates-form__btn" @click="sendEmailForUpdates"></button>
         </div>
         <ring-loader v-else-if="loading" />
-        <h2 class="updates-form__message" v-show="response?.message">
-            {{ response?.message }}!
-        </h2>
+        <h2 v-text="response?.message" class="updates-form__message" v-show="response?.message"></h2>
     </form>
 </template>
 
@@ -29,7 +23,7 @@
 import storeApi from '@/api/storeApi';
 import useApi from '@/hooks/useApi';
 import { useFocusedElemFlag } from '@/hooks/useFocusedElemFlag';
-import { getCookie, getFutureDateInDays, setCookie, validateEmail } from '@/utils/utils';
+import { getCookie, getFutureDateInDays, setCookie, validateEmail } from '@/utils';
 import { defineComponent } from 'vue';
 import RingLoader from '../UI/Loaders/RingLoader.vue';
 import { SUBSCRIPTION_COOKIE, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';

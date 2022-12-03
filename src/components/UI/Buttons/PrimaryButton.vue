@@ -1,13 +1,8 @@
 <template>
-    <button 
-        class="primary-button"
-        :class="{
-            'primary-button--black': blackMode,
-            'primary-button--dark': darkMode
-        }"
-    >
-        {{ title }}
-    </button>
+    <button v-text="title" class="primary-button" :class="{
+        'primary-button--black': blackMode,
+        'primary-button--dark': darkMode
+    }"></button>
 </template>
 
 <script lang="ts">
@@ -30,4 +25,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

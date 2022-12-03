@@ -2,15 +2,9 @@
     <nav class="navbar" :class="{
         'navbar--active': isMobileMenuOpen
     }">
-        <div class="navbar__item">
-            NEW ARRIVALS
-        </div>
-        <div class="navbar__item">
-            SHOP
-        </div>
-        <div class="navbar__item">
-            COLLECTIONS
-        </div>
+        <div v-text="'NEW ARRIVALS'" class="navbar__item"></div>
+        <div v-text="'SHOP'" class="navbar__item"></div>
+        <div v-text="'COLLECTIONS'" class="navbar__item"></div>
     </nav>
 </template>
 

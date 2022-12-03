@@ -17,7 +17,7 @@ import { ESortingOptions } from '@/config';
 import { useFocusedElemFlag } from '@/hooks/useFocusedElemFlag';
 import { useWindowDimensions } from '@/hooks/useWindowDimensions';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
-import { getWindowSearchParams, pushParamsToWindowHistory } from '@/utils/utils';
+import { getWindowSearchParams, pushParamsToWindowHistory } from '@/utils';
 import { computed, defineComponent, ref } from 'vue';
 
 export default defineComponent({

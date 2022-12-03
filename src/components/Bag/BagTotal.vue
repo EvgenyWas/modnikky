@@ -13,11 +13,11 @@
             </a>
         </div>
     </div>
-    <h2 v-show="isClickedProceed" class="bag-total-greeting">Thank you for the order!</h2>
+    <h2 v-show="isClickedProceed" v-text="'Thank you for the order!'" class="bag-total-greeting"></h2>
 </template>
 
 <script lang="ts">
-import { getFormattedPrice } from '@/utils/utils';
+import { getFormattedPrice } from '@/utils';
 import { DEFAULT_CURRENCY } from '@/config';
 import { defineComponent } from 'vue';
 import PrimaryButton from '@/components/UI/Buttons/PrimaryButton.vue';

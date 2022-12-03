@@ -1,12 +1,6 @@
 <template>
     <div class="product__gallery">
-        <img 
-            v-for="image in images" 
-            :key="image" 
-            :src="image" 
-            alt="Product image"
-            class="product__image"
-        >
+        <img v-for="image in images" :key="image" :src="image" alt="Product image" class="product__image">
     </div>
 </template>
 
@@ -25,4 +19,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

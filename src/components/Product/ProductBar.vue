@@ -1,22 +1,11 @@
 <template>
     <div class="product__bar">
-        <h2 class="product__title">
-            {{ product.name }}
-        </h2>
-        <product-attributes
-            :price="product.price"
-            :color="product.color"
-            :sizes="product.availableSizes"
-            :selected-size="selectedSize"
-            @selecte="selecteSize"
-        />
-        <product-button 
-            :title="'ADD TO BAG'"
-            :is-in-wishlist="isInWishlist"
-            @add-to-bag="addProductToBag"
-            @handle-wishlist="handleWishlist"
-        />
-        <product-details :description="product.description"/>
+        <h2 v-text="product.name" class="product__title"></h2>
+        <product-attributes :price="product.price" :color="product.color" :sizes="product.availableSizes"
+            :selected-size="selectedSize" @selecte="selecteSize" />
+        <product-button :title="'ADD TO BAG'" :is-in-wishlist="isInWishlist" @add-to-bag="addProductToBag"
+            @handle-wishlist="handleWishlist" />
+        <product-details :description="product.description" />
     </div>
 </template>
 
@@ -30,7 +19,7 @@ import ProductAttributes from './ProductAttributes.vue';
 import ProductDetails from './ProductDetails.vue';
 import { useWishlistStore } from '@/stores/useWishlistStore';
 import { useBagStore } from '@/stores/useBagStore';
-import { convertToBagItem, findSameInBag } from '@/utils/utils';
+import { convertToBagItem, findSameInBag } from '@/utils';
 
 export default defineComponent({
     name: 'product-bar',
@@ -83,4 +72,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

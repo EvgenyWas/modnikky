@@ -3,9 +3,7 @@
         <div class="bag__container container">
             <h2 class="bag__title">
                 BAG
-                <span class="bag__amount">
-                    {{ bagAmount }}
-                </span>
+                <span v-text="bagAmount" class="bag__amount"></span>
             </h2>
             <TransitionGroup name="list" tag="div" class="bag__products">
                 <bag-product v-for="product in bagStore.getBag" :key="product.id" :product="product"
@@ -23,7 +21,7 @@ import { useBagStore } from '@/stores/useBagStore';
 import { defineComponent, computed, TransitionGroup } from 'vue'
 import BagProduct from '@/components/Bag/BagProduct.vue'
 import BagTotal from '@/components/Bag/BagTotal.vue';
-import { getCorrectItemsAmountString } from '@/utils/utils';
+import { getCorrectItemsAmountString } from '@/utils';
 
 export default defineComponent({
     name: "bag-page",

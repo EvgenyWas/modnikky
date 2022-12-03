@@ -2,12 +2,8 @@
     <section class="shop-section" v-lazy-container="{ selector: 'img' }">
         <div class="shop-section__container container">
             <div class="shop-section__subject">
-                <h5 class="shop-section__title">
-                    SHOP INSTAGRAM
-                </h5>
-                <a class="shop-section__link" href="#">
-                    SHOP
-                </a>
+                <h5 v-text="'SHOP INSTAGRAM'" class="shop-section__title"></h5>
+                <a v-text="'SHOP'" class="shop-section__link" href="#"></a>
             </div>
             <div class="shop-section__images">
                 <div class="shop-section__image-box">
@@ -41,9 +37,7 @@
                     </picture>
                 </div>
             </div>
-            <h5 class="shop-section__name">
-                #MODNIKKY
-            </h5>
+            <h5 v-text="'#MODNIKKY'" class="shop-section__name"></h5>
         </div>
     </section>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <form class="auth-form" @submit.prevent>
         <div class="auth-form__header">
-            <label for="close-btn" class="auth-form__name">{{ formName }}</label>
+            <label v-text="formName" for="close-btn" class="auth-form__name"></label>
             <input type="button" name="close-btn" class="auth-form__close-btn" @click="closeForm">
         </div>
         <div class="auth-form__body">
@@ -22,7 +22,7 @@
 import storeApi from '@/api/storeApi';
 import { SUBSCRIPTION_COOKIE, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
 import useApi from '@/hooks/useApi';
-import { getFutureDateInDays, setCookie } from '@/utils/utils';
+import { getFutureDateInDays, setCookie } from '@/utils';
 import { defineComponent } from 'vue';
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue';
 import SignInBody from './SignInAuthFormBody.vue';

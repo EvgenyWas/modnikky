@@ -1,13 +1,8 @@
 <template>
-    <button 
-        class="size-button"
-        :class="{
-            'size-button--active': isActive
-        }"
-    >
-        <p class="size-button__title">
-            {{ size }}
-        </p>
+    <button class="size-button" :class="{
+        'size-button--active': isActive
+    }">
+        <p v-text="size" class="size-button__title"></p>
     </button>
 </template>
 
@@ -29,4 +24,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

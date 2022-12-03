@@ -3,9 +3,7 @@
         <div class="wishlist__container container">
             <h2 class="wishlist__title">
                 WISH LIST
-                <span class="wishlist__amount">
-                    {{ wishlistAmount }}
-                </span>
+                <span v-text="wishlistAmount" class="wishlist__amount"></span>
             </h2>
             <TransitionGroup name="list" tag="div" class="wishlist_products">
                 <wishlist-product v-for="product in wishlist.getWishlist" :key="product.id" :product="product"
@@ -20,7 +18,7 @@
 import { useBagStore } from '@/stores/useBagStore';
 import { useWishlistStore } from '@/stores/useWishlistStore';
 import type { TProduct } from '@/types/types';
-import { convertToBagItem, getCorrectItemsAmountString } from '@/utils/utils';
+import { convertToBagItem, getCorrectItemsAmountString } from '@/utils';
 import { computed, defineComponent, TransitionGroup } from 'vue';
 import WishlistProduct from '../components/Wishlist/WishlistProduct.vue';
 

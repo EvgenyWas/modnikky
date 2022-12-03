@@ -1,5 +1,5 @@
 import type { TBagItem } from "@/types/types";
-import { findSameInBag } from "@/utils/utils";
+import { findSameInBag } from "@/utils";
 import { defineStore } from "pinia";
 import type { TBagState } from "./types";
 

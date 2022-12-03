@@ -4,20 +4,14 @@
             <p class="product__price">
                 {{ `${price.currency} ${getPrice(price.value, price.currency)}` }}
             </p>
-            <a class="product__pre-order">
-                PRE-ORDER
-            </a>
+            <a v-text="'PRE-ORDER'" class="product__pre-order"></a>
         </div>
         <div class="product__color">
-            <h5 class="product__color-title">
-                COLOR
-            </h5>
+            <h5 v-text="'COLOR'" class="product__color-title"></h5>
             <div class="product__color-box" :style="{ backgroundColor: color.hex }" :name="color.name" />
         </div>
         <div class="product__sizes">
-            <h5 class="product__sizes-title">
-                SIZE
-            </h5>
+            <h5 v-text="'SIZE'" class="product__sizes-title"></h5>
             <div class="product__sizes-box">
                 <size-button v-for="(size, index) in sizes" :key="size + index" :size="size"
                     :is-active="selectedSize === size" @click="$emit('selecte', size)" />
@@ -31,7 +25,7 @@ import { defineComponent } from 'vue';
 import type { PropType } from 'vue';
 import type { TColor, TPrice } from '@/types/types';
 import SizeButton from '../UI/Buttons/SizeButton.vue';
-import { getFormattedPrice } from '@/utils/utils';
+import { getFormattedPrice } from '@/utils';
 
 export default defineComponent({
     name: 'product-attributes',

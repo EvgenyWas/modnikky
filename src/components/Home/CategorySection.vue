@@ -23,7 +23,7 @@ import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import { defineComponent, computed } from 'vue'
 import ProductCard from './ProductCard.vue'
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue'
-import { capitalizeWord, filterProducts } from '@/utils/utils';
+import { capitalizeWord, filterProducts } from '@/utils';
 import { paginationCategoryProducts } from '@/config';
 import RingLoader from '../UI/Loaders/RingLoader.vue';
 import { storeToRefs } from 'pinia';

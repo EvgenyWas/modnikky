@@ -1,9 +1,8 @@
 <template>
     <div class="wishlist-product-bar">
         <div class="wishlist-product-bar__header">
-            <h3 class="wishlist-product-bar__title" @click="$router.push(`/product/${product.id}`)">
-                {{ product.name }}
-            </h3>
+            <h3 v-text="product.name" class="wishlist-product-bar__title"
+                @click="$router.push(`/product/${product.id}`)"></h3>
             <p class="product__price">
                 {{ `${product.price.currency} $${getPrice(product.price.value, product.price.currency)}` }}
             </p>
@@ -28,7 +27,7 @@ import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { TProduct } from '@/types/types';
 import SizeButton from '@/components/UI/Buttons/SizeButton.vue';
-import { getFormattedPrice } from '@/utils/utils';
+import { getFormattedPrice } from '@/utils';
 
 export default defineComponent({
     name: "wishlist-product-bar",

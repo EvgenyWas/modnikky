@@ -24,7 +24,7 @@ import type { PropType } from 'vue'
 import { useWishlistStore } from '@/stores/useWishlistStore'
 import { useBagStore } from '@/stores/useBagStore'
 import AddToBagButton from '@/components/UI/Buttons/AddToBagButton.vue'
-import { convertToBagItem, findSameInBag, findSameInWishlist, getFormattedPrice } from '@/utils/utils'
+import { convertToBagItem, findSameInBag, findSameInWishlist, getFormattedPrice } from '@/utils'
 
 export default defineComponent({
     name: 'product-card',

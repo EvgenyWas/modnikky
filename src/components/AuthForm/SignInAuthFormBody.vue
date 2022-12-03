@@ -2,15 +2,16 @@
     <input :value="email" type="email" name="email" class="auth-form__input"
         :class="{ 'auth-form__input--invalid': !isValidEmail }" placeholder="Email"
         @input="$emit('updateEmail', ($event.target as HTMLInputElement).value)">
-    <label v-show="!isValidEmail" for="email" class="auth-form__validation-label">{{ invalidEmailMsg }}</label>
+    <label v-show="!isValidEmail" v-text="invalidEmailMsg" for="email" class="auth-form__validation-label"></label>
     <input :value="password" type="password" name="password" class="auth-form__input"
         :class="{ 'auth-form__input--invalid': !isValidPassword }" placeholder="Password"
         @input="$emit('updatePassword', ($event.target as HTMLInputElement).value)">
-    <label v-show="!isValidPassword" for="password" class="auth-form__validation-label">{{ invalidPasswordMsg }}</label>
+    <label v-show="!isValidPassword" v-text="invalidPasswordMsg" for="password"
+        class="auth-form__validation-label"></label>
 </template>
 
 <script lang="ts">
-import { validateEmail, validatePassword } from '@/utils/utils';
+import { validateEmail, validatePassword } from '@/utils';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

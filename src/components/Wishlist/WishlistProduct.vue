@@ -6,9 +6,8 @@
                 <wishlist-product-bar :product="product" :selected-size="selectedSize" @selecte="selecteSize" />
             </div>
             <div class="wishlist-product__btn-box">
-                <button class="wishlist-product__btn" @click="$emit('add', selectedSize)">
-                    ADD TO BAG
-                </button>
+                <button v-text="'ADD TO BAG'" class="wishlist-product__btn"
+                    @click="$emit('add', selectedSize)"></button>
                 <button class="wishlist-product__btn" @click="$emit('remove')">
                     <img class="wishlist-product__btn-icon" src="@/assets/icons/remove-icon.svg" alt="Remove icon">
                     REMOVE

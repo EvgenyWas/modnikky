@@ -13,7 +13,7 @@ import useApi from '@/hooks/useApi';
 import storeApi from '@/api/storeApi';
 import { useProductsStore } from '@/stores/useProductsStore';
 import SaleSection from '@/components/Home/SaleSection.vue';
-import { formatAvailableSizes } from '@/utils/utils';
+import { formatAvailableSizes } from '@/utils';
 import ShopSection from '@/components/Home/ShopSection.vue';
 import CategoriesSection from '@/components/Home/CategoriesSection.vue';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';

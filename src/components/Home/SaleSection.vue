@@ -2,7 +2,8 @@
     <section class="sale-section">
         <div class="sale-section__container container">
             <h3 class="sale-section__title">
-                <span>#MODNIKKY</span><span class="sale-section__title sale-section__title--bold">_Sale</span>
+                <span v-text="'#MODNIKKY'"></span><span v-text="'_Sale'"
+                    class="sale-section__title sale-section__title--bold"></span>
             </h3>
             <spinner-loader v-if="loading" />
             <app-swiper :products="filteredProducts" v-else />
@@ -17,7 +18,7 @@ import ProductCard from './ProductCard.vue'
 import AppSwiper from '@/components/UI/Swiper/AppSwiper.vue'
 import SpinnerLoader from '../UI/Loaders/SpinnerLoader.vue'
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
-import { filterProducts } from '@/utils/utils';
+import { filterProducts } from '@/utils';
 
 export default defineComponent({
     name: 'sale-section',

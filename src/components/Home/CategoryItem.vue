@@ -1,13 +1,8 @@
 <template>
     <div class="category-item">
         <div class="category-item__container">
-            <img 
-                class="category-item__image"
-                v-bind="$attrs"
-            >
-            <h4 class="category-item__title">
-                {{ title }}
-            </h4>
+            <img class="category-item__image" v-bind="$attrs">
+            <h4 v-text="title" class="category-item__title"></h4>
         </div>
     </div>
 </template>
@@ -26,4 +21,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
