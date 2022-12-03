@@ -38,6 +38,10 @@ export type CookieOptions = {
   expires?: Date | string;
   ["max-age"]?: number;
   secure?: boolean;
-  samesite?: boolean | 'lax';
+  samesite?: boolean | "lax";
   httpOnly?: boolean;
-}
+};
+
+export type TStorage = {
+  [key: string]: unknown;
+};

@@ -1,4 +1,4 @@
-import { DEFAULT_CURRENCY, type ESortingOptions } from "@/config";
+import { DEFAULT_CURRENCY, type SORTING_OPTIONS } from "@/config";
 import router from "@/router";
 import type { TWishlist } from "@/stores/types";
 import type { CookieOptions, TBag, TBagItem, TProduct } from "@/types/types";
@@ -99,7 +99,7 @@ export function getWindowSearchParams(): { [key: string]: string } {
 
 // Function to push params to current history
 export async function pushParamsToWindowHistory(
-  option: ESortingOptions,
+  option: SORTING_OPTIONS,
   value: string
 ) {
   const { pathname, search } = window.location;

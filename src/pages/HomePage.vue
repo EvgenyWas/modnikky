@@ -18,7 +18,7 @@ import ShopSection from '@/components/Home/ShopSection.vue';
 import CategoriesSection from '@/components/Home/CategoriesSection.vue';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import CategorySection from '@/components/Home/CategorySection.vue';
-import { ESortingOptions } from '@/config';
+import { SORTING_OPTIONS } from '@/config';
 
 export default defineComponent({
     name: 'home-page',
@@ -44,7 +44,7 @@ export default defineComponent({
             this.setProducts(formattedProducts);
         },
         $route({ fullPath }) {
-            if (fullPath.includes('/home') && !fullPath.includes(ESortingOptions.CATEGORY)) {
+            if (fullPath.includes('/home') && !fullPath.includes(SORTING_OPTIONS.CATEGORY)) {
                 this.sortingOptions.setSelectedCategory('');
             }
         }

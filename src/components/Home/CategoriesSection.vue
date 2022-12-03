@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { categories, ESortingOptions } from '@/config'
+import { categories, SORTING_OPTIONS } from '@/config'
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore'
 import { capitalizeWord, getWindowSearchParams, pushParamsToWindowHistory } from '@/utils'
 import { defineComponent } from 'vue'
@@ -49,7 +49,7 @@ export default defineComponent({
     methods: {
         selecteCategory(category: string) {
             this.sortingOptions.setSelectedCategory(category);
-            pushParamsToWindowHistory(ESortingOptions.CATEGORY, category);
+            pushParamsToWindowHistory(SORTING_OPTIONS.CATEGORY, category);
         }
     }
 })

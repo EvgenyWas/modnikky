@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { ESortingOptions } from '@/config';
+import { SORTING_OPTIONS } from '@/config';
 import { useFocusedElemFlag, useWindowDimensions } from '@/composables';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import { getWindowSearchParams, pushParamsToWindowHistory } from '@/utils';
@@ -54,10 +54,10 @@ export default defineComponent({
     },
     methods: {
         handleSubmit() {
-            if (this.inputModel || getWindowSearchParams()[ESortingOptions.SEARCH]) {
+            if (this.inputModel || getWindowSearchParams()[SORTING_OPTIONS.SEARCH]) {
                 // Set input value to store and window history
                 this.sortingOptions.setSearch(this.inputModel);
-                pushParamsToWindowHistory(ESortingOptions.SEARCH, this.inputModel);
+                pushParamsToWindowHistory(SORTING_OPTIONS.SEARCH, this.inputModel);
                 // Close search
                 this.sortingOptions.setInactiveSearch();
                 // Scroll to content
