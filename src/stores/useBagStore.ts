@@ -11,8 +11,8 @@ const getDefaultState = (): TBagState => ({
 });
 
 const storage = useStorage(STORAGE_KEYS.BAG, getDefaultState());
-const storageBag = storage.storageValue.value.bag;
-const storageAmount = storage.storageValue.value.amount;
+const storageBag = storage.storageValue.value?.bag ?? [];
+const storageAmount = storage.storageValue.value?.amount ?? 0;
 
 export const useBagStore = defineStore("bagStore", {
   state: () => getDefaultState(),

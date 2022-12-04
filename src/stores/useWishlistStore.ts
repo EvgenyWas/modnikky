@@ -9,7 +9,7 @@ const getDefaultState = (): TWishlistState => ({
 });
 
 const storage = useStorage(STORAGE_KEYS.WISH_LIST, getDefaultState());
-const storageWishlist = storage.storageValue.value.wishlist;
+const storageWishlist = storage.storageValue.value?.wishlist ?? [];
 
 export const useWishlistStore = defineStore("wishlistStore", {
   state: () => getDefaultState(),
