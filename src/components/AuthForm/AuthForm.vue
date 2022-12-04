@@ -7,8 +7,8 @@
         <div class="auth-form__body">
             <sign-up-body v-if="isNewUser" v-model:first-name="firstName" v-model:last-name="lastName"
                 v-model:email="email" v-model:password="password" :invalid-password-msg="invalidPasswordMsg"
-                @check-subscription="checkSubscription" @sign-up="submitForm" />
-            <sign-in-body v-else v-model:email="email" v-model:password="password" @sign-in="submitForm" />
+                @check-subscription="checkSubscription" />
+            <sign-in-body v-else v-model:email="email" v-model:password="password" />
         </div>
         <div class="auth-form__footer">
             <primary-button :title="submitTitle" dark-mode @click="submitForm" />
@@ -21,9 +21,9 @@
 <script lang="ts">
 import storeApi from '@/api/storeApi';
 import { COOKIES, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
-import { useApi } from '@/composables';
+import { useApi, useAuth } from '@/composables';
 import { getFutureDateInDays, setCookie } from '@/utils';
-import { defineComponent } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue';
 import SignInBody from './SignInAuthFormBody.vue';
 import SignUpBody from './SignUpAuthFormBody.vue';
@@ -44,9 +44,11 @@ export default defineComponent({
     },
     setup() {
         const [postEmail] = useApi(storeApi.postSubscription);
+        const auth = useAuth();
 
         return {
-            postEmail
+            postEmail,
+            auth
         }
     },
     computed: {
@@ -64,18 +66,34 @@ export default defineComponent({
         closeForm() {
             this.$router.go(-1);
         },
-        async submitForm() {
+        submitForm() {
             if (this.isValidData) {
-                if (this.isCheckedSubscription) {
-                    this.postEmail({ email: this.email });
-                    setCookie(
-                        COOKIES.SUBSCRIPTION,
-                        'true',
-                        { expires: getFutureDateInDays(SUBSCRIPTION_EXPIRATION_DAYS) }
-                    );
-                }
+                if (this.isNewUser) {
+                    this.auth.signUp({
+                        firstName: this.firstName,
+                        lastName: this.lastName,
+                        email: this.email,
+                        password: this.password,
+                    });
 
-                this.$router.go(-1);
+                    if (this.isCheckedSubscription) {
+                        this.postEmail({ email: this.email });
+                        setCookie(
+                            COOKIES.SUBSCRIPTION,
+                            'true',
+                            { expires: getFutureDateInDays(SUBSCRIPTION_EXPIRATION_DAYS) }
+                        );
+                    }
+
+                    this.$router.go(-1);
+                } else {
+                    this.auth.signIn(this.email, this.password);
+                    nextTick(() => {
+                        if (this.auth.isCorrectCredentials) {
+                            this.$router.go(-1);
+                        }
+                    })
+                }
             }
         },
         checkSubscription() {

@@ -16,7 +16,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'sign-in-body',
-    emits: ['updateEmail', 'updatePassword', 'sign-in'],
+    emits: ['updateEmail', 'updatePassword'],
     props: {
         email: {
             type: String,

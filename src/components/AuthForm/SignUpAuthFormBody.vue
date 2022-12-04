@@ -30,7 +30,7 @@ import SignInBody from './SignInAuthFormBody.vue';
 export default defineComponent({
     name: 'sign-up-body',
     components: { SignInBody },
-    emits: ['update:firstName', 'update:lastName', 'update:email', 'update:password', 'checkSubscription', 'sign-up'],
+    emits: ['update:firstName', 'update:lastName', 'update:email', 'update:password', 'checkSubscription'],
     props: {
         firstName: {
             type: String,
