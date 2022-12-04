@@ -1,7 +1,7 @@
-import { DEFAULT_CURRENCY, type SORTING_OPTIONS } from "@/config";
+import { COOKIES, DEFAULT_CURRENCY, type SORTING_OPTIONS } from "@/config";
 import router from "@/router";
 import type { TWishlist } from "@/stores/types";
-import type { CookieOptions, TBag, TBagItem, TProduct } from "@/types/types";
+import type { TCookieOptions, TBag, TBagItem, TProduct } from "@/types/types";
 
 // Function to validate an email
 export function validateEmail(email: string): RegExpMatchArray | null {
@@ -175,8 +175,8 @@ export function getFormattedPrice(
   return formattedPrice;
 }
 
-export function getCookie(name: string): string | undefined {
-  let cookie: string = "";
+export function getCookie(name: COOKIES): string | undefined {
+  let cookie = "";
   try {
     cookie = document.cookie;
   } catch (error) {
@@ -194,11 +194,11 @@ export function getCookie(name: string): string | undefined {
 }
 
 export function setCookie(
-  name: string,
+  name: COOKIES,
   value: string | number,
-  options: CookieOptions = {}
+  options: TCookieOptions = {}
 ): void {
-  const cookieOptions: CookieOptions = {
+  const cookieOptions: TCookieOptions = {
     path: "/",
     ...options,
   };
@@ -211,7 +211,7 @@ export function setCookie(
     encodeURIComponent(name) + "=" + encodeURIComponent(value);
 
   for (let optionKey in cookieOptions) {
-    let optionValue = cookieOptions[optionKey as keyof CookieOptions];
+    let optionValue = cookieOptions[optionKey as keyof TCookieOptions];
     if (!optionValue) continue;
 
     updatedCookie +=
@@ -225,6 +225,12 @@ export function setCookie(
   } catch (error) {
     console.log(error);
   }
+}
+
+export function deleteCookie(name: COOKIES) {
+  setCookie(name, "", {
+    "max-age": -1,
+  });
 }
 
 // Function to get future date in certain days

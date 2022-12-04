@@ -32,7 +32,7 @@ export type TBagItem = {
 
 export type TBag = TBagItem[];
 
-export type CookieOptions = {
+export type TCookieOptions = {
   path?: string;
   domain?: string;
   expires?: Date | string;
@@ -44,4 +44,11 @@ export type CookieOptions = {
 
 export type TStorage = {
   [key: string]: unknown;
+};
+
+export type TUserCredentials = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
 };

@@ -1,4 +1,5 @@
-export const categories = [
+// Default values
+export const CATEGORIES = [
   "dresses",
   "tees",
   "swimwear",
@@ -6,21 +7,24 @@ export const categories = [
   "tops",
   "beauty",
 ];
+export const PAGINATION_CATEGORY_PRODUCTS = 4;
+export const DEFAULT_CURRENCY = "USD";
 
-export const paginationCategoryProducts = 4;
+// Expirations
+export const SUBSCRIPTION_EXPIRATION_DAYS = 30;
+export const AUTHORIZED_EXPIRATION_DAYS = 30;
 
+// Enums
 export enum SORTING_OPTIONS {
   SEARCH = "search",
   CATEGORY = "category",
 }
-
-export const SUBSCRIPTION_EXPIRATION_DAYS = 30;
-export const SUBSCRIPTION_COOKIE = "subscribed";
-
-export const DEFAULT_CURRENCY = "USD";
-
 export enum STORAGE_KEYS {
   BAG = "bag",
   WISH_LIST = "wishlist",
   AUTH = "auth",
+}
+export enum COOKIES {
+  SUBSCRIPTION = "subscribed",
+  AUTHORIZED = "authorized",
 }

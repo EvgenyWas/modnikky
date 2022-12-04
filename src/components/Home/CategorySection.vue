@@ -24,7 +24,7 @@ import { defineComponent, computed } from 'vue'
 import ProductCard from './ProductCard.vue'
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue'
 import { capitalizeWord, filterProducts } from '@/utils';
-import { paginationCategoryProducts } from '@/config';
+import { PAGINATION_CATEGORY_PRODUCTS } from '@/config';
 import RingLoader from '../UI/Loaders/RingLoader.vue';
 import { storeToRefs } from 'pinia';
 
@@ -33,7 +33,7 @@ export default defineComponent({
     components: { ProductCard, PrimaryButton, RingLoader },
     data() {
         return {
-            productsAmount: paginationCategoryProducts,
+            productsAmount: PAGINATION_CATEGORY_PRODUCTS,
             loading: false
         }
     },
@@ -62,7 +62,7 @@ export default defineComponent({
             this.loading = true;
             setTimeout(() => {
                 this.loading = false;
-                this.productsAmount += paginationCategoryProducts;
+                this.productsAmount += PAGINATION_CATEGORY_PRODUCTS;
             }, 500)
         }
     }

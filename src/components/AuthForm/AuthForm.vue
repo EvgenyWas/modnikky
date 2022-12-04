@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import storeApi from '@/api/storeApi';
-import { SUBSCRIPTION_COOKIE, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
+import { COOKIES, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
 import { useApi } from '@/composables';
 import { getFutureDateInDays, setCookie } from '@/utils';
 import { defineComponent } from 'vue';
@@ -69,7 +69,7 @@ export default defineComponent({
                 if (this.isCheckedSubscription) {
                     this.postEmail({ email: this.email });
                     setCookie(
-                        SUBSCRIPTION_COOKIE,
+                        COOKIES.SUBSCRIPTION,
                         'true',
                         { expires: getFutureDateInDays(SUBSCRIPTION_EXPIRATION_DAYS) }
                     );

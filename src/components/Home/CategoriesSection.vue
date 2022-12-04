@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { categories, SORTING_OPTIONS } from '@/config'
+import { CATEGORIES, SORTING_OPTIONS } from '@/config'
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore'
 import { capitalizeWord, getWindowSearchParams, pushParamsToWindowHistory } from '@/utils'
 import { defineComponent } from 'vue'
@@ -26,7 +26,7 @@ export default defineComponent({
     components: { CategoryItem },
     data() {
         return {
-            categories: categories
+            categories: CATEGORIES
         }
     },
     setup() {

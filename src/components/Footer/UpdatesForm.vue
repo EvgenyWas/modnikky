@@ -26,7 +26,7 @@ import { useFocusedElemFlag } from '@/composables';
 import { getCookie, getFutureDateInDays, setCookie, validateEmail } from '@/utils';
 import { defineComponent } from 'vue';
 import RingLoader from '../UI/Loaders/RingLoader.vue';
-import { SUBSCRIPTION_COOKIE, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
+import { COOKIES, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
 
 export default defineComponent({
     components: { RingLoader },
@@ -42,7 +42,7 @@ export default defineComponent({
             if (this.isCorrectEmail && this.email !== '') {
                 this.postEmail({ email: this.email });
                 setCookie(
-                    SUBSCRIPTION_COOKIE,
+                    COOKIES.SUBSCRIPTION,
                     'true',
                     { expires: getFutureDateInDays(SUBSCRIPTION_EXPIRATION_DAYS) }
                 );
@@ -60,7 +60,7 @@ export default defineComponent({
     },
     computed: {
         hasSubscribedCookie() {
-            return getCookie(SUBSCRIPTION_COOKIE);
+            return getCookie(COOKIES.SUBSCRIPTION);
         },
     },
     setup() {
