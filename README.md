@@ -6,7 +6,7 @@ My first SPA on Vue.js as an introduction to this JavaScript framework. Modnikky
 
 > Home page and product page in desktop view, and bag page in mobile view
 
-<img src="public/previews/home-page-desktop.jpg" height="450" alt="Home page preview in desktop view"> <img src="public/previews/product-page-desktop.jpg" height="450" alt="Product page preview in desktop view"> <img src="public/previews/bag-page-mobile.jpg" height="450" alt="Bag page preview in mobile view">
+<img src="public/previews/home-page-desktop.jpg" height="350" alt="Home page preview in desktop view"> <img src="public/previews/product-page-desktop.jpg" height="350" alt="Product page preview in desktop view"> <img src="public/previews/bag-page-mobile.jpg" height="350" alt="Bag page preview in mobile view">
 
 _[ORIGINAL DESIGN](<https://www.figma.com/file/EU9rX288YZxT6RcpMmMOcO/Diplom-projects_Front-end-(1)?node-id=1%3A1386>)_
 
