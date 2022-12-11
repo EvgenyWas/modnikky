@@ -21,23 +21,31 @@ import { useBagStore } from '@/stores/useBagStore';
 import { defineComponent, computed, TransitionGroup } from 'vue'
 import BagProduct from '@/components/Bag/BagProduct.vue'
 import BagTotal from '@/components/Bag/BagTotal.vue';
-import { getCorrectItemsAmountString } from '@/utils';
+import { getCorrectItemsAmountString, getbagProductIdsToArray } from '@/utils';
+import { useApi } from '@/composables';
+import storeApi from '@/api/storeApi';
 
 export default defineComponent({
     name: "bag-page",
     components: { BagProduct, TransitionGroup, BagTotal },
     setup() {
+        const [postBag] = useApi(storeApi.postCart);
         const bagStore = useBagStore();
         const bagAmount = computed(() => getCorrectItemsAmountString(bagStore.getBagAmount));
 
         return {
+            postBag,
             bagStore,
             bagAmount
         };
     },
     methods: {
         handleProceed() {
-            this.bagStore.$reset();
+            const bag = this.bagStore.getBag;
+            if (bag.length) {
+                this.postBag(getbagProductIdsToArray(bag));
+                this.bagStore.$reset();
+            }
         }
     }
 })

@@ -237,3 +237,7 @@ export function getFutureDateInDays(days: number) {
   const futureDate = new Date(Date.now() + millisecondsInDay * days);
   return futureDate;
 }
+
+export function getbagProductIdsToArray(products: TBag): string[] {
+  return products.map((product) => product.id);
+}
