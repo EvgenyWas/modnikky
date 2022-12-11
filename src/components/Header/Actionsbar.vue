@@ -22,32 +22,39 @@
 </template>
 
 <script lang="ts">
+import { useAuth } from '@/composables';
 import { useBagStore } from '@/stores/useBagStore';
 import { useSortingOptionsStore } from '@/stores/useSortingOptionsStore';
 import { storeToRefs } from 'pinia';
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'actionsbar',
+    data() {
+        return { isAuth: true }
+    },
     setup() {
         const { getBagAmount } = storeToRefs(useBagStore());
         const sortingOptions = useSortingOptionsStore();
+        const auth = useAuth();
 
         return {
             getBagAmount,
-            sortingOptions
+            sortingOptions,
+            auth
         }
     },
     computed: {
         isAuthorized() {
-            return false;
+            return this.$route.meta.isAuth && this.isAuth;
         }
     },
     methods: {
         signOut() {
-
+            this.auth.signOut();
+            this.isAuth = false;
         }
-    }
+    },
 })
 </script>
 

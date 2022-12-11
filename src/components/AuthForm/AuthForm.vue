@@ -22,7 +22,7 @@
 import storeApi from '@/api/storeApi';
 import { COOKIES, SUBSCRIPTION_EXPIRATION_DAYS } from '@/config';
 import { useApi, useAuth } from '@/composables';
-import { getFutureDateInDays, setCookie } from '@/utils';
+import { getFutureDateInDays, setCookie, validateEmail, validatePassword } from '@/utils';
 import { defineComponent, nextTick } from 'vue';
 import PrimaryButton from '../UI/Buttons/PrimaryButton.vue';
 import SignInBody from './SignInAuthFormBody.vue';
@@ -38,7 +38,6 @@ export default defineComponent({
             email: '',
             password: '',
             isNewUser: true,
-            isValidData: false,
             isCheckedSubscription: false,
         }
     },
@@ -61,6 +60,14 @@ export default defineComponent({
         submitTitle() {
             return this.isNewUser ? 'SIGN UP' : 'SIGN IN';
         },
+        isValidData() {
+            const isCorrectFirstName = this.firstName.length > 1;
+            const isCorrectLastName = this.lastName.length > 1;
+            const isValidEmail = Boolean(validateEmail(this.email));
+            const isValidPassword = Boolean(validatePassword(this.password));
+
+            return !this.isNewUser || (isCorrectFirstName && isCorrectLastName) && isValidEmail && isValidPassword;
+        }
     },
     methods: {
         closeForm() {

@@ -14,11 +14,9 @@ export function validateEmail(email: string): RegExpMatchArray | null {
 
 // Function to validate a password
 export function validatePassword(password: string): RegExpMatchArray | null {
-  return String(password)
-    .toLowerCase()
-    .match(
-      /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[-\#\$\.\%\&\*])(?=.*[a-zA-Z]).{8,16}$/
-    );
+  return String(password).match(
+    /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[-\#\$\.\%\&\*])(?=.*[a-zA-Z]).{8,16}$/
+  );
 }
 
 // Function to find the same product in the wishlist

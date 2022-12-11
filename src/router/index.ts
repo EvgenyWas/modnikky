@@ -1,5 +1,16 @@
+import { COOKIES } from "@/config";
 import HomePage from "@/pages/HomePage.vue";
-import { createRouter, createWebHistory } from "vue-router";
+import { getCookie } from "@/utils";
+import {
+  createRouter,
+  createWebHistory,
+  type RouteLocationNormalized,
+} from "vue-router";
+
+function checkAuthentication(to: RouteLocationNormalized) {
+  const isAuth = Boolean(getCookie(COOKIES.AUTHORIZED));
+  to.meta.isAuth = isAuth;
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +24,7 @@ const router = createRouter({
       path: "/home",
       name: "home",
       component: HomePage,
+      beforeEnter: [checkAuthentication],
     },
     {
       path: "/",
@@ -27,6 +39,7 @@ const router = createRouter({
       path: "/bag",
       name: "bag",
       component: () => import("@/pages/BagPage.vue"),
+      beforeEnter: [checkAuthentication],
     },
     {
       path: "/wishlist",
