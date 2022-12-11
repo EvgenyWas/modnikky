@@ -1,151 +1,151 @@
 .product {
-    &__container {
-        display: flex;
-        gap: 60px;
-        width: 100%;
-        margin-bottom: 90px;
+  &__container {
+    display: flex;
+    gap: 60px;
+    width: 100%;
+    margin-bottom: 90px;
 
-        @include lg {
-            gap: 30px;
-            margin-bottom: 70px;
-        }
-
-        @include md {
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-
-        @include sm {
-            align-items: flex-start;
-            gap: 40px;
-            margin-bottom: 40px;
-            padding-top: 25px;
-        }
+    @include lg {
+      gap: 30px;
+      margin-bottom: 70px;
     }
 
-    &__gallery {
-        display: flex;
-        flex-basis: 75%;
-        width: 75%;
-
-        @include lg {
-            flex-basis: 100%;
-            width: 100%;
-        }
+    @include md {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
     }
 
-    &__image {
-        width: 50%;
-        height: fit-content;
+    @include sm {
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 40px;
+      padding-top: 25px;
+    }
+  }
+
+  &__gallery {
+    display: flex;
+    flex-basis: 75%;
+    width: 75%;
+
+    @include lg {
+      flex-basis: 100%;
+      width: 100%;
+    }
+  }
+
+  &__image {
+    width: 50%;
+    height: fit-content;
+  }
+
+  &__bar {
+    @include flex-column(40px);
+    max-width: 240px;
+    padding-top: 40px;
+    padding-right: 10px;
+
+    @include lg {
+      @include flex-column(30px);
+      padding-top: 10px;
     }
 
-    &__bar {
-        @include flex-column(40px);
-        max-width: 240px;
-        padding-top: 40px;
-        padding-right: 10px;
+    @include sm {
+      padding: 0 0 0 40px;
+    }
+  }
 
-        @include lg {
-            @include flex-column(30px);
-            padding-top: 10px;
-        }
+  &__title {
+    margin-bottom: -20px;
+    font-size: $sm-text;
+    line-height: $md-lh;
+    font-weight: weight("regular");
+    letter-spacing: 0.04em;
+  }
 
-        @include sm {
-            padding: 0 0 0 40px;
-        }
+  &__attributes {
+    @include flex-column(30px);
+
+    @include lg {
+      @include flex-column(20px);
+    }
+  }
+
+  &__conditions {
+    @include flex-column(10px);
+  }
+
+  &__price {
+    font-size: $xs-text;
+    line-height: 12px;
+    font-weight: weight("regular");
+  }
+
+  &__pre-order {
+    font-size: $xs-text;
+    line-height: 12px;
+    font-weight: weight("light");
+    color: $accept-grey;
+  }
+
+  &__color {
+    @include flex-column(10px);
+
+    &-title {
+      font-size: $xs-text;
+      line-height: 12px;
+      font-weight: weight("regular");
+      color: $grey;
     }
 
-    &__title {
-        margin-bottom: -20px;
-        font-size: $sm-text;
-        line-height: $md-lh;
-        font-weight: weight('regular');
-        letter-spacing: 0.04em;
+    &-box {
+      width: 34px;
+      height: 34px;
+      border: 1px solid $primary-color;
+      outline: 1px solid $text-color;
+
+      @include lg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__sizes {
+    @include flex-column(20px);
+
+    &-title {
+      font-size: $xs-text;
+      line-height: 12px;
+      font-weight: weight("regular");
+      color: $grey;
     }
 
-    &__attributes {
-        @include flex-column(30px);
+    &-box {
+      display: flex;
+      gap: 10px;
+    }
+  }
 
-        @include lg {
-            @include flex-column(20px);
-        }
+  &__text {
+    padding-left: 28px;
+    font-size: $xs-text;
+    line-height: $xs-lh;
+    font-weight: weight("light");
+    color: $grey;
+  }
+
+  &__details {
+    & .accordion-item:last-of-type {
+      padding-bottom: 0;
     }
 
-    &__conditions {
-        @include flex-column(10px);
+    @include lg {
+      & .accordion-item {
+        @include flex-column(11px);
+        padding-bottom: 10px;
+      }
     }
-
-    &__price {
-        font-size: $xs-text;
-        line-height: 12px;
-        font-weight: weight('regular');
-    }
-
-    &__pre-order {
-        font-size: $xs-text;
-        line-height: 12px;
-        font-weight: weight('light');
-        color: $accept-grey;
-    }
-
-    &__color {
-        @include flex-column(10px);
-
-        &-title {
-            font-size: $xs-text;
-            line-height: 12px;
-            font-weight: weight('regular');
-            color: $grey;
-        }
-
-        &-box {
-            width: 34px;
-            height: 34px;
-            border: 1px solid $primary-color;
-            outline: 1px solid $text-color;
-
-            @include lg {
-                width: 24px;
-                height: 24px;
-            }
-        }
-    }
-
-    &__sizes {
-        @include flex-column(20px);
-
-        &-title {
-            font-size: $xs-text;
-            line-height: 12px;
-            font-weight: weight('regular');
-            color: $grey;
-        }
-
-        &-box {
-            display: flex;
-            gap: 10px;
-        }
-    }
-
-    &__text {
-        padding-left: 28px;
-        font-size: $xs-text;
-        line-height: $xs-lh;
-        font-weight: weight('light');
-        color: $grey;
-    }
-
-    &__details {
-        & .accordion-item:last-of-type {
-            padding-bottom: 0;
-        }
-
-        @include lg {
-            & .accordion-item {
-                @include flex-column(11px);
-                padding-bottom: 10px;
-            }
-        }
-    }
+  }
 }

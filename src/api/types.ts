@@ -1,22 +1,22 @@
 import type { AxiosResponse } from "axios";
 
 export type TCartPost = {
-    products: string[]
-}
+  products: string[];
+};
 
 export type TSubscriptionPost = {
-    email: string
-}
+  email: string;
+};
 
 export type TDataPost = TCartPost | TSubscriptionPost;
 
 export type TParams = {
-    [key: string]: string | number
-}
+  [key: string]: string | number;
+};
 
 export type TResponse = {
-    data: any
-}
+  data: any;
+};
 
 export type TResponsePostRequests = Promise<AxiosResponse<{ message: string }>>;
 

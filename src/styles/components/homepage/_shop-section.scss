@@ -1,132 +1,132 @@
 .shop-section {
-    &__container {
-        @include flex-column(30px);
-        margin-bottom: 90px;
-        padding-top: 81px;
-        font-family: $secondary-font;
+  &__container {
+    @include flex-column(30px);
+    margin-bottom: 90px;
+    padding-top: 81px;
+    font-family: $secondary-font;
 
-        @include md {
-            margin-bottom: 60px;
-        }
-
-        @include sm {
-            @include flex-column(20px);
-            margin-bottom: 40px;
-            padding: 0 4px;
-        }
+    @include md {
+      margin-bottom: 60px;
     }
 
-    &__subject {
-        display: flex;
+    @include sm {
+      @include flex-column(20px);
+      margin-bottom: 40px;
+      padding: 0 4px;
+    }
+  }
+
+  &__subject {
+    display: flex;
+  }
+
+  &__title {
+    margin-right: 60px;
+    font-size: $sm-text;
+    font-weight: weight("regular");
+    line-height: $md-lh;
+    letter-spacing: 0.04em;
+
+    @include sm {
+      margin-right: 30px;
+      font-size: $xs-text;
+      line-height: $xs-lh;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: $sm-text;
+    font-weight: weight("regular");
+    line-height: $md-lh;
+    letter-spacing: 0.04em;
+
+    @include sm {
+      font-size: $xs-text;
+      line-height: $xs-lh;
     }
 
-    &__title {
-        margin-right: 60px;
-        font-size: $sm-text;
-        font-weight: weight('regular');
-        line-height: $md-lh;
-        letter-spacing: 0.04em;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -32px;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background-image: url("@/assets/icons/next-icon.svg");
+      background-size: 12px 12px;
 
-        @include sm {
-            margin-right: 30px;
-            font-size: $xs-text;
-            line-height: $xs-lh;
-        }
+      @include sm {
+        right: -20px;
+        width: 8px;
+        height: 8px;
+        background-size: 8px 8px;
+      }
+    }
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    @include sm {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 1fr);
+    }
+  }
+
+  &__image-box {
+    position: relative;
+    max-width: 305px;
+    width: 100%;
+    height: 305px;
+    overflow: hidden;
+
+    @include xl {
+      max-width: 100%;
+      height: 24.6vw;
     }
 
-    &__link {
-        position: relative;
-        font-size: $sm-text;
-        font-weight: weight('regular');
-        line-height: $md-lh;
-        letter-spacing: 0.04em;
-
-        @include sm {
-            font-size: $xs-text;
-            line-height: $xs-lh;
-        }
-
-        &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: -32px;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background-image: url('@/assets/icons/next-icon.svg');
-            background-size: 12px 12px;
-
-            @include sm {
-                right: -20px;
-                width: 8px;
-                height: 8px;
-                background-size: 8px 8px;
-            }
-        }
+    @include sm {
+      height: calc(100vw - 8px);
     }
 
-    &__images {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+    &:first-child {
+      grid-row: span 2;
+      max-width: 610px;
+      width: 100%;
+      height: 100%;
 
-        @include sm {
-            grid-template-columns: 1fr;
-            grid-template-rows: repeat(5, 1fr);
-        }
+      @include sm {
+        grid-row: 1;
+        height: calc(100vw - 8px);
+      }
     }
+  }
 
-    &__image-box {
-        position: relative;
-        max-width: 305px;
-        width: 100%;
-        height: 305px;
-        overflow: hidden;
+  &__image {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 600ms ease-out;
 
-        @include xl {
-            max-width: 100%;
-            height: 24.6vw;
-        }
-
-        @include sm {
-            height: calc(100vw - 8px);
-        }
-
-        &:first-child {
-            grid-row: span 2;
-            max-width: 610px;
-            width: 100%;
-            height: 100%;
-
-            @include sm {
-                grid-row: 1;
-                height: calc(100vw - 8px);
-            }
-        }
+    &:hover {
+      transform: scale(1.2);
     }
+  }
 
-    &__image {
-        position: absolute;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        transition: all 600ms ease-out;
+  &__name {
+    font-size: $sm-text;
+    font-weight: weight("regular");
+    line-height: $md-lh;
+    letter-spacing: 0.04em;
 
-        &:hover {
-            transform: scale(1.2);
-        }
+    @include sm {
+      font-size: $xs-text;
+      line-height: $xs-lh;
     }
-
-    &__name {
-        font-size: $sm-text;
-        font-weight: weight('regular');
-        line-height: $md-lh;
-        letter-spacing: 0.04em;
-
-        @include sm {
-            font-size: $xs-text;
-            line-height: $xs-lh;
-        }
-    }
+  }
 }

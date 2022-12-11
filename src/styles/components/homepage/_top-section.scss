@@ -1,77 +1,77 @@
 .top-section {
-    width: 100%;
-    height: 100vh;
-    margin-bottom: 90px;
-    background: url('@/assets/backgrounds/homepage-background.jpg') no-repeat top;
-    background-size: cover;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 90px;
+  background: url("@/assets/backgrounds/homepage-background.jpg") no-repeat top;
+  background-size: cover;
+
+  @include sm {
+    height: auto;
+    margin-bottom: 0;
+    background-position: top;
+    background-size: auto 110vw;
+
+    &__box {
+      width: 100%;
+      height: 110vw;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 1150px;
+    height: 100%;
+    padding-bottom: 100px;
 
     @include sm {
-        height: auto;
-        margin-bottom: 0;
-        background-position: top;
-        background-size: auto 110vw;
+      // height: calc(280px + 110vw);
+      padding-bottom: 40px;
+      align-items: center;
+    }
+  }
 
-        &__box {
-            width: 100%;
-            height: 110vw;
-            margin-bottom: 40px;
-        }
+  &__title {
+    margin-bottom: 20px;
+    font-family: $secondary-font;
+    font-size: 38px;
+    line-height: 38px;
+    font-weight: weight("bold");
+    color: $primary-color;
+
+    @include lg {
+      font-size: $xl-text;
+      line-height: $xl-lh;
     }
 
-    &__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        max-width: 1150px;
-        height: 100%;
-        padding-bottom: 100px;
+    @include sm {
+      width: min-content;
+      color: $text-color;
+      text-align: center;
+    }
+  }
 
-        @include sm {
-            // height: calc(280px + 110vw);
-            padding-bottom: 40px;
-            align-items: center;
-        }
+  &__subtitle {
+    max-width: 550px;
+    margin-bottom: 30px;
+    font-family: $secondary-font;
+    font-size: $sm-text;
+    line-height: $md-lh;
+    font-weight: weight("regular");
+    color: $primary-color;
+
+    @include md {
+      font-size: $xs-text;
+      line-height: $sm-lh;
     }
 
-    &__title {
-        margin-bottom: 20px;
-        font-family: $secondary-font;
-        font-size: 38px;
-        line-height: 38px;
-        font-weight: weight('bold');
-        color: $primary-color;
-
-        @include lg {
-            font-size: $xl-text;
-            line-height: $xl-lh;
-        }
-
-        @include sm {
-            width: min-content;
-            color: $text-color;
-            text-align: center;
-        }
+    @include sm {
+      max-width: 320px;
+      margin-bottom: 21px;
+      color: $text-color;
+      text-align: center;
     }
-
-    &__subtitle {
-        max-width: 550px;
-        margin-bottom: 30px;
-        font-family: $secondary-font;
-        font-size: $sm-text;
-        line-height: $md-lh;
-        font-weight: weight('regular');
-        color: $primary-color;
-
-        @include md {
-            font-size: $xs-text;
-            line-height: $sm-lh;
-        }
-
-        @include sm {
-            max-width: 320px;
-            margin-bottom: 21px;
-            color: $text-color;
-            text-align: center;
-        }
-    }
+  }
 }

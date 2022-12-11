@@ -7,16 +7,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import AppHeader from '@/components/Header/Header.vue'
-import AppFooter from './components/Footer/Footer.vue';
+import { defineComponent } from "vue";
+import AppHeader from "@/components/Header/Header.vue";
+import AppFooter from "./components/Footer/Footer.vue";
 
 export default defineComponent({
-  name: 'app',
+  name: "app",
   components: { AppHeader, AppFooter },
-})
+});
 </script>
 
 <style lang="scss">
-@import './styles/index';
+@import "./styles/index";
 </style>

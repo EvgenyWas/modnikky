@@ -1,23 +1,20 @@
 <template>
-    <button class="my-swiper__prev-btn" @click="swiper.slidePrev()">
-    </button>
+  <button class="my-swiper__prev-btn" @click="swiper.slidePrev()"></button>
 </template>
 
 <script lang="ts">
-import { useSwiper } from 'swiper/vue';
-import { defineComponent } from 'vue'
+import { useSwiper } from "swiper/vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
-    setup() {
-        const swiper = useSwiper();
+  setup() {
+    const swiper = useSwiper();
 
-        return {
-            swiper
-        }
-    }
-})
+    return {
+      swiper,
+    };
+  },
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

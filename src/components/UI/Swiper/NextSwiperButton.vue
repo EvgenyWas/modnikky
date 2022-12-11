@@ -1,23 +1,20 @@
 <template>
-    <button class="my-swiper__next-btn" @click="swiper.slideNext()">
-    </button>
+  <button class="my-swiper__next-btn" @click="swiper.slideNext()"></button>
 </template>
 
 <script lang="ts">
-import { useSwiper } from 'swiper/vue';
-import { defineComponent } from 'vue'
+import { useSwiper } from "swiper/vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
-    setup() {
-        const swiper = useSwiper();
+  setup() {
+    const swiper = useSwiper();
 
-        return {
-            swiper
-        }
-    }
-})
+    return {
+      swiper,
+    };
+  },
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
